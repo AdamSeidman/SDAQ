@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 4
 Title ""
 Date ""
 Rev ""
@@ -80,48 +80,48 @@ Text Label 3150 1550 2    50   ~ 0
 $Comp
 L power:GNDREF #PWR?
 U 1 1 614F8C33
-P 3000 2900
-F 0 "#PWR?" H 3000 2650 50  0001 C CNN
-F 1 "GNDREF" H 3005 2727 50  0000 C CNN
-F 2 "" H 3000 2900 50  0001 C CNN
-F 3 "" H 3000 2900 50  0001 C CNN
-	1    3000 2900
+P 3650 800
+F 0 "#PWR?" H 3650 550 50  0001 C CNN
+F 1 "GNDREF" H 3655 627 50  0000 C CNN
+F 2 "" H 3650 800 50  0001 C CNN
+F 3 "" H 3650 800 50  0001 C CNN
+	1    3650 800 
 	1    0    0    -1  
 $EndComp
-Text Label 3000 2750 2    50   ~ 0
+Text Label 3650 650  2    50   ~ 0
 GND
 Wire Wire Line
-	3000 2750 3000 2900
+	3650 650  3650 800 
 $Comp
 L power:+3.3V #PWR?
 U 1 1 614FB62C
-P 2500 2700
-F 0 "#PWR?" H 2500 2550 50  0001 C CNN
-F 1 "+3.3V" H 2515 2873 50  0000 C CNN
-F 2 "" H 2500 2700 50  0001 C CNN
-F 3 "" H 2500 2700 50  0001 C CNN
-	1    2500 2700
+P 4550 750
+F 0 "#PWR?" H 4550 600 50  0001 C CNN
+F 1 "+3.3V" H 4565 923 50  0000 C CNN
+F 2 "" H 4550 750 50  0001 C CNN
+F 3 "" H 4550 750 50  0001 C CNN
+	1    4550 750 
 	1    0    0    -1  
 $EndComp
-Text Label 2500 2900 2    50   ~ 0
+Text Label 4550 950  2    50   ~ 0
 3.3V
 Wire Wire Line
-	2500 2900 2500 2700
+	4550 950  4550 750 
 $Comp
 L power:+5V #PWR?
 U 1 1 614FCDE4
-P 2050 2700
-F 0 "#PWR?" H 2050 2550 50  0001 C CNN
-F 1 "+5V" H 2065 2873 50  0000 C CNN
-F 2 "" H 2050 2700 50  0001 C CNN
-F 3 "" H 2050 2700 50  0001 C CNN
-	1    2050 2700
+P 4100 750
+F 0 "#PWR?" H 4100 600 50  0001 C CNN
+F 1 "+5V" H 4115 923 50  0000 C CNN
+F 2 "" H 4100 750 50  0001 C CNN
+F 3 "" H 4100 750 50  0001 C CNN
+	1    4100 750 
 	1    0    0    -1  
 $EndComp
-Text Label 2050 2900 2    50   ~ 0
+Text Label 4100 950  2    50   ~ 0
 5V
 Wire Wire Line
-	2050 2900 2050 2700
+	4100 950  4100 750 
 $Sheet
 S 5700 2550 2100 1900
 U 614FD8C2
@@ -131,7 +131,19 @@ $EndSheet
 $Sheet
 S 8000 2550 2200 1900
 U 614FDE40
-F0 "Strain1" 50
+F0 "Strain_1" 50
 F1 "StrainGuage.sch" 50
 $EndSheet
+$Sheet
+S 5700 4700 2100 1650
+U 614DF1EE
+F0 "Thermo_1" 50
+F1 "Thermocouple.sch" 50
+$EndSheet
+Text Notes 4500 2650 0    50   ~ 0
+Pins here are n + 20\n
+Text Notes 10600 7650 0    79   ~ 0
+A
+Text Notes 7350 7550 0    118  ~ 0
+MicroVolt Board
 $EndSCHEMATC
