@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 2
+Sheet 1 3
 Title ""
 Date ""
 Rev ""
@@ -563,4 +563,10 @@ Text Label 4450 4400 0    50   ~ 0
 vcc
 Text Label 4450 4550 0    50   ~ 0
 5v
+$Sheet
+S 1100 4050 500  150 
+U 61664AB6
+F0 "holes" 50
+F1 "5_holes.sch" 50
+$EndSheet
 $EndSCHEMATC
