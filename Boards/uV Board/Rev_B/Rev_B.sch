@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -268,12 +268,18 @@ Interconnect
 $Comp
 L Mechanical:MountingHole M2.5
 U 1 1 615FF776
-P 2000 2400
-F 0 "M2.5" H 2100 2446 50  0000 L CNN
-F 1 "CMH" H 2100 2355 50  0000 L CNN
-F 2 "" H 2000 2400 50  0001 C CNN
-F 3 "~" H 2000 2400 50  0001 C CNN
-	1    2000 2400
+P 2100 3050
+F 0 "M2.5" H 2200 3096 50  0000 L CNN
+F 1 "CMH" H 2200 3005 50  0000 L CNN
+F 2 "" H 2100 3050 50  0001 C CNN
+F 3 "~" H 2100 3050 50  0001 C CNN
+	1    2100 3050
 	1    0    0    -1  
 $EndComp
+$Sheet
+S 3600 3550 1050 900 
+U 616005C4
+F0 "5v_regulator" 50
+F1 "5v_regulator.sch" 50
+$EndSheet
 $EndSCHEMATC

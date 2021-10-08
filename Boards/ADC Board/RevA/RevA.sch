@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 10
+Sheet 1 11
 Title ""
 Date ""
 Rev ""
@@ -289,12 +289,18 @@ I2C_Clock
 $Comp
 L Mechanical:MountingHole M2.5
 U 1 1 616626E5
-P 2950 3650
-F 0 "M2.5" H 3050 3696 50  0000 L CNN
-F 1 "CMH" H 3050 3605 50  0000 L CNN
-F 2 "" H 2950 3650 50  0001 C CNN
-F 3 "~" H 2950 3650 50  0001 C CNN
-	1    2950 3650
+P 3950 3550
+F 0 "M2.5" H 4050 3596 50  0000 L CNN
+F 1 "CMH" H 4050 3505 50  0000 L CNN
+F 2 "" H 3950 3550 50  0001 C CNN
+F 3 "~" H 3950 3550 50  0001 C CNN
+	1    3950 3550
 	1    0    0    -1  
 $EndComp
+$Sheet
+S 4500 4050 1350 900 
+U 61663709
+F0 "5v_regulator" 50
+F1 "5v_regulator.sch" 50
+$EndSheet
 $EndSCHEMATC
