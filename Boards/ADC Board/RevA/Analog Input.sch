@@ -24,11 +24,11 @@ AR Path="/6164144B/61653B35" Ref="J?"  Part="1"
 AR Path="/616422A2/61653B35" Ref="J?"  Part="1" 
 AR Path="/616423D2/61653B35" Ref="J?"  Part="1" 
 AR Path="/616425FE/61653B35" Ref="J?"  Part="1" 
-AR Path="/6164D83E/61653B35" Ref="J?"  Part="1" 
-AR Path="/616568DC/61653B35" Ref="J?"  Part="1" 
-AR Path="/61657053/61653B35" Ref="J?"  Part="1" 
-AR Path="/616571E9/61653B35" Ref="J?"  Part="1" 
-F 0 "J?" H 2000 1050 50  0000 C CNN
+AR Path="/6164D83E/61653B35" Ref="J14"  Part="1" 
+AR Path="/616568DC/61653B35" Ref="J15"  Part="1" 
+AR Path="/61657053/61653B35" Ref="J16"  Part="1" 
+AR Path="/616571E9/61653B35" Ref="J17"  Part="1" 
+F 0 "J17" H 2000 1050 50  0000 C CNN
 F 1 "Screw Terminals" H 2050 1150 50  0000 C CNN
 F 2 "" H 1650 1300 50  0001 C CNN
 F 3 "~" H 1650 1300 50  0001 C CNN
