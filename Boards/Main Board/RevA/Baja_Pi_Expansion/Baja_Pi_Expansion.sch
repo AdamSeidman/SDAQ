@@ -14,12 +14,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector_Generic:Conn_02x20_Odd_Even J?
+L Connector_Generic:Conn_02x20_Odd_Even J4
 U 1 1 615F9685
 P 8550 2850
-F 0 "J?" H 8600 3967 50  0000 C CNN
+F 0 "J4" H 8600 3967 50  0000 C CNN
 F 1 "Conn_02x20_Odd_Even" H 8600 3876 50  0000 C CNN
-F 2 "" H 8550 2850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 8550 2850 50  0001 C CNN
 F 3 "~" H 8550 2850 50  0001 C CNN
 	1    8550 2850
 	1    0    0    -1  
@@ -281,23 +281,23 @@ gpio 11
 Text Notes 3450 1750 2    50   ~ 0
 gpio 0
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J?
+L Connector_Generic:Conn_02x10_Counter_Clockwise J1
 U 1 1 6160E35B
 P 1900 1750
-F 0 "J?" H 1950 2367 50  0000 C CNN
+F 0 "J1" H 1950 2367 50  0000 C CNN
 F 1 "Conn_02x10_Counter_Clockwise" H 1950 2276 50  0000 C CNN
-F 2 "" H 1900 1750 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 1900 1750 50  0001 C CNN
 F 3 "~" H 1900 1750 50  0001 C CNN
 	1    1900 1750
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J?
+L Connector_Generic:Conn_02x12_Counter_Clockwise J2
 U 1 1 6160FED6
 P 3850 1650
-F 0 "J?" H 3900 2367 50  0000 C CNN
+F 0 "J2" H 3900 2367 50  0000 C CNN
 F 1 "Conn_02x12_Counter_Clockwise" H 3900 2276 50  0000 C CNN
-F 2 "" H 3850 1650 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x12_P2.54mm_Vertical" H 3850 1650 50  0001 C CNN
 F 3 "~" H 3850 1650 50  0001 C CNN
 	1    3850 1650
 	1    0    0    -1  
@@ -316,10 +316,10 @@ vcc
 Text Label 4150 1250 0    50   ~ 0
 vcc
 $Comp
-L Display_Character:HDSP-7403 U?
+L Display_Character:HDSP-7403 U1
 U 1 1 61621AB7
 P 2500 6600
-F 0 "U?" H 2500 7267 50  0000 C CNN
+F 0 "U1" H 2500 7267 50  0000 C CNN
 F 1 "HDSP-7403" H 2500 7176 50  0000 C CNN
 F 2 "Display_7Segment:HDSP-7401" H 2500 6050 50  0001 C CNN
 F 3 "https://docs.broadcom.com/docs/AV02-2553EN" H 2500 6600 50  0001 C CNN
@@ -369,23 +369,23 @@ sda2
 Text Label 4600 6700 3    50   ~ 0
 scl2
 $Comp
-L Device:R_US R?
+L Device:R_US R1
 U 1 1 6162B2A1
 P 4300 6550
-F 0 "R?" H 4232 6504 50  0000 R CNN
+F 0 "R1" H 4232 6504 50  0000 R CNN
 F 1 "4.7k" H 4232 6595 50  0000 R CNN
-F 2 "" V 4340 6540 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4340 6540 50  0001 C CNN
 F 3 "~" H 4300 6550 50  0001 C CNN
 	1    4300 6550
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_US R?
+L Device:R_US R2
 U 1 1 6162C8FC
 P 4600 6550
-F 0 "R?" H 4532 6504 50  0000 R CNN
+F 0 "R2" H 4532 6504 50  0000 R CNN
 F 1 "4.7k" H 4532 6595 50  0000 R CNN
-F 2 "" V 4640 6540 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4640 6540 50  0001 C CNN
 F 3 "~" H 4600 6550 50  0001 C CNN
 	1    4600 6550
 	-1   0    0    1   
@@ -400,23 +400,23 @@ Wire Wire Line
 Wire Wire Line
 	4450 6400 4600 6400
 $Comp
-L Device:R_US R?
+L Device:R_US R3
 U 1 1 6162DB16
 P 5600 6350
-F 0 "R?" H 5668 6396 50  0000 L CNN
+F 0 "R3" H 5668 6396 50  0000 L CNN
 F 1 "R_US" H 5668 6305 50  0000 L CNN
-F 2 "" V 5640 6340 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5640 6340 50  0001 C CNN
 F 3 "~" H 5600 6350 50  0001 C CNN
 	1    5600 6350
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_US R?
+L Device:R_US R4
 U 1 1 6162E182
 P 5600 6850
-F 0 "R?" H 5668 6896 50  0000 L CNN
+F 0 "R4" H 5668 6896 50  0000 L CNN
 F 1 "R_US" H 5668 6805 50  0000 L CNN
-F 2 "" V 5640 6840 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5640 6840 50  0001 C CNN
 F 3 "~" H 5600 6850 50  0001 C CNN
 	1    5600 6850
 	1    0    0    -1  
@@ -437,23 +437,23 @@ Connection ~ 5600 6600
 Wire Wire Line
 	5600 6600 5600 6500
 $Comp
-L Connector:Screw_Terminal_01x06 J?
+L Connector:Screw_Terminal_01x06 J6
 U 1 1 61634923
 P 10000 6000
-F 0 "J?" H 10080 5992 50  0000 L CNN
+F 0 "J6" H 10080 5992 50  0000 L CNN
 F 1 "Screw_Terminal_01x06" H 10080 5901 50  0000 L CNN
-F 2 "" H 10000 6000 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 10000 6000 50  0001 C CNN
 F 3 "~" H 10000 6000 50  0001 C CNN
 	1    10000 6000
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x04 J?
+L Connector:Screw_Terminal_01x04 J3
 U 1 1 61635B3A
 P 8150 6000
-F 0 "J?" H 8230 5992 50  0000 L CNN
+F 0 "J3" H 8230 5992 50  0000 L CNN
 F 1 "Screw_Terminal_01x04" H 8230 5901 50  0000 L CNN
-F 2 "" H 8150 6000 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8150 6000 50  0001 C CNN
 F 3 "~" H 8150 6000 50  0001 C CNN
 	1    8150 6000
 	1    0    0    -1  
@@ -467,12 +467,12 @@ vcc
 Text Label 7950 6100 2    50   ~ 0
 vcc
 $Comp
-L Connector:Conn_01x03_Male J?
+L Connector:Conn_01x03_Male J5
 U 1 1 61637A7E
 P 9900 5200
-F 0 "J?" H 10008 5481 50  0000 C CNN
+F 0 "J5" H 10008 5481 50  0000 C CNN
 F 1 "Conn_01x03_Male" H 10008 5390 50  0000 C CNN
-F 2 "" H 9900 5200 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 9900 5200 50  0001 C CNN
 F 3 "~" H 9900 5200 50  0001 C CNN
 	1    9900 5200
 	1    0    0    -1  
@@ -496,23 +496,23 @@ dig_in
 Text Label 9800 6200 2    50   ~ 0
 analog_in
 $Comp
-L Device:R_US R?
+L Device:R_US R5
 U 1 1 6163FA23
 P 10800 5100
-F 0 "R?" H 10868 5146 50  0000 L CNN
+F 0 "R5" H 10868 5146 50  0000 L CNN
 F 1 "R_US" H 10868 5055 50  0000 L CNN
-F 2 "" V 10840 5090 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10840 5090 50  0001 C CNN
 F 3 "~" H 10800 5100 50  0001 C CNN
 	1    10800 5100
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_US R?
+L Device:R_US R6
 U 1 1 6163FA29
 P 10800 5600
-F 0 "R?" H 10868 5646 50  0000 L CNN
+F 0 "R6" H 10868 5646 50  0000 L CNN
 F 1 "R_US" H 10868 5555 50  0000 L CNN
-F 2 "" V 10840 5590 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10840 5590 50  0001 C CNN
 F 3 "~" H 10800 5600 50  0001 C CNN
 	1    10800 5600
 	1    0    0    -1  
