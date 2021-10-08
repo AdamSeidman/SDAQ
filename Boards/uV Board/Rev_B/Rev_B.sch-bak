@@ -137,15 +137,6 @@ F8 "Strain_1" I R 7850 4050 50
 F9 "I2C_Clock" B L 5750 3350 50 
 F10 "I2C_Data" B L 5750 3500 50 
 $EndSheet
-$Sheet
-S 8500 2550 800  700 
-U 614FDE40
-F0 "Strain_1" 50
-F1 "StrainGuage.sch" 50
-F2 "5V" I L 8500 2700 50 
-F3 "GND" I L 8500 2800 50 
-F4 "Strain_Out" I L 8500 2900 50 
-$EndSheet
 Text Notes 4500 2650 0    50   ~ 0
 Pins here are n + 20\n
 Text Notes 10600 7650 0    79   ~ 0
@@ -180,73 +171,25 @@ F3 "GND" I R 10250 3800 50
 F4 "Strain_Out" I R 10250 3900 50 
 $EndSheet
 Wire Wire Line
-	8500 3700 8350 3700
-Wire Wire Line
-	8350 3700 8350 2700
-Wire Wire Line
-	8350 2700 8500 2700
-Wire Wire Line
 	10250 2700 10400 2700
 Wire Wire Line
-	10400 2700 10400 3700
+	10400 2700 10400 3450
 Wire Wire Line
 	10400 3700 10250 3700
-Text Label 8850 2000 0    50   ~ 0
+Text Label 8000 2450 0    50   ~ 0
 5V
-Text Label 9150 2000 0    50   ~ 0
+Text Label 8250 2500 0    50   ~ 0
 GND
 Wire Wire Line
-	8350 2700 8350 2200
+	8000 2650 8000 2450
 Wire Wire Line
-	8350 2200 8850 2200
-Connection ~ 8350 2700
-Wire Wire Line
-	10400 2700 10400 2200
-Wire Wire Line
-	10400 2200 8850 2200
-Wire Wire Line
-	8850 2200 8850 2000
-Connection ~ 10400 2700
-Wire Wire Line
-	8500 2800 8450 2800
-Wire Wire Line
-	8450 2800 8450 2300
-Wire Wire Line
-	8450 2300 9150 2300
-Wire Wire Line
-	9150 2300 9150 2000
-Wire Wire Line
-	8500 3800 8450 3800
-Wire Wire Line
-	8450 3800 8450 2800
-Connection ~ 8450 2800
+	8250 2800 8250 2500
 Wire Wire Line
 	10250 3800 10300 3800
 Wire Wire Line
-	10300 3800 10300 2800
+	10300 3800 10300 3200
 Wire Wire Line
 	10300 2800 10250 2800
-Wire Wire Line
-	10300 2800 10300 2300
-Wire Wire Line
-	10300 2300 9150 2300
-Connection ~ 10300 2800
-Connection ~ 9150 2300
-Connection ~ 8850 2200
-Wire Wire Line
-	8350 2200 8000 2200
-Wire Wire Line
-	8000 2200 8000 2650
-Wire Wire Line
-	8000 2650 7850 2650
-Connection ~ 8350 2200
-Wire Wire Line
-	8450 2300 8150 2300
-Wire Wire Line
-	8150 2300 8150 2800
-Wire Wire Line
-	8150 2800 7850 2800
-Connection ~ 8450 2300
 Wire Wire Line
 	8500 2900 8200 2900
 Text Label 7850 3900 0    50   ~ 0
@@ -275,4 +218,62 @@ Text Label 5150 1600 0    50   ~ 0
 Reset
 Text Label 5750 3000 2    50   ~ 0
 Reset
+$Sheet
+S 8500 2550 800  700 
+U 614FDE40
+F0 "Strain_1" 50
+F1 "StrainGuage.sch" 50
+F2 "5V" I L 8500 2650 50 
+F3 "GND" I L 8500 2800 50 
+F4 "Strain_Out" I L 8500 2900 50 
+$EndSheet
+Wire Wire Line
+	7850 2650 8000 2650
+Connection ~ 8000 2650
+Wire Wire Line
+	8000 2650 8500 2650
+Connection ~ 8250 2800
+Wire Wire Line
+	8250 2800 8500 2800
+Wire Wire Line
+	7850 2800 8250 2800
+Text Label 8500 3700 2    50   ~ 0
+5V
+Text Label 8500 3800 2    50   ~ 0
+GND
+Text Label 10700 3200 0    50   ~ 0
+GND
+Text Label 10700 3450 0    50   ~ 0
+5V
+Wire Wire Line
+	10700 3200 10300 3200
+Connection ~ 10300 3200
+Wire Wire Line
+	10300 3200 10300 2800
+Wire Wire Line
+	10700 3450 10400 3450
+Connection ~ 10400 3450
+Wire Wire Line
+	10400 3450 10400 3700
+Text Label 3150 1950 2    50   ~ 0
+I2C_Clock
+Text Label 3150 1750 2    50   ~ 0
+I2C_Data
+Text Label 5750 3350 2    50   ~ 0
+I2C_Clock
+Text Label 5750 3500 2    50   ~ 0
+I2C_Data
+Text Label 5150 1700 0    50   ~ 0
+Interconnect
+$Comp
+L Mechanical:MountingHole M2.5
+U 1 1 615FF776
+P 2000 2400
+F 0 "M2.5" H 2100 2446 50  0000 L CNN
+F 1 "Center Mounting Hole" H 2100 2355 50  0000 L CNN
+F 2 "" H 2000 2400 50  0001 C CNN
+F 3 "~" H 2000 2400 50  0001 C CNN
+	1    2000 2400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
