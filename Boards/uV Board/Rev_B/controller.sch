@@ -43,8 +43,6 @@ NoConn ~ 1400 1850
 NoConn ~ 1400 1950
 NoConn ~ 2600 2150
 NoConn ~ 2600 2050
-NoConn ~ 2600 1350
-NoConn ~ 2600 1250
 NoConn ~ 2600 1150
 NoConn ~ 2600 1050
 $Comp
@@ -71,14 +69,14 @@ F 3 "~" H 4200 1050 50  0001 C CNN
 $EndComp
 Text HLabel 4000 950  0    50   Input ~ 0
 5V
-Text Label 4500 1050 0    50   ~ 0
-DIO1
 Text Label 4500 1150 0    50   ~ 0
-DIO2
+D11
+Text Label 4500 1050 0    50   ~ 0
+D12
 Text Label 4000 1050 2    50   ~ 0
-Analog1
+A7
 Text Label 4000 1150 2    50   ~ 0
-Analog2
+A6
 Text HLabel 4500 950  2    50   Input ~ 0
 GND
 Text HLabel 2600 1650 0    50   Input ~ 0
@@ -91,8 +89,6 @@ Text HLabel 2600 1950 0    50   Input ~ 0
 Strain_1
 NoConn ~ 2600 2250
 NoConn ~ 1400 2050
-NoConn ~ 1400 2150
-NoConn ~ 1400 2250
 Text Notes 2350 1050 0    50   ~ 0
 Reset\n
 NoConn ~ 1400 1250
@@ -130,4 +126,14 @@ Wire Notes Line
 	1100 2350 3500 2350
 Wire Notes Line
 	1100 700  3500 700 
+Text Label 2600 1250 2    50   ~ 0
+A7
+Text Label 2600 1350 2    50   ~ 0
+A6
+Text Label 1400 2150 2    50   ~ 0
+D11
+Text Label 1400 2250 2    50   ~ 0
+D12
+Text Notes 1650 2200 0    50   ~ 0
+D11\n
 $EndSCHEMATC

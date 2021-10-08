@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 7
+Sheet 6 10
 Title ""
 Date ""
 Rev ""
@@ -63,9 +63,9 @@ $EndComp
 Text HLabel 4000 950  0    50   Input ~ 0
 5V
 Text Label 4500 1050 0    50   ~ 0
-D11
+D12
 Text Label 4500 1150 0    50   ~ 0
-D10
+D11
 Text Label 4000 1050 2    50   ~ 0
 A7
 Text Label 4000 1150 2    50   ~ 0
