@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J?
+L Connector_Generic:Conn_02x12_Counter_Clockwise J2
 U 1 1 614D23CF
 P 4850 1900
-F 0 "J?" H 4900 2617 50  0000 C CNN
+F 0 "J2" H 4900 2617 50  0000 C CNN
 F 1 "Right Connector" H 4900 2526 50  0000 C CNN
 F 2 "" H 4850 1900 50  0001 C CNN
 F 3 "~" H 4850 1900 50  0001 C CNN
@@ -43,10 +43,10 @@ GND
 Text Label 3150 2350 2    50   ~ 0
 GND
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J?
+L Connector_Generic:Conn_02x10_Counter_Clockwise J1
 U 1 1 614D9C1F
 P 3350 1950
-F 0 "J?" H 3400 2567 50  0000 C CNN
+F 0 "J1" H 3400 2567 50  0000 C CNN
 F 1 "Left Connector" H 3400 2476 50  0000 C CNN
 F 2 "" H 3350 1950 50  0001 C CNN
 F 3 "~" H 3350 1950 50  0001 C CNN
@@ -140,9 +140,9 @@ Strain_2
 Text Label 7850 3600 0    50   ~ 0
 Strain_4
 Text Label 10600 2900 0    50   ~ 0
-Strain2
+Strain_2
 Text Label 10600 3900 0    50   ~ 0
-Stain_4
+Strain_4
 Wire Wire Line
 	10250 2900 10600 2900
 Wire Wire Line
@@ -236,4 +236,31 @@ Text Label 3600 4050 2    50   ~ 0
 5V
 Text Label 3600 3900 2    50   ~ 0
 GND
+NoConn ~ 3150 2150
+NoConn ~ 3150 2250
+NoConn ~ 3150 2450
+NoConn ~ 3650 2450
+NoConn ~ 3650 2350
+NoConn ~ 3650 2250
+NoConn ~ 3650 2050
+NoConn ~ 3650 1950
+NoConn ~ 3650 1750
+NoConn ~ 3650 1650
+NoConn ~ 4650 1400
+NoConn ~ 4650 1500
+NoConn ~ 4650 1600
+NoConn ~ 4650 1700
+NoConn ~ 4650 1900
+NoConn ~ 4650 2000
+NoConn ~ 4650 2100
+NoConn ~ 4650 2200
+NoConn ~ 4650 2400
+NoConn ~ 4650 2500
+NoConn ~ 5150 2500
+NoConn ~ 5150 2300
+NoConn ~ 5150 2200
+NoConn ~ 5150 2100
+NoConn ~ 5150 2000
+NoConn ~ 5150 1800
+NoConn ~ 5150 1700
 $EndSCHEMATC
