@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:Conn_01x15_Female J?
+L Connector:Conn_01x15_Female J3
 U 1 1 614FE43E
 P 1600 1550
-F 0 "J?" H 1628 1576 50  0000 L CNN
+F 0 "J3" H 1628 1576 50  0000 L CNN
 F 1 "Arduino Nano" H 1628 1485 50  0000 L CNN
 F 2 "" H 1600 1550 50  0001 C CNN
 F 3 "~" H 1600 1550 50  0001 C CNN
@@ -46,10 +46,10 @@ NoConn ~ 2600 2050
 NoConn ~ 2600 1150
 NoConn ~ 2600 1050
 $Comp
-L Connector:Conn_01x15_Female J?
+L Connector:Conn_01x15_Female J4
 U 1 1 61504D87
 P 2800 1550
-F 0 "J?" H 3150 2000 50  0000 L CNN
+F 0 "J4" H 3150 2000 50  0000 L CNN
 F 1 "Arduino Nano" H 2950 1900 50  0000 L CNN
 F 2 "" H 2800 1550 50  0001 C CNN
 F 3 "~" H 2800 1550 50  0001 C CNN
@@ -57,10 +57,10 @@ F 3 "~" H 2800 1550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Counter_Clockwise J?
+L Connector_Generic:Conn_02x03_Counter_Clockwise J5
 U 1 1 61567E78
 P 4200 1050
-F 0 "J?" H 4250 1367 50  0000 C CNN
+F 0 "J5" H 4250 1367 50  0000 C CNN
 F 1 "Extra Pins" H 4250 1276 50  0000 C CNN
 F 2 "" H 4200 1050 50  0001 C CNN
 F 3 "~" H 4200 1050 50  0001 C CNN
@@ -79,13 +79,13 @@ Text Label 4000 1150 2    50   ~ 0
 A6
 Text HLabel 4500 950  2    50   Input ~ 0
 GND
-Text HLabel 2600 1650 0    50   Input ~ 0
+Text HLabel 2550 1650 0    50   Input ~ 0
 Strain_4
-Text HLabel 2600 1750 0    50   Input ~ 0
+Text HLabel 2550 1750 0    50   Input ~ 0
 Strain_3
-Text HLabel 2600 1850 0    50   Input ~ 0
+Text HLabel 2550 1850 0    50   Input ~ 0
 Strain_2
-Text HLabel 2600 1950 0    50   Input ~ 0
+Text HLabel 2550 1950 0    50   Input ~ 0
 Strain_1
 NoConn ~ 2600 2250
 NoConn ~ 1400 2050
@@ -136,4 +136,12 @@ Text Label 1400 2250 2    50   ~ 0
 D12
 Text Notes 1650 2200 0    50   ~ 0
 D11\n
+Wire Wire Line
+	2550 1650 2600 1650
+Wire Wire Line
+	2600 1750 2550 1750
+Wire Wire Line
+	2600 1850 2550 1850
+Wire Wire Line
+	2600 1950 2550 1950
 $EndSCHEMATC

@@ -221,7 +221,7 @@ GND
 Wire Wire Line
 	3300 1350 3550 1350
 Wire Wire Line
-	3550 1350 3550 1450
+	3550 1350 3550 1400
 Wire Wire Line
 	3550 1450 3300 1450
 Text Notes 2650 2600 0    50   ~ 0
@@ -239,10 +239,10 @@ I2C_Data
 Text Label 1400 1850 2    50   ~ 0
 I2C_Clock
 $Comp
-L Mechanical:MountingHole M2.5
+L Mechanical:MountingHole M2.1
 U 1 1 616626E5
 P 3950 3550
-F 0 "M2.5" H 4050 3596 50  0000 L CNN
+F 0 "M2.1" H 4050 3596 50  0000 L CNN
 F 1 "CMH" H 4050 3505 50  0000 L CNN
 F 2 "" H 3950 3550 50  0001 C CNN
 F 3 "~" H 3950 3550 50  0001 C CNN
@@ -264,7 +264,7 @@ Text Label 4500 4500 2    50   ~ 0
 5V
 Text Label 4500 4350 2    50   ~ 0
 GND
-Text Label 3550 1350 0    50   ~ 0
+Text Label 3650 1400 0    50   ~ 0
 VCC
 NoConn ~ 1900 1550
 NoConn ~ 1900 1650
@@ -293,4 +293,9 @@ NoConn ~ 3300 2050
 NoConn ~ 3300 2150
 NoConn ~ 3300 2250
 NoConn ~ 3300 2450
+Wire Wire Line
+	3650 1400 3550 1400
+Connection ~ 3550 1400
+Wire Wire Line
+	3550 1400 3550 1450
 $EndSCHEMATC
