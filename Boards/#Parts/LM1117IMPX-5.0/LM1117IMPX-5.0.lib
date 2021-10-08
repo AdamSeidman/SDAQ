@@ -1,7 +1,5 @@
-EESchema-LIBRARY Version 2.3
+EESchema-LIBRARY Version 2.4
 #encoding utf-8
-#(c) SnapEDA 2016 (snapeda.com)
-#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
 #
 # LM1117IMPX-5.0
 #
@@ -14,15 +12,15 @@ F4 "O" 0 0 50 H I L BNN
 F5 "IPC 7351B" 0 0 50 H I L BNN
 F6 "Rochester Electronics/Texas Instruments" 0 0 50 H I L BNN
 DRAW
-P 2 0 0 10 -400 200 -400 -200 N
 P 2 0 0 10 -400 -200 400 -200 N
+P 2 0 0 10 -400 200 -400 -200 N
 P 2 0 0 10 400 -200 400 200 N
 P 2 0 0 10 400 200 -400 200 N
-X VIN 3 -600 100 200 R 40 40 0 0 I 
-X ADJ/GND 1 -600 -100 200 R 40 40 0 0 I 
-X VOUT 2 600 100 200 L 40 40 0 0 O 
-X VOUT 4 600 100 200 L 40 40 0 0 O 
+X ADJ/GND 1 -600 -100 200 R 40 40 0 0 I
+X VOUT 2 600 -100 200 L 40 40 0 0 O
+X VIN 3 -600 100 200 R 40 40 0 0 I
+X VOUT 4 600 100 200 L 40 40 0 0 O
 ENDDRAW
 ENDDEF
 #
-# End Library
+#End Library
