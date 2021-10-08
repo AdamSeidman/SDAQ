@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:Conn_01x15_Female J?
+L Connector:Conn_01x15_Female J11
 U 1 1 614FE43E
 P 1600 1550
-F 0 "J?" H 2050 1500 50  0000 L CNN
+F 0 "J11" H 2050 1500 50  0000 L CNN
 F 1 "Arduino Nano" H 1850 1400 50  0000 L CNN
 F 2 "" H 1600 1550 50  0001 C CNN
 F 3 "~" H 1600 1550 50  0001 C CNN
@@ -39,10 +39,10 @@ NoConn ~ 2600 2050
 NoConn ~ 2600 1150
 NoConn ~ 2600 1050
 $Comp
-L Connector:Conn_01x15_Female J?
+L Connector:Conn_01x15_Female J12
 U 1 1 61504D87
 P 2800 1550
-F 0 "J?" H 3150 2000 50  0000 L CNN
+F 0 "J12" H 3150 2000 50  0000 L CNN
 F 1 "Arduino Nano" H 2950 1900 50  0000 L CNN
 F 2 "" H 2800 1550 50  0001 C CNN
 F 3 "~" H 2800 1550 50  0001 C CNN
@@ -50,10 +50,10 @@ F 3 "~" H 2800 1550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Counter_Clockwise J?
+L Connector_Generic:Conn_02x03_Counter_Clockwise J13
 U 1 1 61567E78
 P 4200 1050
-F 0 "J?" H 4250 1367 50  0000 C CNN
+F 0 "J13" H 4250 1367 50  0000 C CNN
 F 1 "Extra Pins" H 4250 1276 50  0000 C CNN
 F 2 "" H 4200 1050 50  0001 C CNN
 F 3 "~" H 4200 1050 50  0001 C CNN
@@ -178,20 +178,66 @@ Text HLabel 2600 2800 2    50   Input ~ 0
 Analog_2
 Text HLabel 2600 2950 2    50   Input ~ 0
 Analog_3
-Text Label 1600 2500 0    50   ~ 0
+Text Label 1700 2500 0    50   ~ 0
 D2
-Text Label 1600 2800 0    50   ~ 0
+Text Label 1700 2800 0    50   ~ 0
 D4
-Text Label 1600 2950 0    50   ~ 0
+Text Label 1700 2950 0    50   ~ 0
 D5
-Text Label 1600 2650 0    50   ~ 0
+Text Label 1700 2650 0    50   ~ 0
 D3
-Text Label 2600 2500 2    50   ~ 0
+Text Label 2450 2500 2    50   ~ 0
 A0
-Text Label 2600 2650 2    50   ~ 0
+Text Label 2450 2650 2    50   ~ 0
 A1
-Text Label 2600 2950 2    50   ~ 0
+Text Label 2450 2950 2    50   ~ 0
 A3
-Text Label 2600 2800 2    50   ~ 0
+Text Label 2450 2800 2    50   ~ 0
 A2
+Wire Wire Line
+	2450 2500 2600 2500
+Wire Wire Line
+	2450 2650 2600 2650
+Wire Wire Line
+	2600 2800 2450 2800
+Wire Wire Line
+	2450 2950 2600 2950
+Wire Wire Line
+	1700 2500 1600 2500
+Wire Wire Line
+	1700 2650 1600 2650
+Wire Wire Line
+	1700 2800 1600 2800
+Wire Wire Line
+	1700 2950 1600 2950
+Text Label 1300 3300 2    50   ~ 0
+D8
+Text Label 1300 3400 2    50   ~ 0
+D9
+Text Label 1300 3500 2    50   ~ 0
+D10
+Text Label 1300 3600 2    50   ~ 0
+D13
+Text Label 1300 3200 2    50   ~ 0
+D7
+NoConn ~ 1450 3200
+NoConn ~ 1450 3300
+NoConn ~ 1450 3400
+NoConn ~ 1450 3500
+NoConn ~ 1450 3600
+Wire Wire Line
+	1450 3200 1300 3200
+Wire Wire Line
+	1450 3300 1300 3300
+Wire Wire Line
+	1450 3400 1300 3400
+Wire Wire Line
+	1450 3500 1300 3500
+Wire Wire Line
+	1450 3600 1300 3600
+Text Label 1300 3100 2    50   ~ 0
+D6
+NoConn ~ 1450 3100
+Wire Wire Line
+	1450 3100 1300 3100
 $EndSCHEMATC
