@@ -263,17 +263,6 @@ Text Label 3300 2350 0    50   ~ 0
 GND
 Text Label 3300 1850 0    50   ~ 0
 GND
-$Comp
-L power:VCC #PWR?
-U 1 1 61659FEA
-P 3550 750
-F 0 "#PWR?" H 3550 600 50  0001 C CNN
-F 1 "VCC" H 3565 923 50  0000 C CNN
-F 2 "" H 3550 750 50  0001 C CNN
-F 3 "" H 3550 750 50  0001 C CNN
-	1    3550 750 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3550 1350 3550 1250
 Wire Wire Line
@@ -297,10 +286,15 @@ Text Label 1400 1650 2    50   ~ 0
 I2C_Data
 Text Label 1400 1850 2    50   ~ 0
 I2C_Clock
-$Sheet
-S 2250 3500 1100 800 
-U 616617E9
-F0 "Regulator" 50
-F1 "Regulator.sch" 50
-$EndSheet
+$Comp
+L Mechanical:MountingHole M2.5
+U 1 1 616626E5
+P 2950 3650
+F 0 "M2.5" H 3050 3696 50  0000 L CNN
+F 1 "CMH" H 3050 3605 50  0000 L CNN
+F 2 "" H 2950 3650 50  0001 C CNN
+F 3 "~" H 2950 3650 50  0001 C CNN
+	1    2950 3650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
