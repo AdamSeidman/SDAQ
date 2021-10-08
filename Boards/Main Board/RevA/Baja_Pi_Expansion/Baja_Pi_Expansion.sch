@@ -364,9 +364,9 @@ Text Label 2200 7000 2    50   ~ 0
 gpio4
 Text Notes 1600 7000 0    50   ~ 0
 pwm 12
-Text Label 4300 6700 3    50   ~ 0
+Text Label 4300 6750 3    50   ~ 0
 sda2
-Text Label 4600 6700 3    50   ~ 0
+Text Label 4600 6750 3    50   ~ 0
 scl2
 $Comp
 L Device:R_US R1
@@ -423,9 +423,9 @@ F 3 "~" H 5600 6850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5600 6700 5600 6600
-Text Label 5600 7000 3    50   ~ 0
+Text Label 5600 7050 3    50   ~ 0
 gnd
-Text Label 5600 6200 1    50   ~ 0
+Text Label 5600 6150 1    50   ~ 0
 brakes
 Text Label 5650 6600 0    50   ~ 0
 gpio1
@@ -437,17 +437,6 @@ Connection ~ 5600 6600
 Wire Wire Line
 	5600 6600 5600 6500
 $Comp
-L Connector:Screw_Terminal_01x06 J6
-U 1 1 61634923
-P 10000 6000
-F 0 "J6" H 10080 5992 50  0000 L CNN
-F 1 "Screw_Terminal_01x06" H 10080 5901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 10000 6000 50  0001 C CNN
-F 3 "~" H 10000 6000 50  0001 C CNN
-	1    10000 6000
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:Screw_Terminal_01x04 J3
 U 1 1 61635B3A
 P 8150 6000
@@ -458,13 +447,13 @@ F 3 "~" H 8150 6000 50  0001 C CNN
 	1    8150 6000
 	1    0    0    -1  
 $EndComp
-Text Label 7950 6000 2    50   ~ 0
+Text Label 7900 6000 2    50   ~ 0
 gnd
-Text Label 7950 6200 2    50   ~ 0
+Text Label 7900 6200 2    50   ~ 0
 gnd
-Text Label 7950 5900 2    50   ~ 0
+Text Label 7900 5900 2    50   ~ 0
 vcc
-Text Label 7950 6100 2    50   ~ 0
+Text Label 7900 6100 2    50   ~ 0
 vcc
 $Comp
 L Connector:Conn_01x03_Male J5
@@ -481,11 +470,11 @@ Text Label 9800 6300 2    50   ~ 0
 gnd
 Text Label 9800 6000 2    50   ~ 0
 gnd
-Text Label 10100 5300 0    50   ~ 0
+Text Label 10150 5300 0    50   ~ 0
 gnd
-Text Label 10100 5200 0    50   ~ 0
+Text Label 10150 5200 0    50   ~ 0
 dig_in
-Text Label 10100 5100 0    50   ~ 0
+Text Label 10150 5100 0    50   ~ 0
 5v
 Text Label 9800 5800 2    50   ~ 0
 5v
@@ -526,9 +515,9 @@ Wire Wire Line
 	10800 5350 10800 5250
 Text Label 10850 5350 0    50   ~ 0
 dig_in
-Text Label 10800 4950 1    50   ~ 0
+Text Label 10800 4850 1    50   ~ 0
 5v
-Text Label 10800 5750 3    50   ~ 0
+Text Label 10800 5800 3    50   ~ 0
 gnd
 Text Label 8800 5400 2    50   ~ 0
 gpio2
@@ -549,19 +538,19 @@ Wire Wire Line
 Text Notes 10250 5400 2    50   ~ 0
 pin jumper
 $Sheet
-S 3750 4300 700  500 
+S 3650 4300 700  500 
 U 6164E083
 F0 "Regulator" 50
 F1 "5v_regulator.sch" 50
-F2 "Vcc" I R 4450 4400 50 
-F3 "5V" I R 4450 4550 50 
-F4 "GND" I R 4450 4700 50 
+F2 "Vcc" I R 4350 4400 50 
+F3 "GND" I R 4350 4550 50 
+F4 "5V" I R 4350 4700 50 
 $EndSheet
-Text Label 4450 4700 0    50   ~ 0
+Text Label 4350 4550 0    50   ~ 0
 gnd
-Text Label 4450 4400 0    50   ~ 0
+Text Label 4350 4400 0    50   ~ 0
 vcc
-Text Label 4450 4550 0    50   ~ 0
+Text Label 4350 4700 0    50   ~ 0
 5v
 $Sheet
 S 3900 5250 500  150 
@@ -569,4 +558,51 @@ U 61664AB6
 F0 "holes" 50
 F1 "5_holes.sch" 50
 $EndSheet
+Text Label 6450 4750 0    50   ~ 0
+reset
+Text Label 6250 4750 2    50   ~ 0
+spi2_ce2
+Text Notes 5600 4750 0    50   ~ 0
+gpio 16
+$Comp
+L Connector:Screw_Terminal_01x07 J6
+U 1 1 61673830
+P 10000 6100
+F 0 "J6" H 10080 6142 50  0000 L CNN
+F 1 "Screw_Terminal_01x07" H 10080 6051 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 10000 6100 50  0001 C CNN
+F 3 "~" H 10000 6100 50  0001 C CNN
+	1    10000 6100
+	1    0    0    -1  
+$EndComp
+Text Label 9800 6400 2    50   ~ 0
+brakes
+Wire Wire Line
+	6250 4750 6450 4750
+Wire Wire Line
+	4300 6750 4300 6700
+Wire Wire Line
+	4600 6750 4600 6700
+Wire Wire Line
+	5600 6150 5600 6200
+Wire Wire Line
+	5600 7050 5600 7000
+Wire Wire Line
+	10150 5100 10100 5100
+Wire Wire Line
+	10150 5200 10100 5200
+Wire Wire Line
+	10150 5300 10100 5300
+Wire Wire Line
+	10800 4950 10800 4850
+Wire Wire Line
+	10800 5800 10800 5750
+Wire Wire Line
+	7900 5900 7950 5900
+Wire Wire Line
+	7950 6000 7900 6000
+Wire Wire Line
+	7900 6100 7950 6100
+Wire Wire Line
+	7950 6200 7900 6200
 $EndSCHEMATC
