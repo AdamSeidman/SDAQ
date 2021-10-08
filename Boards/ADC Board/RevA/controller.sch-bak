@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -34,17 +34,8 @@ Text HLabel 1400 1050 0    50   Input ~ 0
 Reset
 NoConn ~ 1400 850 
 NoConn ~ 1400 950 
-NoConn ~ 1400 1350
-NoConn ~ 1400 1450
-NoConn ~ 1400 1550
-NoConn ~ 1400 1650
-NoConn ~ 1400 1750
-NoConn ~ 1400 1850
-NoConn ~ 1400 1950
 NoConn ~ 2600 2150
 NoConn ~ 2600 2050
-NoConn ~ 2600 1350
-NoConn ~ 2600 1250
 NoConn ~ 2600 1150
 NoConn ~ 2600 1050
 $Comp
@@ -72,30 +63,23 @@ $EndComp
 Text HLabel 4000 950  0    50   Input ~ 0
 5V
 Text Label 4500 1050 0    50   ~ 0
-DIO1
+D11
 Text Label 4500 1150 0    50   ~ 0
-DIO2
+D10
 Text Label 4000 1050 2    50   ~ 0
-Analog1
+A7
 Text Label 4000 1150 2    50   ~ 0
-Analog2
+A6
 Text HLabel 4500 950  2    50   Input ~ 0
 GND
-NoConn ~ 2600 2250
-NoConn ~ 1400 2050
-NoConn ~ 1400 2150
-NoConn ~ 1400 2250
 Text Notes 2350 1050 0    50   ~ 0
 Reset\n
-NoConn ~ 1400 1250
 Text HLabel 2600 1450 0    50   BiDi ~ 0
 I2C_Clock
 Text HLabel 2600 1550 0    50   BiDi ~ 0
 I2C_Data
 Wire Notes Line
 	3500 700  3500 2350
-Wire Notes Line
-	1100 2350 1100 700 
 Text Notes 2850 2300 0    50   ~ 0
 D13
 Text Notes 2850 2000 0    50   ~ 0
@@ -120,8 +104,6 @@ Text Notes 1650 1300 0    50   ~ 0
 D2
 Wire Notes Line
 	1100 2350 3500 2350
-Wire Notes Line
-	1100 700  3500 700 
 Text Notes 1650 1400 0    50   ~ 0
 D3
 Text Notes 1650 1500 0    50   ~ 0
@@ -140,4 +122,76 @@ Text Notes 1650 1900 0    50   ~ 0
 D8
 Text Notes 1650 1800 0    50   ~ 0
 D7\n
+Text HLabel 1600 2800 0    50   Input ~ 0
+Digital_2
+Text Label 1400 1250 2    50   ~ 0
+D2
+Text Label 1400 1450 2    50   ~ 0
+D4
+Text Label 1400 1550 2    50   ~ 0
+D5
+Text Label 1400 1650 2    50   ~ 0
+D6
+Text Label 1400 1750 2    50   ~ 0
+D7
+Text Label 1400 1850 2    50   ~ 0
+D8
+Text Label 1400 1350 2    50   ~ 0
+D3
+Wire Notes Line
+	1100 700  3500 700 
+Wire Notes Line
+	1100 2350 1100 700 
+Text Label 1400 1950 2    50   ~ 0
+D9
+Text Label 1400 2050 2    50   ~ 0
+D10
+Text Label 2600 2250 2    50   ~ 0
+D13
+Text Label 1400 2250 2    50   ~ 0
+D12
+Text Label 1400 2150 2    50   ~ 0
+D11
+Text Label 2600 1950 2    50   ~ 0
+A0
+Text Label 2600 1850 2    50   ~ 0
+A1
+Text Label 2600 1650 2    50   ~ 0
+A3
+Text Label 2600 1750 2    50   ~ 0
+A2
+Text Label 2600 1250 2    50   ~ 0
+A7
+Text Label 2600 1350 2    50   ~ 0
+A6
+Text HLabel 1600 2650 0    50   Input ~ 0
+Digital_1
+Text HLabel 1600 2950 0    50   Input ~ 0
+Digital_3
+Text HLabel 1600 2500 0    50   Input ~ 0
+Digital_0
+Text HLabel 2600 2500 2    50   Input ~ 0
+Analog_0
+Text HLabel 2600 2650 2    50   Input ~ 0
+Analog_1
+Text HLabel 2600 2800 2    50   Input ~ 0
+Analog_2
+Text HLabel 2600 2950 2    50   Input ~ 0
+Analog_3
+Text Label 1600 2500 0    50   ~ 0
+D2
+Text Label 1600 2800 0    50   ~ 0
+D4
+Text Label 1600 2950 0    50   ~ 0
+D5
+Text Label 1600 2650 0    50   ~ 0
+D3
+Text Label 2600 2500 2    50   ~ 0
+A0
+Text Label 2600 2650 2    50   ~ 0
+A1
+Text Label 2600 2950 2    50   ~ 0
+A3
+Text Label 2600 2800 2    50   ~ 0
+A2
 $EndSCHEMATC
