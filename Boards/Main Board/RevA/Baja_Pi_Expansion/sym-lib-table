@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name LM1117IMPX-5.0)(type Legacy)(uri C:/Users/Adam/Documents/#Code/SDAQ/Boards/#Parts/LM1117IMPX-5.0/LM1117IMPX-5.0.lib)(options "")(descr ""))
+  (lib (name Baja_Pi_Expansion-rescue)(type Legacy)(uri ${KIPRJMOD}/Baja_Pi_Expansion-rescue.lib)(options "")(descr ""))
 )
