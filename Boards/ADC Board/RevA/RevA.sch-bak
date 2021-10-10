@@ -286,7 +286,6 @@ NoConn ~ 2800 1650
 NoConn ~ 2800 1550
 NoConn ~ 2800 1450
 NoConn ~ 2800 1350
-NoConn ~ 3300 1650
 NoConn ~ 3300 1750
 NoConn ~ 3300 1950
 NoConn ~ 3300 2050
@@ -298,4 +297,11 @@ Wire Wire Line
 Connection ~ 3550 1400
 Wire Wire Line
 	3550 1400 3550 1450
+Text Label 3300 1650 0    50   ~ 0
+Interconnect
+Text Label 3100 2900 2    50   ~ 0
+Interconnect
+Wire Wire Line
+	3100 2900 3200 2900
+NoConn ~ 3200 2900
 $EndSCHEMATC
