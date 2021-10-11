@@ -19,7 +19,7 @@ U 1 1 614FE43E
 P 1600 1550
 F 0 "J11" H 2050 1500 50  0000 L CNN
 F 1 "Arduino Nano" H 1850 1400 50  0000 L CNN
-F 2 "" H 1600 1550 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 1600 1550 50  0001 C CNN
 F 3 "~" H 1600 1550 50  0001 C CNN
 	1    1600 1550
 	1    0    0    -1  
@@ -44,7 +44,7 @@ U 1 1 61504D87
 P 2800 1550
 F 0 "J12" H 3150 2000 50  0000 L CNN
 F 1 "Arduino Nano" H 2950 1900 50  0000 L CNN
-F 2 "" H 2800 1550 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 2800 1550 50  0001 C CNN
 F 3 "~" H 2800 1550 50  0001 C CNN
 	1    2800 1550
 	1    0    0    -1  
@@ -55,7 +55,7 @@ U 1 1 61567E78
 P 4200 1050
 F 0 "J13" H 4250 1367 50  0000 C CNN
 F 1 "Extra Pins" H 4250 1276 50  0000 C CNN
-F 2 "" H 4200 1050 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 4200 1050 50  0001 C CNN
 F 3 "~" H 4200 1050 50  0001 C CNN
 	1    4200 1050
 	1    0    0    -1  
