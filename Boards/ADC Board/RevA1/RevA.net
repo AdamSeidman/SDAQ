@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "C:\\Users\\Chris\\Documents\\GitHub\\SDAQ\\Boards\\ADC Board\\RevA\\RevA.sch")
-    (date "10/13/2021 9:36:25 PM")
+    (source "C:\\Users\\Chris\\Documents\\GitHub\\SDAQ\\Boards\\ADC Board\\RevA1\\RevA.sch")
+    (date "10/13/2021 10:09:05 PM")
     (tool "Eeschema (5.1.10)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -127,14 +127,14 @@
   (components
     (comp (ref J1)
       (value "Left Connector")
-      (footprint Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical)
+      (footprint Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical)
       (datasheet ~)
       (libsource (lib Connector_Generic) (part Conn_02x10_Counter_Clockwise) (description "Generic connector, double row, 02x10, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
       (tstamp 615E5E26))
     (comp (ref J2)
       (value "Right Connector")
-      (footprint Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical)
+      (footprint Connector_PinHeader_2.54mm:PinHeader_2x12_P2.54mm_Vertical)
       (datasheet ~)
       (libsource (lib Connector_Generic) (part Conn_02x12_Counter_Clockwise) (description "Generic connector, double row, 02x12, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
