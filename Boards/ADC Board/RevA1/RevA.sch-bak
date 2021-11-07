@@ -32,7 +32,7 @@ U 1 1 615E5E26
 P 1600 1850
 F 0 "J1" H 1650 2467 50  0000 C CNN
 F 1 "Left Connector" H 1650 2376 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical" H 1600 1850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 1600 1850 50  0001 C CNN
 F 3 "~" H 1600 1850 50  0001 C CNN
 	1    1600 1850
 	1    0    0    -1  
@@ -43,7 +43,7 @@ U 1 1 615E7214
 P 3000 1850
 F 0 "J2" H 3050 2567 50  0000 C CNN
 F 1 "Right Connector" H 3050 2476 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical" H 3000 1850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x12_P2.54mm_Vertical" H 3000 1850 50  0001 C CNN
 F 3 "~" H 3000 1850 50  0001 C CNN
 	1    3000 1850
 	1    0    0    -1  

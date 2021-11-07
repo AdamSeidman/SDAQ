@@ -2,4 +2,5 @@
   (lib (name "Custom Footprints")(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Custom Footprints")(options "")(descr ""))
   (lib (name LM1117IMPX-5)(type KiCad)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/LM1117IMPX-5.0)(options "")(descr ""))
   (lib (name "Female Pin Headers 3D")(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Female Pin Headers 3D")(options "")(descr ""))
+  (lib (name footprints)(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Phoenix Spring Terminals/12 Pin Phoenix/footprints.pretty")(options "")(descr ""))
 )

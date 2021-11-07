@@ -26,7 +26,7 @@ AR Path="/616423D2/615FC6ED" Ref="J7"  Part="1"
 AR Path="/616425FE/615FC6ED" Ref="J9"  Part="1" 
 F 0 "J3" H 2500 950 50  0000 C CNN
 F 1 "Screw Terminals" H 2550 1050 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2150 1200 50  0001 C CNN
+F 2 "footprints:1985292" H 2150 1200 50  0001 C CNN
 F 3 "~" H 2150 1200 50  0001 C CNN
 	1    2150 1200
 	-1   0    0    1   
