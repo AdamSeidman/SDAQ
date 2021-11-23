@@ -1,4 +1,4 @@
-update=11/6/2021 4:36:12 PM
+update=11/22/2021 10:33:34 PM
 version=1
 last_client=kicad
 [general]
@@ -25,7 +25,7 @@ ERC_TestSimilarLabels=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=RevA2.net
+LastNetListRead=RevA3.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
