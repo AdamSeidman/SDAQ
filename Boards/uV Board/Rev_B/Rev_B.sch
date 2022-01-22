@@ -19,7 +19,7 @@ U 1 1 614D23CF
 P 4850 1900
 F 0 "J2" H 4900 2617 50  0000 C CNN
 F 1 "Right Connector" H 4900 2526 50  0000 C CNN
-F 2 "" H 4850 1900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x12_P2.54mm_Vertical" H 4850 1900 50  0001 C CNN
 F 3 "~" H 4850 1900 50  0001 C CNN
 	1    4850 1900
 	1    0    0    -1  
@@ -48,7 +48,7 @@ U 1 1 614D9C1F
 P 3350 1950
 F 0 "J1" H 3400 2567 50  0000 C CNN
 F 1 "Left Connector" H 3400 2476 50  0000 C CNN
-F 2 "" H 3350 1950 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 3350 1950 50  0001 C CNN
 F 3 "~" H 3350 1950 50  0001 C CNN
 	1    3350 1950
 	1    0    0    -1  
@@ -124,17 +124,11 @@ Text Label 8000 2450 0    50   ~ 0
 Text Label 8250 2500 0    50   ~ 0
 GND
 Wire Wire Line
-	8000 2650 8000 2450
-Wire Wire Line
-	8250 2800 8250 2500
-Wire Wire Line
 	10250 3800 10300 3800
 Wire Wire Line
 	10300 3800 10300 3200
 Wire Wire Line
 	10300 2800 10250 2800
-Wire Wire Line
-	8500 2900 8200 2900
 Text Label 7850 3900 0    50   ~ 0
 Strain_2
 Text Label 7850 3600 0    50   ~ 0
@@ -147,16 +141,6 @@ Wire Wire Line
 	10250 2900 10600 2900
 Wire Wire Line
 	10250 3900 10600 3900
-Wire Wire Line
-	8200 2900 8200 4050
-Wire Wire Line
-	7850 4050 8200 4050
-Wire Wire Line
-	7850 3750 8050 3750
-Wire Wire Line
-	8050 3750 8050 3900
-Wire Wire Line
-	8050 3900 8500 3900
 Text Label 5150 1600 0    50   ~ 0
 Reset
 Text Label 5750 3000 2    50   ~ 0
@@ -170,20 +154,6 @@ F2 "5V" I L 8500 2650 50
 F3 "GND" I L 8500 2800 50 
 F4 "Strain_Out" I L 8500 2900 50 
 $EndSheet
-Wire Wire Line
-	7850 2650 8000 2650
-Connection ~ 8000 2650
-Wire Wire Line
-	8000 2650 8500 2650
-Connection ~ 8250 2800
-Wire Wire Line
-	8250 2800 8500 2800
-Wire Wire Line
-	7850 2800 8250 2800
-Text Label 8500 3700 2    50   ~ 0
-5V
-Text Label 8500 3800 2    50   ~ 0
-GND
 Text Label 10700 3200 0    50   ~ 0
 GND
 Text Label 10700 3450 0    50   ~ 0
@@ -214,7 +184,7 @@ U 1 1 615FF776
 P 2100 3050
 F 0 "M2.5" H 2200 3096 50  0000 L CNN
 F 1 "CMH" H 2200 3005 50  0000 L CNN
-F 2 "" H 2100 3050 50  0001 C CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 2100 3050 50  0001 C CNN
 F 3 "~" H 2100 3050 50  0001 C CNN
 	1    2100 3050
 	1    0    0    -1  
@@ -263,4 +233,46 @@ NoConn ~ 5150 2100
 NoConn ~ 5150 2000
 NoConn ~ 5150 1800
 NoConn ~ 5150 1700
+Wire Wire Line
+	8500 3800 8450 3800
+Wire Wire Line
+	8450 3800 8450 2800
+Wire Wire Line
+	8450 2800 8500 2800
+Wire Wire Line
+	8500 3700 8350 3700
+Wire Wire Line
+	8350 3700 8350 2650
+Wire Wire Line
+	8350 2650 8500 2650
+Wire Wire Line
+	7850 2650 8000 2650
+Connection ~ 8350 2650
+Wire Wire Line
+	7850 2800 8250 2800
+Connection ~ 8450 2800
+Wire Wire Line
+	8250 2500 8250 2800
+Connection ~ 8250 2800
+Wire Wire Line
+	8250 2800 8450 2800
+Wire Wire Line
+	8000 2450 8000 2650
+Connection ~ 8000 2650
+Wire Wire Line
+	8000 2650 8350 2650
+Text Label 8350 4300 2    50   ~ 0
+Strain_3
+Text Label 7850 3750 0    50   ~ 0
+Strain_3
+Text Label 8250 2900 2    50   ~ 0
+Strain_1
+Text Label 7850 4050 0    50   ~ 0
+Strain_1
+Wire Wire Line
+	8500 2900 8250 2900
+Wire Wire Line
+	8500 3900 8350 3900
+Wire Wire Line
+	8350 3900 8350 4300
 $EndSCHEMATC
