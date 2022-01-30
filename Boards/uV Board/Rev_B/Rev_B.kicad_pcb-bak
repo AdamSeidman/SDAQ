@@ -723,7 +723,7 @@
   )
 
   (module Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 5A19A429) (tstamp 61F22B1B)
-    (at 189.23 103.886 90)
+    (at 189.23 103.124 90)
     (descr "Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
     (tags "Through hole socket strip THT 1x03 2.54mm single row")
     (path /6153C564/61602119)
@@ -807,7 +807,7 @@
   )
 
   (module Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 5A19A429) (tstamp 61F22B60)
-    (at 211.328 104.394 90)
+    (at 211.328 103.124 90)
     (descr "Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
     (tags "Through hole socket strip THT 1x03 2.54mm single row")
     (path /614FDE40/61602119)

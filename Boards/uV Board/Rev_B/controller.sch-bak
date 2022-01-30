@@ -79,8 +79,6 @@ Text Label 4000 1150 2    50   ~ 0
 A6
 Text HLabel 4500 950  2    50   Input ~ 0
 GND
-Text HLabel 2550 1650 0    50   Input ~ 0
-Strain_4
 Text HLabel 2550 1750 0    50   Input ~ 0
 Strain_3
 Text HLabel 2550 1850 0    50   Input ~ 0
@@ -144,4 +142,5 @@ Wire Wire Line
 	2600 1850 2550 1850
 Wire Wire Line
 	2600 1950 2550 1950
+NoConn ~ 2550 1650
 $EndSCHEMATC
