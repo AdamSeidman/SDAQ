@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 2
+Sheet 2 2
 Title ""
 Date ""
 Rev ""
@@ -76,6 +76,32 @@ F 1 "MH_c" H 4550 4055 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 4450 4100 50  0001 C CNN
 F 3 "~" H 4450 4100 50  0001 C CNN
 	1    4450 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 61FDEFA3
+P 5050 3850
+AR Path="/61FDEFA3" Ref="H?"  Part="1" 
+AR Path="/61664AB6/61FDEFA3" Ref="H6"  Part="1" 
+F 0 "H6" H 5150 3896 50  0000 L CNN
+F 1 "MH4" H 5150 3805 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 5050 3850 50  0001 C CNN
+F 3 "~" H 5050 3850 50  0001 C CNN
+	1    5050 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 61FDEFA9
+P 5100 4100
+AR Path="/61FDEFA9" Ref="H?"  Part="1" 
+AR Path="/61664AB6/61FDEFA9" Ref="H7"  Part="1" 
+F 0 "H7" H 5200 4146 50  0000 L CNN
+F 1 "MH_c" H 5200 4055 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 5100 4100 50  0001 C CNN
+F 3 "~" H 5100 4100 50  0001 C CNN
+	1    5100 4100
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
