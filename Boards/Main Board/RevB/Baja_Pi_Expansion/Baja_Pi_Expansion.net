@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "C:\\Users\\Adam\\Documents\\#Code\\SDAQ\\Boards\\Main Board\\RevB\\Baja_Pi_Expansion\\Baja_Pi_Expansion.sch")
-    (date "2/3/2022 2:47:46 PM")
+    (date "2/3/2022 3:06:49 PM")
     (tool "Eeschema (5.1.9)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -70,7 +70,7 @@
       (tstamp 6162C8FC))
     (comp (ref J3)
       (value Screw_Terminal_01x04)
-      (footprint Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical)
+      (footprint "Custom Footprints:Spring_4")
       (datasheet ~)
       (libsource (lib Connector) (part Screw_Terminal_01x04) (description "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
@@ -105,7 +105,7 @@
       (tstamp 61FC7A33))
     (comp (ref J5)
       (value Screw_Terminal_01x04)
-      (footprint Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical)
+      (footprint "Custom Footprints:Spring_4")
       (datasheet ~)
       (libsource (lib Connector) (part Screw_Terminal_01x04) (description "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))

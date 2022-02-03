@@ -405,7 +405,7 @@ U 1 1 61635B3A
 P 4100 6150
 F 0 "J3" H 4180 6142 50  0000 L CNN
 F 1 "Screw_Terminal_01x04" H 4180 6051 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4100 6150 50  0001 C CNN
+F 2 "Custom Footprints:Spring_4" H 4100 6150 50  0001 C CNN
 F 3 "~" H 4100 6150 50  0001 C CNN
 	1    4100 6150
 	1    0    0    -1  
@@ -533,7 +533,7 @@ U 1 1 61FCA862
 P 4100 5500
 F 0 "J5" H 4180 5492 50  0000 L CNN
 F 1 "Screw_Terminal_01x04" H 4180 5401 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4100 5500 50  0001 C CNN
+F 2 "Custom Footprints:Spring_4" H 4100 5500 50  0001 C CNN
 F 3 "~" H 4100 5500 50  0001 C CNN
 	1    4100 5500
 	1    0    0    -1  
