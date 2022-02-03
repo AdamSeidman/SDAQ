@@ -458,24 +458,20 @@ vcc
 $Comp
 L Connector:Conn_01x03_Male J5
 U 1 1 61637A7E
-P 9900 5200
-F 0 "J5" H 10008 5481 50  0000 C CNN
-F 1 "Conn_01x03_Male" H 10008 5390 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 9900 5200 50  0001 C CNN
-F 3 "~" H 9900 5200 50  0001 C CNN
-	1    9900 5200
+P 9950 5100
+F 0 "J5" H 10058 5381 50  0000 C CNN
+F 1 "Conn_01x03_Male" H 10058 5290 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 9950 5100 50  0001 C CNN
+F 3 "~" H 9950 5100 50  0001 C CNN
+	1    9950 5100
 	1    0    0    -1  
 $EndComp
 Text Label 9800 6300 2    50   ~ 0
 gnd
 Text Label 9800 6000 2    50   ~ 0
 gnd
-Text Label 10150 5300 0    50   ~ 0
-gnd
-Text Label 10150 5200 0    50   ~ 0
+Text Label 10250 5100 0    50   ~ 0
 dig_in
-Text Label 10150 5100 0    50   ~ 0
-5v
 Text Label 9800 5800 2    50   ~ 0
 5v
 Text Label 9800 6100 2    50   ~ 0
@@ -485,39 +481,17 @@ dig_in
 Text Label 9800 6200 2    50   ~ 0
 analog_in
 $Comp
-L Device:R_US R5
-U 1 1 6163FA23
-P 10800 5100
-F 0 "R5" H 10868 5146 50  0000 L CNN
-F 1 "R_US" H 10868 5055 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10840 5090 50  0001 C CNN
-F 3 "~" H 10800 5100 50  0001 C CNN
-	1    10800 5100
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R_US R6
 U 1 1 6163FA29
-P 10800 5600
-F 0 "R6" H 10868 5646 50  0000 L CNN
-F 1 "R_US" H 10868 5555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10840 5590 50  0001 C CNN
-F 3 "~" H 10800 5600 50  0001 C CNN
-	1    10800 5600
-	1    0    0    -1  
+P 10550 5200
+F 0 "R6" H 10618 5246 50  0000 L CNN
+F 1 "R_US" H 10618 5155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10590 5190 50  0001 C CNN
+F 3 "~" H 10550 5200 50  0001 C CNN
+	1    10550 5200
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	10800 5450 10800 5350
-Wire Wire Line
-	10850 5350 10800 5350
-Connection ~ 10800 5350
-Wire Wire Line
-	10800 5350 10800 5250
-Text Label 10850 5350 0    50   ~ 0
-dig_in
-Text Label 10800 4850 1    50   ~ 0
-5v
-Text Label 10800 5800 3    50   ~ 0
+Text Label 10750 5200 0    50   ~ 0
 gnd
 Text Label 8800 5400 2    50   ~ 0
 gpio2
@@ -535,7 +509,7 @@ Wire Wire Line
 	8950 5550 8800 5550
 Wire Wire Line
 	8950 5400 8800 5400
-Text Notes 10250 5400 2    50   ~ 0
+Text Notes 10250 5300 2    50   ~ 0
 pin jumper
 $Sheet
 S 3650 4300 700  500 
@@ -588,15 +562,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 7050 5600 7000
 Wire Wire Line
-	10150 5100 10100 5100
-Wire Wire Line
-	10150 5200 10100 5200
-Wire Wire Line
-	10150 5300 10100 5300
-Wire Wire Line
-	10800 4950 10800 4850
-Wire Wire Line
-	10800 5800 10800 5750
+	10750 5200 10700 5200
 Wire Wire Line
 	7900 5900 7950 5900
 Wire Wire Line
@@ -605,4 +571,25 @@ Wire Wire Line
 	7900 6100 7950 6100
 Wire Wire Line
 	7950 6200 7900 6200
+$Comp
+L Device:R_US R5
+U 1 1 6163FA23
+P 10550 5000
+F 0 "R5" H 10618 5046 50  0000 L CNN
+F 1 "R_US" H 10618 4955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10590 4990 50  0001 C CNN
+F 3 "~" H 10550 5000 50  0001 C CNN
+	1    10550 5000
+	0    -1   -1   0   
+$EndComp
+Text Label 10750 5000 0    50   ~ 0
+5v
+Wire Wire Line
+	10150 5000 10400 5000
+Wire Wire Line
+	10750 5000 10700 5000
+Wire Wire Line
+	10400 5200 10150 5200
+Wire Wire Line
+	10250 5100 10150 5100
 $EndSCHEMATC
