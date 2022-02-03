@@ -73,12 +73,11 @@ F1 "controller.sch" 50
 F2 "GND" I R 7850 2800 50 
 F3 "5V" I R 7850 2650 50 
 F4 "Reset" I L 5750 3000 50 
-F5 "Strain_4" I R 7850 3600 50 
-F6 "Strain_3" I R 7850 3750 50 
-F7 "Strain_2" I R 7850 3900 50 
-F8 "Strain_1" I R 7850 4050 50 
-F9 "I2C_Clock" B L 5750 3350 50 
-F10 "I2C_Data" B L 5750 3500 50 
+F5 "Strain_3" I R 7850 3750 50 
+F6 "Strain_2" I R 7850 3900 50 
+F7 "Strain_1" I R 7850 4050 50 
+F8 "I2C_Clock" B L 5750 3350 50 
+F9 "I2C_Data" B L 5750 3500 50 
 $EndSheet
 Text Notes 4500 2650 0    50   ~ 0
 Pins here are n + 20\n
@@ -104,43 +103,22 @@ F2 "5V" I L 8500 3700 50
 F3 "GND" I L 8500 3800 50 
 F4 "Strain_Out" I L 8500 3900 50 
 $EndSheet
-$Sheet
-S 9450 3550 800  700 
-U 61575905
-F0 "Strain_4" 50
-F1 "StrainGuage.sch" 50
-F2 "5V" I R 10250 3700 50 
-F3 "GND" I R 10250 3800 50 
-F4 "Strain_Out" I R 10250 3900 50 
-$EndSheet
 Wire Wire Line
 	10250 2700 10400 2700
 Wire Wire Line
 	10400 2700 10400 3450
-Wire Wire Line
-	10400 3700 10250 3700
 Text Label 8000 2450 0    50   ~ 0
 5V
 Text Label 8250 2500 0    50   ~ 0
 GND
 Wire Wire Line
-	10250 3800 10300 3800
-Wire Wire Line
-	10300 3800 10300 3200
-Wire Wire Line
 	10300 2800 10250 2800
 Text Label 7850 3900 0    50   ~ 0
 Strain_2
-Text Label 7850 3600 0    50   ~ 0
-Strain_4
 Text Label 10600 2900 0    50   ~ 0
 Strain_2
-Text Label 10600 3900 0    50   ~ 0
-Strain_4
 Wire Wire Line
 	10250 2900 10600 2900
-Wire Wire Line
-	10250 3900 10600 3900
 Text Label 5150 1600 0    50   ~ 0
 Reset
 Text Label 5750 3000 2    50   ~ 0
@@ -160,14 +138,10 @@ Text Label 10700 3450 0    50   ~ 0
 5V
 Wire Wire Line
 	10700 3200 10300 3200
-Connection ~ 10300 3200
 Wire Wire Line
 	10300 3200 10300 2800
 Wire Wire Line
 	10700 3450 10400 3450
-Connection ~ 10400 3450
-Wire Wire Line
-	10400 3450 10400 3700
 Text Label 3150 1950 2    50   ~ 0
 I2C_Clock
 Text Label 3150 1750 2    50   ~ 0
@@ -178,17 +152,6 @@ Text Label 5750 3500 2    50   ~ 0
 I2C_Data
 Text Label 5150 1700 0    50   ~ 0
 Interconnect
-$Comp
-L Mechanical:MountingHole M2.5
-U 1 1 615FF776
-P 2100 3050
-F 0 "M2.5" H 2200 3096 50  0000 L CNN
-F 1 "CMH" H 2200 3005 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 2100 3050 50  0001 C CNN
-F 3 "~" H 2100 3050 50  0001 C CNN
-	1    2100 3050
-	1    0    0    -1  
-$EndComp
 $Sheet
 S 3600 3550 1050 900 
 U 616005C4
@@ -275,4 +238,11 @@ Wire Wire Line
 	8500 3900 8350 3900
 Wire Wire Line
 	8350 3900 8350 4300
+NoConn ~ 6350 1600
+$Sheet
+S 1850 3550 1200 900 
+U 61F58F90
+F0 "Holes" 50
+F1 "Holes.sch" 50
+$EndSheet
 $EndSCHEMATC

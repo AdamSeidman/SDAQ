@@ -18,7 +18,7 @@ L Connector:Conn_01x15_Female J11
 U 1 1 614FE43E
 P 1600 1550
 F 0 "J11" H 2050 1500 50  0000 L CNN
-F 1 "Arduino Nano" H 1850 1400 50  0000 L CNN
+F 1 "Arduino Nano L" H 1850 1400 50  0000 L CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 1600 1550 50  0001 C CNN
 F 3 "~" H 1600 1550 50  0001 C CNN
 	1    1600 1550
@@ -43,7 +43,7 @@ L Connector:Conn_01x15_Female J12
 U 1 1 61504D87
 P 2800 1550
 F 0 "J12" H 3150 2000 50  0000 L CNN
-F 1 "Arduino Nano" H 2950 1900 50  0000 L CNN
+F 1 "Arduino Nano R" H 2950 1900 50  0000 L CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 2800 1550 50  0001 C CNN
 F 3 "~" H 2800 1550 50  0001 C CNN
 	1    2800 1550

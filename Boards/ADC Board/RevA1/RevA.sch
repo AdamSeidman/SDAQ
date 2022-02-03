@@ -239,10 +239,10 @@ I2C_Data
 Text Label 1400 1850 2    50   ~ 0
 I2C_Clock
 $Comp
-L Mechanical:MountingHole M2.1
+L Mechanical:MountingHole M2.5
 U 1 1 616626E5
 P 3950 3550
-F 0 "M2.1" H 4050 3596 50  0000 L CNN
+F 0 "M2.5" H 4050 3596 50  0000 L CNN
 F 1 "CMH" H 4050 3505 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 3950 3550 50  0001 C CNN
 F 3 "~" H 3950 3550 50  0001 C CNN
