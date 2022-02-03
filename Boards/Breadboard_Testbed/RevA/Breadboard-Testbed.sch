@@ -142,7 +142,7 @@ gpio 11
 Text Notes 3900 5400 2    50   ~ 0
 gpio 0
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J1
+L Connector_Generic:Conn_02x10_Odd_Even J1
 U 1 1 6160E35B
 P 1900 1750
 F 0 "J1" H 1950 2367 50  0000 C CNN
@@ -153,7 +153,7 @@ F 3 "~" H 1900 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J2
+L Connector_Generic:Conn_02x12_Odd_Even J2
 U 1 1 6160FED6
 P 4300 5300
 F 0 "J2" H 4350 6017 50  0000 C CNN
@@ -176,7 +176,7 @@ vcc
 Text Notes 7850 6100 2    50   ~ 0
 +20
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J12
+L Connector_Generic:Conn_02x12_Odd_Even J12
 U 1 1 61FD41D1
 P 10000 5350
 F 0 "J12" H 10050 6067 50  0000 C CNN
@@ -191,7 +191,7 @@ Text Notes 10100 6100 2    50   ~ 0
 Text Label 4600 5100 0    50   ~ 0
 NC
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J5
+L Connector_Generic:Conn_02x10_Odd_Even J5
 U 1 1 61FF84C4
 P 5600 1700
 F 0 "J5" H 5650 2317 50  0000 C CNN
@@ -202,7 +202,7 @@ F 3 "~" H 5600 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J8
+L Connector_Generic:Conn_02x10_Odd_Even J8
 U 1 1 61FFAAA2
 P 7750 1700
 F 0 "J8" H 7800 2317 50  0000 C CNN
@@ -213,7 +213,7 @@ F 3 "~" H 7750 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J3
+L Connector_Generic:Conn_02x10_Odd_Even J3
 U 1 1 62008AB1
 P 3050 3200
 F 0 "J3" H 3100 3817 50  0000 C CNN
@@ -224,7 +224,7 @@ F 3 "~" H 3050 3200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x10_Counter_Clockwise J4
+L Connector_Generic:Conn_02x10_Odd_Even J4
 U 1 1 6200A2AB
 P 3850 3200
 F 0 "J4" H 3900 3817 50  0000 C CNN
@@ -326,7 +326,7 @@ F 3 "~" H 1150 4900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x15_Counter_Clockwise J6
+L Connector_Generic:Conn_02x15_Odd_Even J6
 U 1 1 62019DEC
 P 6500 3400
 F 0 "J6" H 6550 4317 50  0000 C CNN
@@ -337,7 +337,7 @@ F 3 "~" H 6500 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x15_Counter_Clockwise J7
+L Connector_Generic:Conn_02x15_Odd_Even J7
 U 1 1 6203836E
 P 7000 3400
 F 0 "J7" H 7050 4317 50  0000 C CNN
@@ -378,7 +378,7 @@ Wire Wire Line
 Wire Wire Line
 	6300 4100 7300 4100
 $Comp
-L Connector_Generic:Conn_02x15_Counter_Clockwise J10
+L Connector_Generic:Conn_02x15_Odd_Even J10
 U 1 1 6204A5F5
 P 8100 3350
 F 0 "J10" H 8150 4267 50  0000 C CNN
@@ -389,7 +389,7 @@ F 3 "~" H 8100 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x15_Counter_Clockwise J11
+L Connector_Generic:Conn_02x15_Odd_Even J11
 U 1 1 6204A5FB
 P 8600 3350
 F 0 "J11" H 8650 4267 50  0000 C CNN
@@ -550,7 +550,7 @@ Text Notes 7200 1500 0    50   ~ 0
 Text Notes 7050 1400 0    50   ~ 0
 gpio 10
 $Comp
-L Connector_Generic:Conn_02x12_Counter_Clockwise J9
+L Connector_Generic:Conn_02x12_Odd_Even J9
 U 1 1 61FD1A5A
 P 7750 5350
 F 0 "J9" H 7800 6067 50  0000 C CNN
