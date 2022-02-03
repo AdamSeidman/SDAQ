@@ -171,46 +171,8 @@ Text Notes 3900 4800 2    50   ~ 0
 gpio 9
 Text Notes 4400 6050 2    50   ~ 0
 +20
-Text Label 4600 4800 0    50   ~ 0
-vcc1
 Text Label 4600 4900 0    50   ~ 0
 vcc
-$Comp
-L Device:R_US R5
-U 1 1 61FC7A2D
-P 1250 3550
-AR Path="/61FC7A2D" Ref="R5"  Part="1" 
-AR Path="/6164E083/61FC7A2D" Ref="R?"  Part="1" 
-F 0 "R5" H 1318 3596 50  0000 L CNN
-F 1 "350?" H 1318 3505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1290 3540 50  0001 C CNN
-F 3 "~" H 1250 3550 50  0001 C CNN
-	1    1250 3550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D1
-U 1 1 61FC7A33
-P 1250 3900
-AR Path="/61FC7A33" Ref="D1"  Part="1" 
-AR Path="/6164E083/61FC7A33" Ref="D?"  Part="1" 
-F 0 "D1" V 1289 3782 50  0000 R CNN
-F 1 "LED" V 1198 3782 50  0000 R CNN
-F 2 "LED_SMD:LED_1812_4532Metric" H 1250 3900 50  0001 C CNN
-F 3 "~" H 1250 3900 50  0001 C CNN
-	1    1250 3900
-	0    -1   -1   0   
-$EndComp
-Text HLabel 1250 3350 1    50   Input ~ 0
-Vcc
-Text HLabel 1250 4100 3    50   Input ~ 0
-GND
-Wire Wire Line
-	1250 3750 1250 3700
-Wire Wire Line
-	1250 4100 1250 4050
-Wire Wire Line
-	1250 3350 1250 3400
 Text Notes 7850 6100 2    50   ~ 0
 +20
 $Comp
@@ -758,4 +720,6 @@ Text Notes 10500 5450 0    50   ~ 0
 gpio 0
 Text Notes 10500 4850 0    50   ~ 0
 gpio 9
+Text Label 4600 4800 0    50   ~ 0
+vcc1
 $EndSCHEMATC
