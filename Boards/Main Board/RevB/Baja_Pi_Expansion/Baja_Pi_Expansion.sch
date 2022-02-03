@@ -492,12 +492,12 @@ F 3 "~" H 5950 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_US R?
+L Device:R_US R5
 U 1 1 61FC7A2D
 P 3400 3700
-AR Path="/61FC7A2D" Ref="R?"  Part="1" 
+AR Path="/61FC7A2D" Ref="R5"  Part="1" 
 AR Path="/6164E083/61FC7A2D" Ref="R?"  Part="1" 
-F 0 "R?" H 3468 3746 50  0000 L CNN
+F 0 "R5" H 3468 3746 50  0000 L CNN
 F 1 "350?" H 3468 3655 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 3440 3690 50  0001 C CNN
 F 3 "~" H 3400 3700 50  0001 C CNN
@@ -505,12 +505,12 @@ F 3 "~" H 3400 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D?
+L Device:LED D1
 U 1 1 61FC7A33
 P 3400 4050
-AR Path="/61FC7A33" Ref="D?"  Part="1" 
+AR Path="/61FC7A33" Ref="D1"  Part="1" 
 AR Path="/6164E083/61FC7A33" Ref="D?"  Part="1" 
-F 0 "D?" V 3439 3932 50  0000 R CNN
+F 0 "D1" V 3439 3932 50  0000 R CNN
 F 1 "LED" V 3348 3932 50  0000 R CNN
 F 2 "LED_SMD:LED_1812_4532Metric" H 3400 4050 50  0001 C CNN
 F 3 "~" H 3400 4050 50  0001 C CNN
@@ -528,10 +528,10 @@ Wire Wire Line
 Wire Wire Line
 	3400 3500 3400 3550
 $Comp
-L Connector:Screw_Terminal_01x04 J?
+L Connector:Screw_Terminal_01x04 J5
 U 1 1 61FCA862
 P 4100 5500
-F 0 "J?" H 4180 5492 50  0000 L CNN
+F 0 "J5" H 4180 5492 50  0000 L CNN
 F 1 "Screw_Terminal_01x04" H 4180 5401 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4100 5500 50  0001 C CNN
 F 3 "~" H 4100 5500 50  0001 C CNN
