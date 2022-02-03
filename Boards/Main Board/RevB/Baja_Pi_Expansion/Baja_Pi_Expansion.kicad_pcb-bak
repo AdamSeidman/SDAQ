@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 28)
+    (drawings 27)
     (tracks 427)
     (zones 0)
     (modules 25)
@@ -1241,9 +1241,6 @@
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (gr_text "Pull Up" (at 168.105 121.874 90) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-  (gr_text "Left to do:\nRoute" (at 230.02 130.69) (layer Dwgs.User)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (gr_line (start 155.66 98) (end 257.82 98) (layer Dwgs.User) (width 0.15))
