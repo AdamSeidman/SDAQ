@@ -38,12 +38,12 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_02x10_Odd_Even J5
 U 1 1 61FF84C4
-P 1450 1450
-F 0 "J5" H 1500 2067 50  0000 C CNN
-F 1 "Conn_02x10_Counter_Clockwise" H 1500 1976 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 1450 1450 50  0001 C CNN
-F 3 "~" H 1450 1450 50  0001 C CNN
-	1    1450 1450
+P 1900 1450
+F 0 "J5" H 1950 2067 50  0000 C CNN
+F 1 "Conn_02x10_Counter_Clockwise" H 1950 1976 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 1900 1450 50  0001 C CNN
+F 3 "~" H 1900 1450 50  0001 C CNN
+	1    1900 1450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -80,116 +80,18 @@ F 3 "~" H 3400 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2200 1050 1750 1050
-Wire Wire Line
-	1250 1050 1750 1050
-Connection ~ 1750 1050
-Wire Wire Line
-	2200 1150 1750 1150
-Wire Wire Line
-	1750 1150 1250 1150
-Connection ~ 1750 1150
-Wire Wire Line
-	1250 1250 1750 1250
-Wire Wire Line
-	2200 1250 1750 1250
-Connection ~ 1750 1250
-Wire Wire Line
-	2200 1350 1750 1350
-Wire Wire Line
-	1250 1350 1750 1350
-Connection ~ 1750 1350
-Wire Wire Line
-	1250 1450 1750 1450
-Wire Wire Line
-	1750 1450 2200 1450
-Connection ~ 1750 1450
-Wire Wire Line
-	2200 1550 1750 1550
-Wire Wire Line
-	1250 1550 1750 1550
-Connection ~ 1750 1550
-Wire Wire Line
-	1250 1650 1750 1650
-Wire Wire Line
-	1750 1650 2200 1650
-Connection ~ 1750 1650
-Wire Wire Line
-	2200 1750 1750 1750
-Wire Wire Line
-	1750 1750 1250 1750
-Connection ~ 1750 1750
-Wire Wire Line
-	1250 1850 1750 1850
-Wire Wire Line
-	1750 1850 2200 1850
-Connection ~ 1750 1850
-Wire Wire Line
-	2200 1950 1750 1950
-Wire Wire Line
-	1750 1950 1250 1950
-Connection ~ 1750 1950
+	1400 3050 900  3050
 $Comp
 L Connector_Generic:Conn_02x10_Odd_Even J8
 U 1 1 61FFAAA2
-P 3300 1450
-F 0 "J8" H 3350 2067 50  0000 C CNN
-F 1 "Conn_02x10_Counter_Clockwise" H 3350 1976 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 3300 1450 50  0001 C CNN
-F 3 "~" H 3300 1450 50  0001 C CNN
-	1    3300 1450
+P 2900 1450
+F 0 "J8" H 2950 2067 50  0000 C CNN
+F 1 "Conn_02x10_Counter_Clockwise" H 2950 1976 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical" H 2900 1450 50  0001 C CNN
+F 3 "~" H 2900 1450 50  0001 C CNN
+	1    2900 1450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2700 1050 3100 1050
-Wire Wire Line
-	3600 1050 3100 1050
-Connection ~ 3100 1050
-Wire Wire Line
-	3600 1150 3100 1150
-Wire Wire Line
-	3100 1150 2700 1150
-Connection ~ 3100 1150
-Wire Wire Line
-	2700 1250 3100 1250
-Wire Wire Line
-	3600 1250 3100 1250
-Connection ~ 3100 1250
-Wire Wire Line
-	3600 1350 3100 1350
-Wire Wire Line
-	3100 1350 2700 1350
-Connection ~ 3100 1350
-Wire Wire Line
-	2700 1450 3100 1450
-Wire Wire Line
-	3100 1450 3600 1450
-Connection ~ 3100 1450
-Wire Wire Line
-	3600 1550 3100 1550
-Wire Wire Line
-	3100 1550 2700 1550
-Connection ~ 3100 1550
-Wire Wire Line
-	2700 1650 3100 1650
-Wire Wire Line
-	3100 1650 3600 1650
-Connection ~ 3100 1650
-Wire Wire Line
-	3600 1750 3100 1750
-Wire Wire Line
-	3100 1750 2700 1750
-Connection ~ 3100 1750
-Wire Wire Line
-	2700 1850 3100 1850
-Wire Wire Line
-	3600 1850 3100 1850
-Connection ~ 3100 1850
-Wire Wire Line
-	2700 1950 3100 1950
-Connection ~ 3100 1950
-Wire Wire Line
-	3100 1950 3600 1950
 Wire Wire Line
 	4100 4800 3700 4800
 Wire Wire Line
@@ -621,4 +523,64 @@ Connection ~ 3650 3850
 Wire Wire Line
 	3550 3850 3050 3850
 Connection ~ 3550 3850
+Wire Wire Line
+	2200 1050 1700 1050
+Connection ~ 2200 1050
+Wire Wire Line
+	2200 1150 1700 1150
+Connection ~ 2200 1150
+Wire Wire Line
+	1700 1250 2200 1250
+Connection ~ 2200 1250
+Wire Wire Line
+	2200 1350 1700 1350
+Connection ~ 2200 1350
+Wire Wire Line
+	1700 1450 2200 1450
+Connection ~ 2200 1450
+Wire Wire Line
+	2200 1550 1700 1550
+Connection ~ 2200 1550
+Wire Wire Line
+	1700 1650 2200 1650
+Connection ~ 2200 1650
+Wire Wire Line
+	2200 1750 1700 1750
+Connection ~ 2200 1750
+Wire Wire Line
+	1700 1850 2200 1850
+Connection ~ 2200 1850
+Wire Wire Line
+	2200 1950 1700 1950
+Connection ~ 2200 1950
+Wire Wire Line
+	2700 1950 3200 1950
+Connection ~ 2700 1950
+Wire Wire Line
+	3200 1850 2700 1850
+Connection ~ 2700 1850
+Wire Wire Line
+	2700 1750 3200 1750
+Connection ~ 2700 1750
+Wire Wire Line
+	3200 1650 2700 1650
+Connection ~ 2700 1650
+Wire Wire Line
+	2700 1550 3200 1550
+Connection ~ 2700 1550
+Wire Wire Line
+	3200 1450 2700 1450
+Connection ~ 2700 1450
+Wire Wire Line
+	2700 1350 3200 1350
+Connection ~ 2700 1350
+Wire Wire Line
+	3200 1250 2700 1250
+Connection ~ 2700 1250
+Wire Wire Line
+	2700 1150 3200 1150
+Connection ~ 2700 1150
+Wire Wire Line
+	3200 1050 2700 1050
+Connection ~ 2700 1050
 $EndSCHEMATC
