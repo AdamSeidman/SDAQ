@@ -50,10 +50,6 @@ F 3 "~" H 3000 1850 50  0001 C CNN
 $EndComp
 Text Label 1400 1450 2    50   ~ 0
 3.3V
-Text Label 1400 1550 2    50   ~ 0
-5V
-Text Label 1400 1750 2    50   ~ 0
-5V
 Text Label 1400 1950 2    50   ~ 0
 GND
 Text Label 1400 2250 2    50   ~ 0
@@ -304,4 +300,10 @@ Interconnect
 Wire Wire Line
 	3100 2900 3200 2900
 NoConn ~ 3200 2900
+NoConn ~ 1400 1550
+NoConn ~ 1400 1750
+Text Notes 1350 1550 2    50   ~ 0
+5V
+Text Notes 1350 1750 2    50   ~ 0
+5V
 $EndSCHEMATC

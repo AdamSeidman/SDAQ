@@ -50,10 +50,6 @@ F 3 "~" H 3000 1850 50  0001 C CNN
 $EndComp
 Text Label 1400 1450 2    50   ~ 0
 3.3V
-Text Label 1400 1550 2    50   ~ 0
-5V
-Text Label 1400 1750 2    50   ~ 0
-5V
 Text Label 1400 1950 2    50   ~ 0
 GND
 Text Label 1400 2250 2    50   ~ 0
@@ -239,10 +235,10 @@ I2C_Data
 Text Label 1400 1850 2    50   ~ 0
 I2C_Clock
 $Comp
-L Mechanical:MountingHole M2.1
+L Mechanical:MountingHole M2.5
 U 1 1 616626E5
 P 3950 3550
-F 0 "M2.1" H 4050 3596 50  0000 L CNN
+F 0 "M2.5" H 4050 3596 50  0000 L CNN
 F 1 "CMH" H 4050 3505 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 3950 3550 50  0001 C CNN
 F 3 "~" H 3950 3550 50  0001 C CNN
@@ -304,4 +300,10 @@ Interconnect
 Wire Wire Line
 	3100 2900 3200 2900
 NoConn ~ 3200 2900
+NoConn ~ 1400 1550
+NoConn ~ 1400 1750
+Text Notes 1350 1550 2    50   ~ 0
+5V
+Text Notes 1350 1750 2    50   ~ 0
+5V
 $EndSCHEMATC
