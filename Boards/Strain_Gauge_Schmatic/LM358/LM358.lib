@@ -1,0 +1,45 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# LM358
+#
+DEF LM358 U 0 40 Y N 3 L N
+F0 "U" -200 230 50 H V L BNN
+F1 "LM358" -200 -300 50 H V L BNN
+F3 "" 0 0 50 H I L BNN
+F4 "LM358" 0 0 50 H I L BNN "VALUE"
+F5 "IC-09172" 0 0 50 H I L BNN "PROD_ID"
+$FPLIST
+ DIP08
+ DIP08-KIT
+$ENDFPLIST
+DRAW
+P 2 1 0 6 -150 -75 -150 -125 N
+P 2 1 0 6 -175 100 -125 100 N
+P 2 1 0 6 -175 -100 -125 -100 N
+P 2 1 0 16 200 0 -200 200 N
+P 2 1 0 16 -200 200 -200 -200 N
+P 2 1 0 16 -200 -200 200 0 N
+X ~ 3 -300 -100 100 R 40 40 1 0 I 
+X ~ 2 -300 100 100 R 40 40 1 0 I 
+X ~ 1 300 0 100 L 40 40 1 0 O 
+P 2 2 0 6 -150 -75 -150 -125 N
+P 2 2 0 6 -175 100 -125 100 N
+P 2 2 0 6 -175 -100 -125 -100 N
+P 2 2 0 16 200 0 -200 200 N
+P 2 2 0 16 -200 200 -200 -200 N
+P 2 2 0 16 -200 -200 200 0 N
+X ~ 5 -300 -100 100 R 40 40 2 0 I 
+X ~ 6 -300 100 100 R 40 40 2 0 I 
+X ~ 7 300 0 100 L 40 40 2 0 O 
+T 0 5 -185 50 0 3 0 VEE Normal 0 C B
+T 0 5 135 50 0 3 0 VCC Normal 0 C B
+S -100 -200 100 200 3 0 10 f
+X ~ 8 0 300 100 D 40 40 3 0 B 
+X ~ 4 0 -300 100 U 40 40 3 0 B 
+ENDDRAW
+ENDDEF
+#
+# End Library
