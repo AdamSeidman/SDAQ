@@ -1,3 +1,5 @@
 _personal/
 .DS_Store
 
+/GUI/.idea/
+/GUI/venv/
