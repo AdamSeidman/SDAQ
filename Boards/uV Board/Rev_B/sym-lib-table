@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name LM1117IMPX-5.0)(type Legacy)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/LM1117IMPX-5.0/LM1117IMPX-5.0.lib)(options "")(descr ""))
+  (lib (name Rev_B-rescue)(type Legacy)(uri ${KIPRJMOD}/Rev_B-rescue.lib)(options "")(descr ""))
 )
