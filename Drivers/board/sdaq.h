@@ -3,7 +3,7 @@
 
 #include "Wire.h"
 
-#define RPI_DEVC_CODE (0x08)
+#define RPI_DEVC_CODE (0x70)
 
 #define ADC_BOARD     (0x10)
 #define STRAIN_BOARD  (0x20)
