@@ -51,7 +51,7 @@ start_time = get_time()
 
 while True:
 	try:
-		data = I2Cbus.read_i2c_block_data(0x11, 0x00)
+		data = I2Cbus.read_i2c_block_data(0x08, 0x00)[0]
 		plot(data)
 	except:
 		print("error")

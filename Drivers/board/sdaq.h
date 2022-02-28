@@ -3,28 +3,30 @@
 
 #include "Wire.h"
 
-#define RPI_DEVC_CODE (0x70)
+#define ADC_BOARD     (0x08)
+#define STRAIN_BOARD  (0x10)
+#define IMU_BOARD     (0x18)
 
-#define ADC_BOARD     (0x10)
-#define STRAIN_BOARD  (0x20)
-#define IMU_BOARD     (0x30)
-#define BREADBOARD    (0x40)
+#define OTHER_1       (0x20)
+#define OTHER_2       (0x28)
+#define OTHER_3       (0x30)
+#define OTHER_4       (0x38)
+#define OTHER_5       (0x40)
+#define OTHER_6       (0x48)
+#define OTHER_7       (0x50)
+#define OTHER_8       (0x58)
+#define OTHER_9       (0x60)
+#define OTHER_10      (0x68)
+#define OTHER_11      (0x70)
 
 #define BAUD_RATE     (9600)
 
-#define INFO_MASK     (0x80)
-#define DATA_MASK     (~INFO_MASK)
-
-#define SENSOR_ID_POS (1)
-
-// ms delay between transfers
-#define DATA_RATE     (40)
-
-void connectDevice(byte MASTER_DEVICE_CODE, byte BOARD_TYPE_ID, byte BOARD_NUM);
-void sendBytes(byte SENSOR_ID, byte DATA);
-
+void connectDevice(byte BOARD_TYPE_ID, byte BOARD_NUM);
 void serialBegin(boolean OUTPUT_ENABLED);
 void _println(String s);
 void _print(String s);
+
+void setupBoard();
+void requestEvent();
 
 #endif
