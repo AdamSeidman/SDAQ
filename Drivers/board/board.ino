@@ -16,9 +16,16 @@ void setup()
   setupBoard();
 }
 
+int i = 0;
+
 void requestEvent()
 {
-  Wire.write( byte(analogRead(A0)) );
+  //Wire.write( byte(analogRead(A0)) );
+
+  Wire.write( byte(i) );
+  i += 1;
+  i %= 256; // TODO remove test data
+  
   Wire.write( byte(analogRead(A1)) );
   Wire.write( byte(analogRead(A2)) );
   Wire.write( byte(analogRead(A3)) );
