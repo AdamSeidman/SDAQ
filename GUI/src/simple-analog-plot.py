@@ -22,6 +22,9 @@ lines, = ax.plot([],[], '.b-')
 ax.set_autoscalex_on(True)
 ax.set_ylim(ymin - extra, ymax + extra)
 ax.grid()
+plt.title('Raw Analog Value Over Time')
+plt.xlabel('Seconds')
+plt.ylabel('Values')
 start_remove = False
 
 def plot(value):

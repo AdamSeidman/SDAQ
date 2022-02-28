@@ -21,6 +21,9 @@ lines, = ax.plot([],[], '.b-')
 ax.set_autoscalex_on(True)
 ax.set_ylim(ymin - extra, ymax + extra)
 ax.grid()
+plt.title('Values over Time')
+plt.xlabel('Seconds')
+plt.ylabel('Values')
 start_remove = False
 
 def plot(value):
