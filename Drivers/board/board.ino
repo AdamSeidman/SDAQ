@@ -4,14 +4,16 @@
 #define SERIAL_OUTPUT_ENABLED true
 
 /* BOARD CONSTANTS */
-#define BOARD_ID    (0x00)
-#define BOARD_TYPE  (ADC_BOARD)
+#define BOARD_ID      (0x00)
+#define BOARD_TYPE    (ADC_BOARD)
     // Translation: First ADC board on main RPI stack
+
+#define I2C_ADDRESS   BOARD_ID | BOARD_TYPE 
 
 void setup()
 {
   serialBegin(SERIAL_OUTPUT_ENABLED);
-  connectDevice(BOARD_TYPE, BOARD_ID);
+  connectDevice(I2C_ADDRESS);
 
   setupBoard();
 }
@@ -20,12 +22,9 @@ int i = 0;
 
 void requestEvent()
 {
-  //Wire.write( byte(analogRead(A0)) );
-
-  Wire.write( byte(i) );
-  i += 1;
-  i %= 256; // TODO remove test data
+  Wire.write( byte(I2C_ADDRESS) );
   
+  Wire.write( byte(analogRead(A0)) );
   Wire.write( byte(analogRead(A1)) );
   Wire.write( byte(analogRead(A2)) );
   Wire.write( byte(analogRead(A3)) );

@@ -20,6 +20,7 @@
 #define OTHER_11      (0x70)
 
 #define BAUD_RATE     (9600)
+#define I2C_RATE      (1000000)
 
 void connectDevice(byte BOARD_TYPE_ID, byte BOARD_NUM);
 void serialBegin(boolean OUTPUT_ENABLED);

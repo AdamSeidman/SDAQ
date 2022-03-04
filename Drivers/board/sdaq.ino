@@ -1,9 +1,10 @@
 #include "sdaq.h"
 
-void connectDevice(byte BOARD_TYPE_ID, byte BOARD_NUM)
+void connectDevice(byte i2c_address)
 {
   // IDs should be 0-7
-  Wire.begin(BOARD_TYPE_ID | BOARD_NUM);
+  Wire.setClock(I2C_RATE);
+  Wire.begin(i2c_address);
   Wire.onRequest(requestEvent);
 }
 
