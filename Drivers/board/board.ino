@@ -4,7 +4,7 @@
 #define SERIAL_OUTPUT_ENABLED true
 
 /* BOARD CONSTANTS */
-#define BOARD_ID      (0x00)
+#define BOARD_ID      (0x01)
 #define BOARD_TYPE    (ADC_BOARD)
     // Translation: First ADC board on main RPI stack
 
