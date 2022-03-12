@@ -1,56 +1,41 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 DEFAULT_LINE_TYPE = ".b-"
-lines = []
-figures = []
-axs = []
 
 plt.ion()
 
-def create_plot(firstLineType):
-	global figures, lines, axs
-	figure, ax = plt.subplots()
-	ax.set_autoscalex_on(True)
-	ax.set_autoscaley_on(True)
-	ax.grid()
-	figures.append(figure)
-	axs.append(ax)
-	lines.append([])
-	plotNum = len(lines) - 1
-	create_line(plotNum, firstLineType)
-	plot(plotNum, 0, [], [])
-	return plotNum
+class Plot:
+    __lines = []
+    __ax = None
+    __figure = None
+    
+    def __init__(self, line_type=DEFAULT_LINE_TYPE, title="", xlabel="", ylabel=""):
+        self.__figure, self.__ax = plt.subplots()
+        self.__ax.set_autoscalex_on(True)
+        self.__ax.set_autoscaley_on(True)
+        self.__ax.grid()
+        self.create_line(line_type)
+        self.plot(0, [], [])
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
 
-def set_title(plotNum, title):
-	global plt
-	plt.title(title)
-	
-def set_labels(plotNum, xlabel, ylabel):
-	global plt
-	plt.xlabel(xlabel)
-	plt.ylabel(ylabel)
+    def create_line(self, line_type=DEFAULT_LINE_TYPE):
+        if len(line_type) == 0:
+            line_type = DEFAULT_LINE_TYPE
+        line, = self.__ax.plot([], [], line_type)
+        self.__lines.append(line)
+        return len(self.__lines) - 1
 
-def create_line(plotNum, lineType):
-	global axs, lines
-	if plotNum >= len(lines):
-		return -1
-	if len(lineType) == 0:
-		lineType = DEFAULT_LINE_TYPE
-	line, = axs[plotNum].plot([], [], lineType)
-	lines[plotNum].append(line)
-	return len(lines[plotNum]) - 1
+    def set_title(self, title): #todo
+        plt.title(title)
 
-def plot(plotNum, lineNum, xData, yData):
-	global lines, axs, figures
-	if plotNum >= len(lines):
-		return False
-	while len(lines[plotNum]) <= lineNum:
-		create_line(DEFAULT_LINE_TYPE)
-	lines[plotNum][lineNum].set_xdata(xData)
-	lines[plotNum][lineNum].set_ydata(yData)
-	axs[plotNum].relim()
-	axs[plotNum].autoscale_view()
-	figures[plotNum].canvas.draw()
-	figures[plotNum].canvas.flush_events()
-	return True
+    def plot(self, line_num, xData, yData):
+        while len(self.__lines) <= line_num:
+            self.create_line()
+        self.__lines[line_num].set_xdata(xData)
+        self.__lines[line_num].set_ydata(yData)
+        self.__ax.relim()
+        self.__ax.autoscale_view()
+        self.__figure.canvas.draw()
+        self.__figure.canvas.flush_events()

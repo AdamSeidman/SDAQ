@@ -1,46 +1,5 @@
-import time
 import smbus
-import os.path
 import RPi.GPIO as GPIO
-
-resolution = 1000.0
-start_time = 0.0
-
-def get_time():
-    global start_time
-    return get_raw_time() - start_time
-
-def get_raw_time():
-    global resolution
-    return (round(time.time() * resolution) / resolution)
-
-def reset_time():
-    global start_time
-    start_time = get_raw_time()
-
-current_file = ""
-
-def get_new_file(fileDir, name, ext):
-    global current_file
-    if len(name) == 0:
-        return current_file
-    if len(fileDir) > 0:
-        fileDir += "/"
-    filename = fileDir + name + "." + ext
-    n = 1
-    while os.path.isfile(filename):
-        n += 1
-        filename = fileDir + name + "-" + str(n) + "." + ext
-    current_file = filename
-    return filename
-
-def write(words):
-    global current_file
-    if len(current_file) == 0:
-        return
-    f = open(current_file, "a")
-    f.write(words + "\n")
-    f.close()
 
 I2CBus = None
 
