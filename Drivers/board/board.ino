@@ -4,25 +4,50 @@
 #define SERIAL_OUTPUT_ENABLED true
 
 /* BOARD CONSTANTS */
-#define BOARD_ID    (0x01)
-#define BOARD_TYPE  (ADC_BOARD)
-#define MASTER_ADDR (RPI_DEVC_CODE)
+#define BOARD_ID      (0x01)
+#define BOARD_TYPE    (ADC_BOARD)
     // Translation: First ADC board on main RPI stack
+
+#define I2C_ADDRESS   BOARD_ID | BOARD_TYPE 
 
 void setup()
 {
   serialBegin(SERIAL_OUTPUT_ENABLED);
-  connectDevice(MASTER_ADDR, BOARD_TYPE, BOARD_ID);
+  connectDevice(I2C_ADDRESS);
+
+  setupBoard();
 }
 
-void loop() { // TODO
-  sendBytes(1, 32);
-  sendBytes(2, 16);
-  _println("H");
-  delay(1000);
+int i = 0;
 
-  sendBytes(1, 33);
-  sendBytes(2, 17);
-  _println("i");
-  delay(1000);
+void requestEvent()
+{
+  Wire.write( byte(I2C_ADDRESS) );
+  
+  Wire.write( byte(analogRead(A0)) );
+  Wire.write( byte(analogRead(A1)) );
+  Wire.write( byte(analogRead(A2)) );
+  Wire.write( byte(analogRead(A3)) );
+
+  Wire.write( byte(digitalRead(2)) );
+  Wire.write( byte(digitalRead(3)) );
+  Wire.write( byte(digitalRead(4)) );
+  Wire.write( byte(digitalRead(5)) );
 }
+
+void setupBoard()
+{
+  analogReference(DEFAULT);
+  
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(A3, INPUT);
+  
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+}
+
+void loop() {}

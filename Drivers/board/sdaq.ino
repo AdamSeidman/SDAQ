@@ -1,21 +1,12 @@
 #include "sdaq.h"
 
-byte masterDeviceCode = 0x00;
-
-void connectDevice(byte MASTER_DEVICE_CODE, byte BOARD_TYPE_ID, byte BOARD_NUM)
+void connectDevice(byte i2c_address)
 {
-  masterDeviceCode = MASTER_DEVICE_CODE;
-  Wire.begin(BOARD_TYPE_ID & BOARD_NUM);
+  // IDs should be 0-7
+  Wire.setClock(I2C_RATE);
+  Wire.begin(i2c_address);
+  Wire.onRequest(requestEvent);
 }
-
-void sendBytes(byte SENSOR_ID, byte DATA)
-{
-  Wire.beginTransmission(masterDeviceCode);
-  Wire.write( byte(INFO_MASK | (SENSOR_ID << SENSOR_ID_POS) | (DATA >> (8 - SENSOR_ID_POS))) );
-  Wire.write( byte(DATA & DATA_MASK) );
-  Wire.endTransmission();
-}
-
 
 boolean SERIAL_OUTPUT_ALLOWED = false;
 

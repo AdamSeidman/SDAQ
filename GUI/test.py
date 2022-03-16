@@ -2,6 +2,7 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
+import json
 
 from configparser import ConfigParser
 
@@ -9,22 +10,22 @@ config = ConfigParser()
 root = Tk()
 
 # Create a new file if it doesn't exist
-f1 = open("configs/config1.ini", "w")
+# f1 = open("configs/config1.ini", "w")
 
 # Read from config file and write into it
-config.read('configs/config.ini')
+# config.read('configs/config.ini')
 # adds sections to new configs
 # config.add_section('')
-config.set('calibration', 'key1', 'value1')
-config.set('calibration', 'key2', 'value2')
-config.set('calibration', 'key3', 'value3')
+# config.set('calibration', 'key1', 'value1')
+# config.set('calibration', 'key2', 'value2')
+# config.set('calibration', 'key3', 'value3')
 
-with open('configs/config.ini', 'w') as f:
-    config.write(f)
+# with open('configs/config.ini', 'w') as f:
+#     config.write(f)
 
 
 # Read from config file and read based on sections
-config.read('configs/config.ini')
+config.read('GUI/configs/config.ini')
 
 print(config.get('calibration', 'key1'))  # -> "value1"
 print(config.get('calibration', 'key2'))  # -> "value2"
@@ -32,8 +33,9 @@ print(config.get('calibration', 'key3'))  # -> "value3"
 print(config.get('calibration', 'key4'))
 print(config.get('calibration', 'key5'))
 
-print(config.get('boards', 'board_name_1'))
-print(config.get('boards', 'board_id_1'))
+board_selected = config.get('boards', 'board_1').split(',')
+print(board_selected[0])
+print(config.get('boards', 'board_1'))
 
 print(config.get('sensors', 'sensor_name_1'))
 print(config.get('sensors', 'sensor_slots_1'))
