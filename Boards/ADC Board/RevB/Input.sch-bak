@@ -1,0 +1,93 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 14 13
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 1750 1400 0    50   Input ~ 0
+5V
+Text HLabel 1700 1800 0    50   Input ~ 0
+GND
+Text HLabel 1750 1550 0    50   Input ~ 0
+Analog
+$Comp
+L Device:R R?
+U 1 1 62327307
+P 2050 1400
+AR Path="/62325883/62325A7E/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E183/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E335/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E4F3/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF2C/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF31/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF36/62327307" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF3B/62327307" Ref="R?"  Part="1" 
+F 0 "R?" V 1843 1400 50  0000 C CNN
+F 1 "10k" V 1934 1400 50  0000 C CNN
+F 2 "" V 1980 1400 50  0001 C CNN
+F 3 "~" H 2050 1400 50  0001 C CNN
+	1    2050 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 6232834A
+P 2050 1800
+AR Path="/62325883/62325A7E/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E183/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E335/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232E4F3/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF2C/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF31/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF36/6232834A" Ref="R?"  Part="1" 
+AR Path="/62325883/6232EF3B/6232834A" Ref="R?"  Part="1" 
+F 0 "R?" V 1843 1800 50  0000 C CNN
+F 1 "10k" V 1934 1800 50  0000 C CNN
+F 2 "" V 1980 1800 50  0001 C CNN
+F 3 "~" H 2050 1800 50  0001 C CNN
+	1    2050 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2200 1400 2550 1400
+Wire Wire Line
+	1900 1400 1750 1400
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 62328697
+P 2750 1500
+AR Path="/62325883/62325A7E/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232E183/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232E335/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232E4F3/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232EF2C/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232EF31/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232EF36/62328697" Ref="J?"  Part="1" 
+AR Path="/62325883/6232EF3B/62328697" Ref="J?"  Part="1" 
+F 0 "J?" H 2722 1432 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 2722 1523 50  0000 R CNN
+F 2 "" H 2750 1500 50  0001 C CNN
+F 3 "~" H 2750 1500 50  0001 C CNN
+	1    2750 1500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1700 1800 1900 1800
+Wire Wire Line
+	2550 1500 1750 1500
+Wire Wire Line
+	1750 1500 1750 1550
+Wire Wire Line
+	2550 1600 2200 1600
+Wire Wire Line
+	2200 1600 2200 1800
+$EndSCHEMATC

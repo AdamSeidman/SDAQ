@@ -7,20 +7,20 @@
       "Application": "Pcbnew",
       "Version":     "(5.1.10)-1"
     },
-    "CreationDate":  "2022-02-08T13:03:54-05:00"
+    "CreationDate":  "2022-02-05T10:08:01-05:00"
   },
   "GeneralSpecs":
   {
     "ProjectId":
     {
-      "Name": "Strain_Guage_Schematic",
-      "GUID": "53747261-696e-45f4-9775-6167655f5363",
+      "Name": "RevA",
+      "GUID": "52657641-2e6b-4696-9361-645f70636258",
       "Revision": "rev?"
     },
     "Size":
     {
-      "X": 32.050,
-      "Y": 17.050
+      "X": 85.100,
+      "Y": 56.100
     },
     "LayerNumber": 2,
     "BoardThickness":  1.600
@@ -32,53 +32,55 @@
       "PadToPad":  0.200,
       "PadToTrack":  0.200,
       "TrackToTrack":  0.200,
-      "MinLineWidth":  0.250
+      "MinLineWidth":  0.250,
+      "TrackToRegion":  0.508,
+      "RegionToRegion":  0.508
     }
   ],
   "FilesAttributes":
   [
     {
-      "Path":  "Strain_Guage_Schematic-F_Cu.gbr",
+      "Path":  "RevA-F_Cu.gbr",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-B_Cu.gbr",
+      "Path":  "RevA-B_Cu.gbr",
       "FileFunction":  "Copper,L2,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-F_Paste.gbr",
+      "Path":  "RevA-F_Paste.gbr",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-B_Paste.gbr",
+      "Path":  "RevA-B_Paste.gbr",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-F_SilkS.gbr",
+      "Path":  "RevA-F_SilkS.gbr",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-B_SilkS.gbr",
+      "Path":  "RevA-B_SilkS.gbr",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Strain_Guage_Schematic-F_Mask.gbr",
+      "Path":  "RevA-F_Mask.gbr",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Strain_Guage_Schematic-B_Mask.gbr",
+      "Path":  "RevA-B_Mask.gbr",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Strain_Guage_Schematic-Edge_Cuts.gbr",
+      "Path":  "RevA-Edge_Cuts.gbr",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }
