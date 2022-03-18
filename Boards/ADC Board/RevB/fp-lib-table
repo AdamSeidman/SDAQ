@@ -4,6 +4,7 @@
   (lib (name "Female Pin Headers 3D")(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Female Pin Headers 3D")(options "")(descr ""))
   (lib (name Spring_Terminal_12Pin)(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Phoenix Spring Terminals/12 Pin Phoenix/footprints.pretty")(options "")(descr ""))
   (lib (name Spring_Terminal_4Pin)(type KiCad)(uri "C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Phoenix Spring Terminals/4 Pin Phoenix/footprints.4_pin")(options "")(descr ""))
-  (lib (name ATMEGA_Import)(type KiCad)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/ul_ATMEGA328PMUR/328P-MUR/footprints.pretty)(options "")(descr ""))
+  (lib (name Wrong_ATMEGA)(type KiCad)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/ul_ATMEGA328PMUR/328P-MUR/footprints.pretty)(options "")(descr ""))
   (lib (name CSTCE16M0V53-R0)(type KiCad)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/CSTCE16M0V53-R0)(options "")(descr ""))
+  (lib (name ATMEGA)(type KiCad)(uri C:/Users/Chris/Documents/GitHub/MR-R21/Parts/5-102618-5)(options "")(descr ""))
 )
