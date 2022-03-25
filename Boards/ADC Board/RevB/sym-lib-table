@@ -1,0 +1,7 @@
+(sym_lib_table
+  (lib (name LM1117IMPX-5.0)(type Legacy)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/LM1117IMPX-5.0/LM1117IMPX-5.0.lib)(options "")(descr ""))
+  (lib (name RevA-rescue)(type Legacy)(uri ${KIPRJMOD}/RevA-rescue.lib)(options "")(descr ""))
+  (lib (name 2020-11-11_15-40-12)(type Legacy)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/ul_ATMEGA328PMUR/328P-MUR/2020-11-11_15-40-12.lib)(options "")(descr ""))
+  (lib (name CSTCE16M0V53-R0)(type Legacy)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/CSTCE16M0V53-R0/CSTCE16M0V53-R0.lib)(options "")(descr ""))
+  (lib (name Switch)(type Legacy)(uri C:/Users/Chris/Documents/GitHub/SDAQ/Boards/#Parts/Switches/Switch.lib)(options "")(descr ""))
+)

@@ -2,4 +2,5 @@
   (lib (name LM358)(type Legacy)(uri ${KIPRJMOD}/LM358/LM358.lib)(options "")(descr ""))
   (lib (name 2022-02-05_16-03-30)(type Legacy)(uri ${KIPRJMOD}/LM341/2022-02-05_16-03-30.lib)(options "")(descr ""))
   (lib (name LM1117IMPX-5.0)(type Legacy)(uri C:/Users/maste/SDAQ/Boards/#Parts/LM1117IMPX-5.0/LM1117IMPX-5.0.lib)(options "")(descr ""))
+  (lib (name Strain_Guage_Schematic-rescue)(type Legacy)(uri ${KIPRJMOD}/Strain_Guage_Schematic-rescue.lib)(options "")(descr ""))
 )
