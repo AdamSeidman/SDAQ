@@ -85,7 +85,7 @@
   )
   (placement
     (component "ALQ105-BAJA-FP:ALQ105"
-      (place U3 174000.000000 -86500.000000 front 90.000000 (PN ALQ105))
+      (place Ue 174000.000000 -88500.000000 front 90.000000 (PN ALQ105))
     )
     (component "BAJA-4PIN:1984989"
       (place J1 169500.000000 -120500.000000 front 0.000000 (PN Screw_Terminal_01x04))
@@ -100,7 +100,7 @@
       (place J7 180000.000000 -75500.000000 front 180.000000 (PN Screw_Terminal_01x04))
     )
     (component "ALQ105-BAJA-FP:ALQ105::3"
-      (place U2 174000.000000 -102000.000000 front 90.000000 (PN ALQ105))
+      (place U2 174000.000000 -100000.000000 front 90.000000 (PN ALQ105))
     )
     (component "ALQ105-BAJA-FP:ALQ105::4"
       (place U6 216000.000000 -72000.000000 front 90.000000 (PN ALQ105))
@@ -127,7 +127,7 @@
       (place J5 163000.000000 -86570.000000 front 0.000000 (PN Conn_02x10_Counter_Clockwise))
     )
     (component "ALQ105-BAJA-FP:ALQ105::5"
-      (place U1 216000.000000 -102000.000000 front 90.000000 (PN ALQ105))
+      (place U1 216000.000000 -97000.000000 front 90.000000 (PN ALQ105))
     )
     (component Diode_SMD:D_1206_3216Metric
       (place D1 235000.000000 -123500.000000 front 0.000000 (PN LED))
@@ -996,7 +996,7 @@
   )
   (network
     (net /GND
-      (pins U3-4 U4-4 U5-4 J7-4 U2-4 U6-4 J6-5 J6-10 J6-14 J6-19 J5-6 J5-9 J5-14 J5-20
+      (pins Ue-4 U4-4 U5-4 J7-4 U2-4 U6-4 J6-5 J6-10 J6-14 J6-19 J5-6 J5-9 J5-14 J5-20
         U1-4 D1-1)
     )
     (net "Net-(D1-Pad2)"
@@ -1012,13 +1012,13 @@
       (pins J1-3 U1-5)
     )
     (net /Ch2
-      (pins U3-2 J1-4)
+      (pins Ue-2 J1-4)
     )
     (net /Ch2A
-      (pins U3-1 J2-1)
+      (pins Ue-1 J2-1)
     )
     (net /Ch2B
-      (pins U3-5 J2-2)
+      (pins Ue-5 J2-2)
     )
     (net /Ch3
       (pins U5-2 J2-3)
@@ -1087,7 +1087,7 @@
       (pins J5-15 U1-3)
     )
     (net /R1
-      (pins U3-3 J5-16)
+      (pins Ue-3 J5-16)
     )
     (net "unconnected-(J5-Pad17)"
       (pins J5-17)
