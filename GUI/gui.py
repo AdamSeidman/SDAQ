@@ -1,6 +1,9 @@
 from pathlib import Path
 from os import walk
 
+from configparser import ConfigParser
+from tkinter import filedialog
+
 # from tkinter import *
 from tkinter import Tk, Canvas, Spinbox, Label, OptionMenu, StringVar, Button, PhotoImage
 
@@ -16,6 +19,27 @@ TESTS_PATH = OUTPUT_PATH / Path("src/tests")
 def relative_to_path(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+file_path = ""
+
+
+def save():
+    if len(file_path) == 0:
+        Files = [('All Files', '*.*'),
+                 ('CSV Document', '*.csv'),
+                 ('Text Document', '*.txt'),
+                 ('Excel Workbook', '*.xlsx')]
+        file_path = filedialog.asksaveasfilename(filetypes=Files, defaultextension=Files, initialdir = "GUI\configs")
+
+    try:
+        with open(file_path, 'w') as file:
+            config.write(file)
+        return "saved"
+
+    except FileNotFoundError:
+        return "File Not Found!"
+
+def load():
+    pass
 
 # Create the Tkinter window, give name, and get the icon
 window = Tk()
@@ -142,7 +166,7 @@ cfg_save_button = Button(
     image=cfg_save_image,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("save config clicked"),
+    command=lambda: save,
     relief="flat"
 )
 cfg_save_button.place(
