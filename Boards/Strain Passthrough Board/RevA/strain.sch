@@ -1,0 +1,347 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 2650 700  0    50   Input ~ 0
+5V
+Text HLabel 1250 2550 0    50   Input ~ 0
+GND
+Text HLabel 2500 1750 0    50   Input ~ 0
+Value
+Text HLabel 2150 2550 0    50   Input ~ 0
+Strain_Pos
+Text HLabel 2150 2900 0    50   Input ~ 0
+Strain_Neg
+Wire Wire Line
+	4050 1200 4050 1100
+Wire Wire Line
+	4050 700  4050 800 
+Wire Wire Line
+	4050 700  4500 700 
+Wire Wire Line
+	4500 700  4500 800 
+Connection ~ 4050 700 
+Wire Wire Line
+	4500 1100 4500 1200
+Wire Wire Line
+	4500 1200 4050 1200
+Connection ~ 4050 1200
+Wire Wire Line
+	2650 700  2950 700 
+Wire Wire Line
+	2950 1200 3500 1200
+$Comp
+L pspice:CAP C?
+U 1 1 623FCC64
+P 2950 950
+F 0 "C?" H 3128 996 50  0000 L CNN
+F 1 "0.1uF" H 3128 905 50  0000 L CNN
+F 2 "" H 2950 950 50  0001 C CNN
+F 3 "~" H 2950 950 50  0001 C CNN
+	1    2950 950 
+	1    0    0    -1  
+$EndComp
+Connection ~ 2950 700 
+Wire Wire Line
+	2950 700  3500 700 
+$Comp
+L pspice:CAP C?
+U 1 1 623FD3ED
+P 3500 950
+F 0 "C?" H 3678 996 50  0000 L CNN
+F 1 "0.1uF" H 3678 905 50  0000 L CNN
+F 2 "" H 3500 950 50  0001 C CNN
+F 3 "~" H 3500 950 50  0001 C CNN
+	1    3500 950 
+	1    0    0    -1  
+$EndComp
+Connection ~ 3500 700 
+Wire Wire Line
+	3500 700  4050 700 
+Connection ~ 3500 1200
+Wire Wire Line
+	3500 1200 4050 1200
+$Comp
+L Device:CP C?
+U 1 1 623FDD27
+P 4050 950
+F 0 "C?" H 4168 996 50  0000 L CNN
+F 1 "10uF" H 4168 905 50  0000 L CNN
+F 2 "" H 4088 800 50  0001 C CNN
+F 3 "~" H 4050 950 50  0001 C CNN
+	1    4050 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 623FE4C4
+P 4500 950
+F 0 "C?" H 4618 996 50  0000 L CNN
+F 1 "10uF" H 4618 905 50  0000 L CNN
+F 2 "" H 4538 800 50  0001 C CNN
+F 3 "~" H 4500 950 50  0001 C CNN
+	1    4500 950 
+	1    0    0    -1  
+$EndComp
+Text HLabel 4500 1300 3    50   Input ~ 0
+GND
+Wire Wire Line
+	4500 1300 4500 1200
+Connection ~ 4500 1200
+$Comp
+L Device:R R?
+U 1 1 62400051
+P 3000 2000
+F 0 "R?" H 3070 2046 50  0000 L CNN
+F 1 "360" H 3070 1955 50  0000 L CNN
+F 2 "" V 2930 2000 50  0001 C CNN
+F 3 "~" H 3000 2000 50  0001 C CNN
+	1    3000 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 1750 3000 1750
+Wire Wire Line
+	3000 1750 3000 1850
+$Comp
+L Device:R R?
+U 1 1 62402496
+P 3000 3650
+F 0 "R?" H 3070 3696 50  0000 L CNN
+F 1 "360" H 3070 3605 50  0000 L CNN
+F 2 "" V 2930 3650 50  0001 C CNN
+F 3 "~" H 3000 3650 50  0001 C CNN
+	1    3000 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 62402A92
+P 2500 3650
+F 0 "R?" H 2570 3696 50  0000 L CNN
+F 1 "360" H 2570 3605 50  0000 L CNN
+F 2 "" V 2430 3650 50  0001 C CNN
+F 3 "~" H 2500 3650 50  0001 C CNN
+	1    2500 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 3800 2500 3950
+Wire Wire Line
+	2500 3950 3000 3950
+Wire Wire Line
+	3000 3950 3000 3800
+Text HLabel 3000 4000 3    50   Input ~ 0
+GND
+Wire Wire Line
+	3000 3950 3000 4000
+Connection ~ 3000 3950
+Wire Wire Line
+	4000 3300 3850 3300
+$Comp
+L Device:R R?
+U 1 1 62404DC0
+P 3700 3300
+F 0 "R?" V 3900 3300 50  0000 L CNN
+F 1 "10k" V 3800 3250 50  0000 L CNN
+F 2 "" V 3630 3300 50  0001 C CNN
+F 3 "~" H 3700 3300 50  0001 C CNN
+	1    3700 3300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2500 3500 2500 3300
+Wire Wire Line
+	2500 3300 3550 3300
+$Comp
+L pspice:CAP C?
+U 1 1 62408C31
+P 3300 2600
+F 0 "C?" H 3478 2646 50  0000 L CNN
+F 1 "1uF" H 3478 2555 50  0000 L CNN
+F 2 "" H 3300 2600 50  0001 C CNN
+F 3 "~" H 3300 2600 50  0001 C CNN
+	1    3300 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 2150 3000 2350
+Wire Wire Line
+	3300 2350 3000 2350
+Connection ~ 3000 2350
+Wire Wire Line
+	3000 2350 3000 3500
+Text HLabel 3300 2850 3    50   Input ~ 0
+GND
+$Comp
+L DualOPAmp-Baja:LM358D U?
+U 1 1 62413027
+P 4900 2150
+F 0 "U?" H 6100 2537 60  0000 C CNN
+F 1 "LM358D" H 6100 2431 60  0000 C CNN
+F 2 "D8" H 6100 2390 60  0001 C CNN
+F 3 "" H 4900 2150 60  0000 C CNN
+	1    4900 2150
+	1    0    0    -1  
+$EndComp
+Text HLabel 4900 2450 0    50   Input ~ 0
+GND
+Text HLabel 7300 2150 2    50   Input ~ 0
+5V
+Wire Wire Line
+	4000 2250 4000 3300
+$Comp
+L Device:R R?
+U 1 1 62424A6F
+P 4350 3300
+F 0 "R?" V 4550 3300 50  0000 L CNN
+F 1 "470k" V 4450 3250 50  0000 L CNN
+F 2 "" V 4280 3300 50  0001 C CNN
+F 3 "~" H 4350 3300 50  0001 C CNN
+	1    4350 3300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3300 2350 4900 2350
+Connection ~ 3300 2350
+Wire Wire Line
+	4000 2250 4900 2250
+Wire Wire Line
+	4200 3300 4000 3300
+Connection ~ 4000 3300
+Wire Wire Line
+	4900 2150 4650 2150
+$Comp
+L Device:R R?
+U 1 1 62427F3D
+P 4950 3300
+F 0 "R?" V 5150 3300 50  0000 L CNN
+F 1 "20k" V 5050 3250 50  0000 L CNN
+F 2 "" V 4880 3300 50  0001 C CNN
+F 3 "~" H 4950 3300 50  0001 C CNN
+	1    4950 3300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4650 2150 4650 3300
+Wire Wire Line
+	4650 3300 4800 3300
+Wire Wire Line
+	4500 3300 4650 3300
+Connection ~ 4650 3300
+$Comp
+L Device:R R?
+U 1 1 624297B5
+P 6500 3300
+F 0 "R?" V 6700 3300 50  0000 L CNN
+F 1 "470k" V 6600 3250 50  0000 L CNN
+F 2 "" V 6430 3300 50  0001 C CNN
+F 3 "~" H 6500 3300 50  0001 C CNN
+	1    6500 3300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5100 3300 5750 3300
+Wire Wire Line
+	5750 3300 5750 2800
+Wire Wire Line
+	5750 2800 7600 2800
+Wire Wire Line
+	7600 2800 7600 2350
+Wire Wire Line
+	7600 2350 7300 2350
+Connection ~ 5750 3300
+Wire Wire Line
+	5750 3300 6350 3300
+Wire Wire Line
+	6650 3300 7850 3300
+Wire Wire Line
+	7850 3300 7850 2250
+Wire Wire Line
+	7850 2250 7300 2250
+Text HLabel 7850 3800 3    50   Input ~ 0
+GND
+$Comp
+L Device:CP C?
+U 1 1 6242C73A
+P 7850 3550
+F 0 "C?" H 7968 3596 50  0000 L CNN
+F 1 "1uF" H 7968 3505 50  0000 L CNN
+F 2 "" H 7888 3400 50  0001 C CNN
+F 3 "~" H 7850 3550 50  0001 C CNN
+	1    7850 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 3400 7850 3300
+Connection ~ 7850 3300
+Wire Wire Line
+	7850 3800 7850 3700
+$Comp
+L Device:R_POT RV?
+U 1 1 624146EE
+P 7000 1250
+F 0 "RV?" H 6931 1296 50  0000 R CNN
+F 1 "500k" H 6931 1205 50  0000 R CNN
+F 2 "" H 7000 1250 50  0001 C CNN
+F 3 "~" H 7000 1250 50  0001 C CNN
+	1    7000 1250
+	1    0    0    -1  
+$EndComp
+Text HLabel 7000 1500 3    50   Input ~ 0
+Value
+$Comp
+L pspice:CAP C?
+U 1 1 62433C8B
+P 7500 1000
+F 0 "C?" H 7678 1046 50  0000 L CNN
+F 1 "1uF" H 7678 955 50  0000 L CNN
+F 2 "" H 7500 1000 50  0001 C CNN
+F 3 "~" H 7500 1000 50  0001 C CNN
+	1    7500 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 1250 7150 1250
+Wire Wire Line
+	7000 1100 7000 750 
+Wire Wire Line
+	7000 750  7500 750 
+Wire Wire Line
+	7000 1500 7000 1400
+Text HLabel 8000 750  2    50   Input ~ 0
+GND
+Wire Wire Line
+	7500 750  8000 750 
+Connection ~ 7500 750 
+Wire Wire Line
+	7500 1250 7500 2450
+Wire Wire Line
+	7500 2450 7300 2450
+Connection ~ 7500 1250
+$Comp
+L Diode:1N5819 D?
+U 1 1 6243BFE1
+P 8350 1950
+F 0 "D?" V 8304 2030 50  0000 L CNN
+F 1 "1N5819" V 8395 2030 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8350 1775 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 8350 1950 50  0001 C CNN
+	1    8350 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7850 2250 8350 2250
+Connection ~ 7850 2250
+$EndSCHEMATC

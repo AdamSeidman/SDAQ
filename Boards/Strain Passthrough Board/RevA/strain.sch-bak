@@ -1,0 +1,39 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L pspice:CAP C?
+U 1 1 623F50DF
+P 5650 2900
+AR Path="/623F4F67/623F50DF" Ref="C?"  Part="1" 
+AR Path="/623F65E6/623F50DF" Ref="C?"  Part="1" 
+F 0 "C?" H 5828 2946 50  0000 L CNN
+F 1 "CAP" H 5828 2855 50  0000 L CNN
+F 2 "" H 5650 2900 50  0001 C CNN
+F 3 "~" H 5650 2900 50  0001 C CNN
+	1    5650 2900
+	1    0    0    -1  
+$EndComp
+Text HLabel 7650 2500 0    50   Input ~ 0
+5V
+Text HLabel 7650 2750 0    50   Input ~ 0
+GND
+Text HLabel 7650 2950 0    50   Input ~ 0
+Value
+Text HLabel 7700 3250 0    50   Input ~ 0
+Strain_Pos
+Text HLabel 7700 3600 0    50   Input ~ 0
+Strain_Neg
+$EndSCHEMATC
