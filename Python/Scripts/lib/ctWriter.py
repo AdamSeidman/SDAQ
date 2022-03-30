@@ -20,12 +20,12 @@ def set_setup_num(num):
     setup_num = num
 
 def start_new_file(dir_name, filename, file_notes):
-    global, run_num, file_name, notes, has_written, setup_num, EXT, prelim_filename
+    global run_num, file_name, notes, has_written, setup_num, EXT, prelim_filename
     setup_num += 1
     has_written = False
     prelim_filename = filename
     run_num = 1
-    file_name = get_new_file(dir_name, str(setupNum) + "_" + filename, EXT)
+    file_name = get_new_file(dir_name, str(setup_num) + "_" + filename, EXT)
     notes = file_notes
 
 def get_setup_num():
