@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import IntVar
 import sys
+from fileUI import ClutchesFileUI
 
 ########################################
 
@@ -24,14 +25,23 @@ sys.path.append('/home/sdaq/Scripts/lib')
 import sdaq
 import graphing
 import simpleUI
-import valueFrame
+from valueFrame import ValueFrame, CheckFrame
 from tools import *
 
+dir_name = get_directory()
 buffer = []
 collecting = False
 run_num = 1
 EXT = 'ct'
 file_name = get_new_file(data_dir, default_test_name, EXT)
+
+def start_new_file(test_name, notes, beginning=False):
+    global EXT
+    file_name = get_new_file(dir_name, test_name, EXT)
+    if not beginning:
+        write(test_name + "\n")
+        write(notes)
+    return file_name
 
 def write_to_file(xData, yData):
     global run_num
@@ -70,115 +80,57 @@ def collect():
             buffer.append((data, get_time()))
         except:
             pass
-   
-options_row1_frame = valueFrame.valueFrame()
-options_row2_frame = valueFrame.valueFrame()
-options_row3_frame = valueFrame.valueFrame()
-notes_frame = simpleUI.Frame()
+
+fileUI = None
+
 time_frame = simpleUI.Frame()
-options_button_frame = simpleUI.Frame()
 text_field_frame = simpleUI.Frame()
-button_frame = simpleUI.Frame()
 text_frame = simpleUI.Frame()
+button_frame = simpleUI.Frame()
+
 collecting_label = -1
 engine_plot = None
 
-option1 = 69
-option2 = 69
-option3 = 69
-option4 = 69
-option5 = IntVar()
-option6 = 69
-options_text_indices = []
-options_label_indices = []
-
-notes = ""
 time = ""
-notes_text = ""
 time_num = ""
-
-def update_options():
-    global option1, option2, option3, option4, option5, option6
-    option1 = options_row1_frame.get_text(options_text_indices[0])
-    option2 = options_row1_frame.get_text(options_text_indices[1])
-    option3 = options_row2_frame.get_text(options_text_indices[2])
-    option4 = options_row2_frame.get_text(options_text_indices[3])
-    option6 = options_row3_frame.get_text(options_text_indices[5])
-        
-    options_row1_frame.update_label(options_label_indices[0], "Current Value: " + str(option1) + '\t')
-    options_row1_frame.update_label(options_label_indices[1], "Current Value: " + str(option2) + '\t')
-    options_row2_frame.update_label(options_label_indices[2], "Current Value: " + str(option3) + '\t')
-    options_row2_frame.update_label(options_label_indices[3], "Current Value: " + str(option4) + '\t')
-    options_row3_frame.update_label(options_label_indices[4], "   Current? " + ('True' if option5.get() == 1 else 'False') + '\t    ')
-    options_row3_frame.update_label(options_label_indices[5], "Current Value: " + str(option6) + '\t')
-
-def save_notes_and_time():
-    notes_text = notes_frame.get_text(notes)
-    time_num = time_frame.get_text(time)
-    
-    print(notes_text)
-    print(time_num)
     
 def update_running_label():
     global collecting, text_frame, collecting_label
     text_frame.update_label(collecting_label, "Running: " + str(collecting))
 
+clutches_options = [("Primary_Weight", "g"), ("Ramp", ""), ("Spring", "lb*in"), ("Helix", ""), ("Preload", "")]
+clutches_checks = [("Modified_Belt-", True)]
+
 def create_ui(title):
-    global text_field_frame, button_frame, text_frame, collecting_label, notes, time,\
-           option1, option2, option3, option4, option5, option6
+    global fileUI, text_field_frame, button_frame, text_frame, collecting_label, notes, time, \
+           clutches_options, clutches_checks, run_num
+    
     simpleUI.set_title(title)
     
-    temp1, temp2 = options_row1_frame.add_options("Option 1", 1, 25, True, option1, "Option 2", 1, 25, True, option2)
-    options_text_indices.extend(temp1)
-    options_label_indices.extend(temp2)
-    temp1, temp2 = options_row2_frame.add_options("Option 3", 1, 25, True, option3, "Option 4", 1, 25, True, option4)
-    options_text_indices.extend(temp1)
-    options_label_indices.extend(temp2)
-    temp1, temp2 = options_row3_frame.add_options("Option 5", 1, 25, False, option5, "Option 6", 1, 25, True, option6)
-    options_text_indices.extend(temp1)
-    options_label_indices.extend(temp2)
-    options_button_frame.add_button("Update", 25, 1, "white", update_options, tk.LEFT)
+    def file_update(frames, notes, update_frame, path_text, begin_file):
+        builder = ""
+        for frame in frames:
+            builder += frame.get_value()
+        run_num = 0
+        update_frame.update_label(path_text, "Current File:  " + start_new_file(builder, notes, beginning=begin_file))
     
-    notes_frame.add_label("Notes:", 1, 25, tk.TOP)
-    notes = notes_frame.add_text_box(5, 100, tk.BOTTOM)
+    fileUI = ClutchesFileUI(file_update, clutches_options, clutches_checks)
+    simpleUI.add_frame(fileUI, tk.TOP)
     
     button_frame.create_cat_jam(label_side=tk.LEFT, label_anchor=tk.SW, flipped=True)
     button_frame.add_button("Start", 25, 5, "green", start_btn, tk.LEFT)
     button_frame.create_cat_jam(label_side=tk.RIGHT, label_anchor=tk.SE)
     button_frame.add_button("Stop", 25, 5, "red", stop_btn, tk.RIGHT)
     
-
-    
-    #text_field_frame.add_label("New File Name: ", 1, 25, tk.LEFT)
-    #path_field = text_field_frame.add_text_box(1, 25, tk.LEFT)
-    #text_field_frame.add_label(" ", 1, 25, tk.LEFT)
-    
-    time_frame.add_button("Set", 5, 1, "gray", save_notes_and_time, tk.RIGHT)
+    time_frame.add_label(" ", tk.TOP) # spacer
+    time_frame.add_button("Set", 5, 1, "lightgray", lambda: print("Time Set"), tk.RIGHT)
     time = time_frame.add_text_box(1, 25, tk.RIGHT)
-    time_frame.add_label("Time: ", 1, 25, tk.RIGHT)
-    
-    path_field = ""
-    path_text = text_frame.add_label("", 1, 25, tk.TOP)
-    def update_path_text():
-        global run_num, file_name, EXT, data_dir
-        run_num = 0
-        #file_name = get_new_file(data_dir, text_field_frame.get_text(path_field), EXT)
-        file_name = get_new_file(data_dir, path_field, EXT)
-        text_frame.update_label(path_text, "Current File:  " + file_name)
-    update_path_text()
+    time_frame.add_label("Time: ", tk.RIGHT)
 
-    #text_field_frame.add_button("Update", 5, 1, "gray", update_path_text, tk.RIGHT)
-
-    collecting_label = text_frame.add_label("", 1, 25, tk.TOP)
+    collecting_label = text_frame.add_label("", tk.TOP)
     update_running_label()
-    text_frame.add_label("", 1, 25, tk.TOP)
+    text_frame.add_label(" ", tk.TOP)
     
-    #simpleUI.pack_first_in_window() # for cat jam jiff
-    simpleUI.add_frame(options_row1_frame)
-    simpleUI.add_frame(options_row2_frame)
-    simpleUI.add_frame(options_row3_frame)
-    simpleUI.add_frame(options_button_frame)
-    simpleUI.add_frame(notes_frame)
     simpleUI.add_frame(time_frame)
     simpleUI.add_frame(text_field_frame)
     simpleUI.add_frame(text_frame)

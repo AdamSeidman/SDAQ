@@ -1,12 +1,5 @@
 import time
 import os.path
-from tkinter.filedialog import askdirectory
-
-def get_directory():
-    dirname = askdirectory() + "/"
-    if dirname == None or len(dirname) < 1:
-        dirname = "./"
-    return dirname
 
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]
@@ -20,12 +13,6 @@ def convert_ticks_to_rpm(ticks, tpr):
             lastTickTime = tick[1]
         lastTick = tick[0]
     return (xData, yData)
-
-def pad_text(text, num=8, is_right=True):
-    pad = (num - len(text)) * " "
-    if is_right:
-        return text + pad
-    return pad + text
 
 def apply_rolling_filter(data, depth):
     if len(data) < depth:
@@ -59,45 +46,6 @@ def apply_calibration(data, min_val, max_val):
     data_min = min(data)
     data_max = max(data)
     return [(((max_val - min_val) * ((x - data_min) / (data_max - data_min))) + min_val) for x in data]
-
-def shift_around_val(data, val):
-    for index in range(len(data)):
-        ydata = data[index][1]
-        num = 0
-        for i in range(len(ydata)):
-            if ydata[i] >= val:
-                num = data[index][0][i]
-                break
-        xdata = []
-        for i in range(len(ydata)):
-            xdata.append((data[index][0][i]) - num)
-        data[index][0] = xdata
-    return data
-
-def combine_data(data):
-    buf = [[], []]
-    while len(data) > 0:
-        min_num = 999999
-        for arr in data:
-            min_num = min(min_num, arr[0][0])
-        for i in range(len(data)):
-            if data[i][0][0] == min_num:
-                buf[0].append(data[i][0][0])
-                buf[1].append(data[i][1][0])
-                data[i][0].pop(0)
-                data[i][1].pop(0)
-                if len(data[i][0]) == 0:
-                    data.pop(i)
-                break
-    return buf
-
-def apply_cutoff(data, val):
-    while len(data[0]) > 0 and data[0][0] < val:
-        #print(data)
-        data[0].pop(0)
-        data[1].pop(0)
-    return data
-                
 
 resolution = 1000.0
 start_time = 0.0
@@ -135,5 +83,5 @@ def write(words):
     if len(current_file) == 0:
         return
     f = open(current_file, "a")
-    f.write(str(words) + "\n")
+    f.write(words + "\n")
     f.close()
