@@ -1,12 +1,13 @@
 import tkinter as tk
 from simpleUI import Frame
 from tools import pad_text
+from tools import pad_both_sides_of_text
 
 class CheckFrame(Frame):
     checkbox = 0
     value = False
     label = ""
-    pad_num = 20
+    pad_num = 16
     check_label = 0
     unmodified_label = ""
     
@@ -35,14 +36,16 @@ class ValueFrame(Frame):
     val_text = ""
     val_label = 0
     label = ""
-    pad_num = 16
+    pad_num = 13
     unmodified_label = ""
     
     def __init__(self, label, units="", opt_width=1, opt_height=25, start_val=69, f_src=None):
         super().__init__(src=f_src)
+        self.pad_num = max(self.pad_num, len(label))
+        print(self.pad_num)
         self.unmodified_label = label
         self.label = label.replace("-", "?").replace("_", " ")
-        self.add_label(pad_text(self.label, self.pad_num), tk.LEFT)
+        self.add_label(pad_both_sides_of_text(self.label, self.pad_num), tk.LEFT)
         self.textbox = self.add_text_box(opt_width, opt_height, tk.LEFT)
         self.val_label = self.add_label("", tk.RIGHT)
         self.add_label(pad_text(" " + units), tk.RIGHT)

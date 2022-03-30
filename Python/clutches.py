@@ -14,10 +14,8 @@ tpr: (ticks per revolution)
 data_dir: directory for ct data
 '''
 
-default_test_name = "clutch-testing"
 filter_depth = 3
 engine_tpr = 1.0
-data_dir = "./data"
 
 ########################################
 
@@ -27,13 +25,12 @@ import graphing
 import simpleUI
 from valueFrame import ValueFrame, CheckFrame
 from tools import *
+import ctWriter as CT
 
 dir_name = get_directory()
 buffer = []
 collecting = False
 run_num = 1
-EXT = 'ct'
-file_name = get_new_file(data_dir, default_test_name, EXT)
 
 def start_new_file(test_name, notes, beginning=False):
     global EXT
