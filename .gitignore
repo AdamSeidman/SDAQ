@@ -3,3 +3,4 @@ _personal/
 
 .idea/
 .vs/
+*.pyc
