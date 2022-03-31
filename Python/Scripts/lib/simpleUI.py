@@ -111,6 +111,10 @@ def __sub_event_func(event):
     event()
     window.after(1, lambda: __sub_event_func(event))
 
+def set_minsize_of_window(width, height):
+    global window
+    window.minsize(width, height)
+
 def start_window():
     global window
     #window.after(0, update_img, 0)
