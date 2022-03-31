@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-from asyncio.base_tasks import _task_print_stack
 import sys
-from tkinter import VERTICAL, Tk
+from tkinter import TOP, VERTICAL, Tk
 import re
 import tkinter
 import ast
@@ -63,7 +62,6 @@ class FileInfo():
                     self.notes = '\n'.join(lines[notesStart:notesEnd])
                     has_a_run_been_found = True
                 xvals = ast.literal_eval(lines[lineNum + 1])
-                print(regmatch.group(1))
                 self.runs.append(RunDump(int(regmatch.group(1)), xvals, ast.literal_eval(lines[lineNum + 2]), float(regmatch.group(2))))
                 lineNum = lineNum + 1
             lineNum = lineNum + 1
@@ -145,9 +143,10 @@ class myFrame(simpleUI.Frame):
     def make_notes_window(self, file: FileInfo):
         topLevel = tkinter.Toplevel(self.masterFrame)
         topLevel.title("Notes")
-        print(file.get_notes())
-        tkinter.Label(topLevel, textvariable=tkinter.StringVar().set(file.get_notes()))
-        
+        tempFrame = simpleUI.Frame(src=topLevel)
+        simpleUI.add_frame(tempFrame)
+        tempFrame.add_label(file.get_notes(), TOP)
+        topLevel.minsize(250, 250)
     def make_graph_window(self, file: FileInfo):
         plt = graphing.Plot()
         plt.set_title("All runs")
