@@ -10,11 +10,12 @@ sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
 import tools
 import simpleUI
 class RunDump():
-    def __init__(self, runNum, xvals, yvals, runTime):
+    def __init__(self, runNum, xvals, yvals, runTime, notes = ""):
         self.runNum = runNum
         self.xvals = xvals
         self.yvals = yvals
         self.runTime = runTime
+        self.notes = ""
     def get_xvals(self):
         return self.xvals
     def get_yvals(self):
@@ -23,6 +24,8 @@ class RunDump():
         return self.runNum
     def get_runTime(self):
         return self.runTime
+    def get_notes(self):
+        return self.notes
 class FileInfo():
     fileName = ""
     fileSetup = 0
@@ -40,11 +43,16 @@ class FileInfo():
         file = open("r", self.fileName)
         lines = file.readlines()
         lineNum = 0
-        
+        has_a_run_been_found = False
+        notesStart = 1
+        notesEnd = 0
         while lineNum < len(lines):
             regmatch = re.search("Run ([0-9]*): ([0-9]*\.{0,1}[0-9]*", lines[lineNum])
             if regmatch is not None:
-                self.runs.append(RunDump(regmatch.group(0), ast.literal_eval(lines[lineNum + 1]), ast.literal_eval(lines[lineNum + 2]), regmatch.group(1)))
+                if not has_a_run_been_found:
+                    notesEnd = lineNum
+                    has_a_run_been_found = True
+                self.runs.append(RunDump(regmatch.group(0), ast.literal_eval(lines[lineNum + 1]), ast.literal_eval(lines[lineNum + 2]), regmatch.group(1)), ''.join(lines[notesStart:notesEnd]))
                 lineNum = lineNum + 1
             lineNum = lineNum + 1
     def get_average_time(self):
