@@ -21,6 +21,17 @@ def convert_ticks_to_rpm(ticks, tpr):
         lastTick = tick[0]
     return (xData, yData)
 
+def pad_both_sides_of_text(text, num=8):
+    pad = num - len(text)
+    print(pad)
+    left = num // 2
+    right = num - left
+    
+    left_pad = left * " "
+    right_pad = right * " "
+    
+    return left_pad + text + right_pad
+
 def pad_text(text, num=8, is_right=True):
     pad = (num - len(text)) * " "
     if is_right:

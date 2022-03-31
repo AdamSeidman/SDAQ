@@ -8,17 +8,18 @@ from tools import *
 
 class ClutchesFileUI(simpleUI.Frame):
     option_frames = []
+    notes_text = ""
     
     def __init__(self, updateEvent, clutches_options=[], clutches_checks=[], f_src=None):
         super().__init__(border_color='black', border_width=1)
         
         currentFrame = None
 
-        notes_frame = simpleUI.Frame(src=f_src)
-        options_button_frame = simpleUI.Frame(src=f_src)
+        notes_frame = simpleUI.Frame(src=self)
+        options_button_frame = simpleUI.Frame(src=self)
         
         use_left = True
-        options_frame = simpleUI.Frame(src=f_src)
+        options_frame = simpleUI.Frame(src=self)
         left_frame = simpleUI.Frame(src=options_frame)
         right_frame = simpleUI.Frame(src=options_frame)
         
@@ -44,7 +45,9 @@ class ClutchesFileUI(simpleUI.Frame):
         simpleUI.add_frame(right_frame, window_side=tk.RIGHT)
         simpleUI.add_frame(options_button_frame, window_side=tk.TOP)
         
-        def update_options():
+        def update_all():
+            notes_text = notes_frame.get_text(notes).replace("Run", "run")
+            
             for frame in self.option_frames:
                 frame.update()
         
@@ -53,15 +56,20 @@ class ClutchesFileUI(simpleUI.Frame):
         notes_frame.add_label("Notes:", tk.TOP)
         notes = notes_frame.add_text_box(3, 100, tk.BOTTOM)
         simpleUI.add_frame(notes_frame)
-        update_frame = simpleUI.Frame(src=f_src)
+        update_frame = simpleUI.Frame(src=self)
         update_frame.add_label(" ", tk.TOP)
             
         path_field = ""
-        path_text = update_frame.add_label("", tk.RIGHT)
+        path_text = update_frame.add_label("", tk.BOTTOM)
         def update(beginning=False):
             updateEvent(self.option_frames, notes, update_frame, path_text, beginning) # TODO
         update(beginning=True)
-        update_frame.add_label("\t\t", tk.RIGHT)
-        update_frame.add_button("Update", 10, 1, "white", update_options, tk.RIGHT)
         
-        simpleUI.add_frame(update_frame, window_side=tk.TOP, window_anchor=tk.E)
+        update_frame.add_button("Update", 10, 1, "white", update_all, tk.TOP)
+        
+        simpleUI.add_frame(update_frame, window_side=tk.TOP)
+        
+    def get_notes(self):
+        return notes_text
+        
+            
