@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name LM1117IMPX-5)(type KiCad)(uri C:/Users/Adam/Documents/#Code/SDAQ/Boards/#Parts/LM1117IMPX-5.0)(options "")(descr ""))
+  (lib (name "Custom Footprints")(type KiCad)(uri "C:/Users/Adam/Documents/#Code/Basketball_Shot_Trainer/Board/#Parts/Custom Footprints")(options "")(descr ""))
+  (lib (name baja-new-5v-tr)(type KiCad)(uri C:/Users/Adam/Documents/#Code/SDAQ/Boards/#Parts/L7806ABD2T-TR/footprints.pretty)(options "")(descr ""))
+)
