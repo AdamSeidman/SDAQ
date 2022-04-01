@@ -144,6 +144,10 @@ def set_minsize_of_window(width, height):
     global window
     window.minsize(width, height)
 
+def set_minsize_of_window(width, height):
+    global window
+    window.minsize(width, height)
+
 def start_window():
     global window
     #window.after(0, update_img, 0)
