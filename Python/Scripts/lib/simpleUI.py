@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import PhotoImage
+import tkinter.messagebox as tk_msg
 import time
 import os
 
@@ -42,7 +43,8 @@ class Frame(tk.Frame):
             text=checkText,
             width=checkWidth,
             height=checkHeight,
-            variable=var
+            variable=var,
+            font="roboto"
         )
         self.__text_boxes.append(var)
         check.pack(side=checkSide)
@@ -53,11 +55,16 @@ class Frame(tk.Frame):
             return False
         return self.__text_boxes[chNum].get()
     
-    def add_label(self, labelText, labelSide, labelAnchor=None):
+    def add_label(self, labelText, labelSide, label_max_length=None, labelAnchor=None, txt_justify=None, txt_font=None):
         i = len(self.__labels)
         self.__labels.append(tk.StringVar())
         self.__labels[i].set(labelText)
-        label = tk.Label(self, textvariable=self.__labels[i])
+        label = tk.Label(self,
+                         textvariable=self.__labels[i],
+                         width=label_max_length,
+                         justify=txt_justify,
+                         font=txt_font
+        )
         label.pack(side=labelSide, anchor=labelAnchor)
         return i
     
@@ -94,6 +101,28 @@ class Frame(tk.Frame):
             window.after(100, update_img, ind)
         update_img(0)
         self.__cat_jam_labels[label_index].pack(side=label_side, anchor=label_anchor)
+        
+def create_popup(popup_title='Confirmation', popup_msg='Warning', popup_icon=tk_msg.WARNING,
+                 info_title='Status', info_msg='Success'):
+    answer = tk_msg.askokcancel(
+        title=popup_title,
+        message=popup_msg,
+        icon=popup_icon
+    )
+    
+    if answer:
+        tk_msg.showinfo(
+            title=info_title,
+            message=info_msg
+        )
+        
+    return answer
+
+def create_type_popup(popup_title='Confirmation', popup_msg='Wrong Type'):
+    tk_msg.showerror(
+        title=popup_title,
+        message=popup_msg
+    )
 
 def set_title(title):
     global window
@@ -110,6 +139,10 @@ def __sub_event_func(event):
     global window
     event()
     window.after(1, lambda: __sub_event_func(event))
+    
+def set_minsize_of_window(width, height):
+    global window
+    window.minsize(width, height)
 
 def start_window():
     global window

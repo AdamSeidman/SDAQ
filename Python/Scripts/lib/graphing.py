@@ -16,7 +16,7 @@ class Plot:
     __figure = None
     
     def __init__(self, line_type=DEFAULT_LINE_TYPE, title="", xlabel="", ylabel=""):
-        self.__figure, self.__ax = plt.subplots(figsize=(14,12))
+        self.__figure, self.__ax = plt.subplots()#figsize=(10,8)
         self.__ax.set_autoscalex_on(True)
         self.__ax.set_autoscaley_on(True)
         self.__ax.grid()
@@ -25,7 +25,8 @@ class Plot:
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-
+    def update_title(self, title):
+        plt.title(title)
     def create_line(self, line_type=DEFAULT_LINE_TYPE):
         if len(line_type) == 0:
             line_type = get_col(len(self.__lines))
@@ -39,6 +40,8 @@ class Plot:
     def plot(self, line_num, xData, yData):
         while len(self.__lines) <= line_num:
             self.create_line(line_type="")
+        print(xData)
+        print(yData)
         self.__lines[line_num].set_xdata(xData)
         self.__lines[line_num].set_ydata(yData)
         self.__ax.relim()

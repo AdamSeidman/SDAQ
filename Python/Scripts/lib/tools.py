@@ -3,15 +3,30 @@ import os.path
 from tkinter.filedialog import askdirectory
 
 def get_directory():
-    dirname = askdirectory() + "/"
+    dirname = askdirectory() # + "/"
     if dirname == None or len(dirname) < 1:
         dirname = "./"
     return dirname
 
+def get_num_of_files(dirname):
+    total_files = len([name for name in os.listdir(dirname)
+                       if os.path.isfile(os.path.join(dirname, name)) and name != 'log.txt'])
+    
+    return total_files
+
+def is_number(num):
+    try:
+        check = int(num)
+        flag = True
+    except ValueError:
+        flag = False
+    
+    return flag
+
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]
     yData = [0]
-    lastTickTime = -1000.0;
+    lastTickTime = -1000.0
     lastTick = 0
     for tick in ticks:
         if not (tick[0] == lastTick) and ((tick[0] == 255) or (tick[0] == 1)):
@@ -23,7 +38,6 @@ def convert_ticks_to_rpm(ticks, tpr):
 
 def pad_both_sides_of_text(text, num=8):
     pad = num - len(text)
-    print(pad)
     left = num // 2
     right = num - left
     
