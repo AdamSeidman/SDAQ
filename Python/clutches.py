@@ -3,6 +3,7 @@ import sys
 from fileUI import ClutchesFileUI
 from dataUI import ClutchesDataUI
 import random
+from runhelpers import FileInfo
 ########################################
 
 '''
@@ -30,7 +31,7 @@ import ctWriter as CT
 dir_name = get_directory()
 buffer = []
 collecting = False
-
+run_num = 1
 def start_btn():
     global collecting, buffer
     if collecting == True:
@@ -56,10 +57,11 @@ def prepare_data():
 
 def prepare_false_data():
     xData = list()
-    for i in range(3):
+    range_int = 10
+    for i in range(range_int):
         xData.append(i)
     yData = list()
-    for i in range(3):
+    for i in range(range_int):
         yData.append(random.randint(3, 10))
     return (xData, yData)
 
@@ -72,7 +74,7 @@ def update_time(time):
     except:
         return # todo popup invalid input
     #set_title
-    (xData, yData) = prepare_false_data()
+    (xData, yData) = prepare_data()
     update_plots(xData, yData)
 
 def collect():
@@ -90,18 +92,13 @@ last_rpm_plot = None
 lastX = []
 lastY = []
 def update_plots(xData, yData):
-    global lastX, lastY, rpm_plot, last_rpm_plot
+    global lastX, lastY, rpm_plot, last_rpm_plot, run_num
     print ("Before plots")
     rpm_plot.plot(0, xData, yData)
     last_rpm_plot.plot(0, lastX, lastY)
-    print ("After plots")
-    print(str(lastX))
-    print(str(lastY))
+    rpm_plot.set_title('Engine RPM Over Time: Run {}'.format(run_num))
     lastX = xData.copy()
     lastY = yData.copy()
-    print(str(lastX))
-    print(str(lastY))
-    print("fdsaf")
 
 clutches_options = [("Primary_Weight", "g"), ("Ramp", ""), ("Spring", "lb*in"), ("Helix", ""), ("Preload", "")]
 clutches_checks = [("Modified_Belt-", True)]
@@ -114,11 +111,16 @@ def create_ui(title):
     simpleUI.set_title(title)
 
     def file_update(frames, notes, update_frame, path_text):
+        global run_num
         builder = ""
         for frame in frames:
             builder += frame.get_value()
         run_num = 0
-        update_frame.update_label(path_text, "Current File:  " + CT.start_new_file(dir_name, builder, notes))
+        the_file = CT.start_new_file(dir_name, builder, notes)
+        update_frame.update_label(path_text, "Current File:  " + the_file)
+        file_info = FileInfo(dir_name, the_file)
+        run_num = len(file_info.get_runs())
+
     
     fileUI = ClutchesFileUI(file_update, clutches_options, clutches_checks)
     simpleUI.add_frame(fileUI, tk.TOP)
