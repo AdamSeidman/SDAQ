@@ -14,6 +14,7 @@ file_name = ""
 notes = ""
 setup_num = 1
 prelim_filename = ""
+name_buffer = []
 
 def set_setup_num(num):
     global setup_num
@@ -48,13 +49,18 @@ def get_notes():
     global notes
     return notes
 
+def has_setup(setup_name):
+    global name_buffer
+    return setup_name in name_buffer
+
 def write_data(xData, yData, time):
-    global has_written, prelim_filename, notes, run_num
+    global has_written, prelim_filename, notes, run_num, name_buffer
     if len(prelim_filename) == 0:
         pass #popup saying update hasnt been pressed yet
     if not has_written:
         has_written = True
         write(str(prelim_filename))
+        name_buffer.append(str(prelim_filename))
         write("Notes:\n")
         write(str(notes))
     write("\nRun #" + str(run_num) + ": " + str(time) + " s")

@@ -25,8 +25,10 @@ class Plot:
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
+        
     def update_title(self, title):
         plt.title(title)
+        
     def create_line(self, line_type=DEFAULT_LINE_TYPE):
         if len(line_type) == 0:
             line_type = get_col(len(self.__lines))
@@ -42,10 +44,14 @@ class Plot:
             self.create_line(line_type="")
         print(xData)
         print(yData)
+        print("Setting data")
         self.__lines[line_num].set_xdata(xData)
         self.__lines[line_num].set_ydata(yData)
         self.__ax.relim()
         self.__ax.autoscale_view()
-        self.__figure.tight_layout()
+        print("Figure stuffs")
+        #self.__figure.tight_layout()
+        print("Draw canvas")
         self.__figure.canvas.draw()
+        print("Flush event")
         self.__figure.canvas.flush_events()

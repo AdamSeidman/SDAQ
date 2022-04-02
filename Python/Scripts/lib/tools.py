@@ -85,7 +85,7 @@ def apply_calibration(data, min_val, max_val):
     data_max = max(data)
     return [(((max_val - min_val) * ((x - data_min) / (data_max - data_min))) + min_val) for x in data]
 
-def shift_around_val(data, val):
+def shift_around_val(data, val, extra=0):
     for index in range(len(data)):
         ydata = data[index][1]
         num = 0
@@ -95,7 +95,7 @@ def shift_around_val(data, val):
                 break
         xdata = []
         for i in range(len(ydata)):
-            xdata.append((data[index][0][i]) - num)
+            xdata.append(((data[index][0][i]) - num) + extra)
         data[index][0] = xdata
     return data
 

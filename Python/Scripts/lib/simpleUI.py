@@ -109,13 +109,6 @@ def create_popup(popup_title='Confirmation', popup_msg='Warning', popup_icon=tk_
         message=popup_msg,
         icon=popup_icon
     )
-    
-    if answer:
-        tk_msg.showinfo(
-            title=info_title,
-            message=info_msg
-        )
-        
     return answer
 
 def create_type_popup(popup_title='Confirmation', popup_msg='Wrong Type'):

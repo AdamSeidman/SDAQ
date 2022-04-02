@@ -3,8 +3,9 @@ import sys
 from tkinter import TOP, VERTICAL, Tk
 import tkinter
 import os
-#sys.path.append('/home/sdaq/Scripts/lib')
-sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
+
+sys.path.append('/home/sdaq/Scripts/lib')
+#sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
 #sys.path.append('Scripts\\lib')
 import tools
 import simpleUI
@@ -32,9 +33,10 @@ class myFrame(simpleUI.Frame):
         simpleUI.set_minsize_of_window(250, 200)
         simpleUI.set_title("Clutchtuning viewer")
     def update_command(self):
+        self.files = []
         self.ctfiles = list(filter(lambda x: x.endswith(".ct"), os.listdir(self.myDirName)))
         for ctfile in self.ctfiles:
-            self.files.append(runhelpers.FileInfo(ctfile))
+            self.files.append(runhelpers.FileInfo(self.myDirName,ctfile))
         max_button_size = 10
         for child in self.RunsFrame.winfo_children():
             child.destroy()
@@ -65,6 +67,8 @@ class myFrame(simpleUI.Frame):
         plt.set_title("All runs")
         for i in range(len(file.get_runs())):
             self.lineList.append(i)
+            print(file.get_runs()[i].xvals)
+            print(file.get_runs()[i].yvals)
             plt.plot(i, file.get_runs()[i].xvals, file.get_runs()[i].yvals)
 
 myFrame()

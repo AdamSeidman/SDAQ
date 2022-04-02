@@ -32,7 +32,7 @@ class FileInfo():
             exit(1)
         self.fileSetup = m.group()
         self.setupName = name[name.find(str(m)):-3]
-        file = open(dir_name + self.fileName, "r")
+        file = open(dir_name + '/' + self.fileName, "r")
         lines = file.readlines()
         lineNum = 0
         has_a_run_been_found = False
@@ -41,14 +41,14 @@ class FileInfo():
         self.runs = []
         self.notes = ""
         while lineNum < len(lines):
-            regmatch = re.search("Run ([0-9]*): ([0-9]*\.{0,1}[0-9]*) s", lines[lineNum])
-            if regmatch is not None:
+            if lines[lineNum].startswith("Run"):
+                matchGroup = re.findall("(\d+.\d+|\d+)", lines[lineNum])
                 if not has_a_run_been_found:
                     notesEnd = lineNum
                     self.notes = '\n'.join(lines[notesStart:notesEnd])
                     has_a_run_been_found = True
                 xvals = ast.literal_eval(lines[lineNum + 1])
-                self.runs.append(RunDump(int(regmatch.group(1)), xvals, ast.literal_eval(lines[lineNum + 2]), float(regmatch.group(2))))
+                self.runs.append(RunDump(int(matchGroup[0]), xvals, ast.literal_eval(lines[lineNum + 2]), float(matchGroup[1])))
                 lineNum = lineNum + 1
             lineNum = lineNum + 1
     def get_average_time(self):
@@ -74,8 +74,9 @@ class FileInfo():
     def get_fastest_time(self):
         if self.fastestTime != 0:
             return self.fastestTime
+        self.fastestTime = 999.9 # todo fix
         for time in self.runs:
-            self.fastestTime = max(time.get_runTime(), self.fastestTime)
+            self.fastestTime = min(time.get_runTime(), self.fastestTime)
         return self.fastestTime
     def get_setup_number(self):
         return self.fileSetup

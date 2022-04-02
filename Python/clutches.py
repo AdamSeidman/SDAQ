@@ -1,9 +1,8 @@
 import tkinter as tk
 import sys
-from fileUI import ClutchesFileUI
-from dataUI import ClutchesDataUI
+from clutchesUI import ClutchesUI
 import random
-from runhelpers import FileInfo
+
 ########################################
 
 '''
@@ -28,30 +27,53 @@ from valueFrame import ValueFrame, CheckFrame
 from tools import *
 import ctWriter as CT
 
-dir_name = get_directory()
+restart_num = True
+# All globals up here
+dir_name = None
+
+while dir_name is None:
+    dir_name = get_directory()
+    if get_num_of_files(dir_name) > 0:
+        num = simpleUI.create_type_popup(popup_msg="Warning: The selected directory has files already in it.\nWould you like to continue?")
+        if num is False:
+            dir_name = None
+        else:
+            CT.set_setup_num(get_num_of_files(dir_name) + 1)
+
 buffer = []
 collecting = False
-run_num = 1
+has_written = False
+
+ui = None
+rpm_plot = None
+
+clutches_options = [("Primary_Weight", "g"), ("Ramp", ""), ("Spring", "lb*in"), ("Helix", ""), ("Preload", "")]
+clutches_checks = [("Modified_Belt-", True)]
+
 def start_btn():
-    global collecting, buffer
+    global collecting, buffer, has_written
     if collecting == True:
         return
     collecting = True
+    has_written = False
     reset_time()
     buffer = []
-    dataUI.update_running_label(collecting)
+    ui.update_running_label(collecting)
 
 def stop_btn():
     global collecting, buffer, run_num, xData, yData, filter_depth, engine_tpr
     if collecting == False:
         return
     collecting = False
-    dataUI.update_running_label(collecting)
+    ui.update_running_label(collecting)
 
 def prepare_data():
     global buffer, engine_tpr, filter_depth
     (xData, yData) = convert_ticks_to_rpm(buffer, engine_tpr)
     yData = apply_rolling_filter(yData, filter_depth)
+    xData, yData = shift_around_val([[xData, yData]], 2150, extra=1)[0]
+    xData, yData = apply_cutoff([xData, yData], 0)
+    xData[0] = 0
     yData[0] = 0
     return (xData, yData)
 
@@ -66,16 +88,36 @@ def prepare_false_data():
     return (xData, yData)
 
 def update_time(time):
-    global collecting
-    if collecting:
+    global collecting, has_written
+    if collecting or has_written:
+        if collecting:
+            simpleUI.create_type_popup(popup_msg="Please stop the time collection before trying to write the time")
+        else:
+            simpleUI.create_type_popup(popup_msg="You have already set the time for this run")
         return
     try:
         time = float(str(time))
     except:
-        return # todo popup invalid input
+        simpleUI.create_type_popup(popup_msg="You need to input an actual time")
+        return
+    has_written = True
     #set_title
-    (xData, yData) = prepare_data()
+    (xData, yData) = prepare_data() # todo
     update_plots(xData, yData)
+    CT.write_data(xData, yData, time)
+
+def update_plots(xData, yData):
+    # todo MORE
+    global rpm_plot
+    rpm_plot.update_title("Engine RPM Over Time: Run #{}".format(CT.get_run_num()))
+    rpm_plot.plot(0, xData, yData)
+
+
+def update_file(path_text, notes):
+    global dir_name
+    if CT.has_setup(path_text):
+        simpleUI.create_popup(popup_msg="You've already used this setup, you can continue if you want.")
+    return CT.start_new_file(dir_name, path_text, notes)
 
 def collect():
     global collecting, buffer
@@ -86,56 +128,15 @@ def collect():
         except:
             pass
 
-rpm_plot = None
-last_rpm_plot = None
-
-lastX = []
-lastY = []
-def update_plots(xData, yData):
-    global lastX, lastY, rpm_plot, last_rpm_plot, run_num
-    print ("Before plots")
-    rpm_plot.plot(0, xData, yData)
-    last_rpm_plot.plot(0, lastX, lastY)
-    rpm_plot.set_title('Engine RPM Over Time: Run {}'.format(run_num))
-    lastX = xData.copy()
-    lastY = yData.copy()
-
-clutches_options = [("Primary_Weight", "g"), ("Ramp", ""), ("Spring", "lb*in"), ("Helix", ""), ("Preload", "")]
-clutches_checks = [("Modified_Belt-", True)]
-
-fileUI = None
-dataUI = None
 def create_ui(title):
-    global fileUI, dataUI, text_field_frame, button_frame, text_frame, collecting_label, notes, time, \
-           clutches_options, clutches_checks, run_num, dir_name
-    simpleUI.set_title(title)
-
-    def file_update(frames, notes, update_frame, path_text):
-        global run_num
-        builder = ""
-        for frame in frames:
-            builder += frame.get_value()
-        run_num = 0
-        the_file = CT.start_new_file(dir_name, builder, notes)
-        update_frame.update_label(path_text, "Current File:  " + the_file)
-        file_info = FileInfo(dir_name, the_file)
-        run_num = len(file_info.get_runs())
-
-    
-    fileUI = ClutchesFileUI(file_update, clutches_options, clutches_checks)
-    simpleUI.add_frame(fileUI, tk.TOP)
-    
-    dataUI = ClutchesDataUI(start_btn, stop_btn, update_time)
-    simpleUI.add_frame(dataUI, tk.BOTTOM)
-    
-    simpleUI.add_main_event(collect)
-    simpleUI.start_window()
+    global ui, clutches_options, clutches_checks
+    ui = ClutchesUI(title, clutches_options, clutches_checks, startFn=start_btn, stopFn=stop_btn, fileUpdateFn=update_file, timeSetFn=update_time)
+    ui.start_main_event(collect)
 
 def main():
-    global rpm_plot, last_rpm_plot
+    global rpm_plot, ui
     rpm_plot = graphing.Plot(title='Engine RPM Over Time: Run #1', xlabel='Seconds', ylabel='RPM')
-    last_rpm_plot = graphing.Plot(title='Last Engine RPM Over Time', xlabel='Seconds', ylabel='RPM', line_type=".r-") # todo check line type
-    sdaq.create_i2c_bus()
+    sdaq.create_i2c_bus()    
     create_ui('RPM Data Collector')
 
 if __name__ == "__main__":
