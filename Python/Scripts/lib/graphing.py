@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import matplotlib
 DEFAULT_LINE_TYPE = ".b-"
 
 plt.ion()
@@ -13,7 +13,7 @@ def get_col(num):
 class Plot:
     __lines = []
     __ax = None
-    __figure = None
+    __figure: plt.Figure = None
     
     def __init__(self, line_type=DEFAULT_LINE_TYPE, title="", xlabel="", ylabel=""):
         self.__figure, self.__ax = plt.subplots()#figsize=(10,8)
@@ -42,16 +42,10 @@ class Plot:
     def plot(self, line_num, xData, yData):
         while len(self.__lines) <= line_num:
             self.create_line(line_type="")
-        print(xData)
-        print(yData)
-        print("Setting data")
         self.__lines[line_num].set_xdata(xData)
         self.__lines[line_num].set_ydata(yData)
         self.__ax.relim()
         self.__ax.autoscale_view()
-        print("Figure stuffs")
-        #self.__figure.tight_layout()
-        print("Draw canvas")
+        self.__figure.tight_layout()
         self.__figure.canvas.draw()
-        print("Flush event")
         self.__figure.canvas.flush_events()

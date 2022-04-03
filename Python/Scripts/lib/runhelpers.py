@@ -1,22 +1,20 @@
 import re
 import ast
+import sys
 class RunDump():
-    def __init__(self, runNum, xvals, yvals, runTime, notes=""):
+    def __init__(self, runNum, xvals, yvals, runTime):
         self.runNum = runNum
         self.xvals = xvals
         self.yvals = yvals
         self.runTime = runTime
-        self.notes = ""
-    def get_xvals(self):
+    def get_xvals(self) -> list[float]:
         return self.xvals
-    def get_yvals(self):
+    def get_yvals(self) -> list[float]:
         return self.yvals
-    def get_runName(self):
+    def get_runName(self) -> int:
         return self.runNum
     def get_runTime(self) -> float:
         return self.runTime
-    def get_notes(self):
-        return self.notes
 class FileInfo():
     fileName = ""
     fileSetup = 0
@@ -51,7 +49,7 @@ class FileInfo():
                 self.runs.append(RunDump(int(matchGroup[0]), xvals, ast.literal_eval(lines[lineNum + 2]), float(matchGroup[1])))
                 lineNum = lineNum + 1
             lineNum = lineNum + 1
-    def get_average_time(self):
+    def get_average_time(self) -> float:
         if self.avgTime != 0:
             return self.avgTime
         running_total = 0.0
@@ -63,7 +61,7 @@ class FileInfo():
             self.avgTime = 0
         self.totalTime = running_total
         return self.avgTime
-    def get_total_time(self):
+    def get_total_time(self) -> float:
         if self.totalTime != 0:
             return self.totalTime
         running_total = 0.0
@@ -71,18 +69,16 @@ class FileInfo():
             running_total = running_total + run.get_runTime()
         self.totalTime = running_total
         return self.totalTime
-    def get_fastest_time(self):
+    def get_fastest_time(self) -> float:
         if self.fastestTime != 0:
             return self.fastestTime
-        self.fastestTime = 999.9 # todo fix
-        for time in self.runs:
-            self.fastestTime = min(time.get_runTime(), self.fastestTime)
-        return self.fastestTime
-    def get_setup_number(self):
+        self.fastestTime = min(self.runs, key=lambda x: x.get_runTime())
+        return self.fastestTime.get_runTime()
+    def get_setup_number(self) -> int:
         return self.fileSetup
-    def get_name(self):
+    def get_name(self)  -> str:
         return self.fileName
-    def get_notes(self):
+    def get_notes(self) -> str:
         return self.notes
     def get_runs(self) -> list[RunDump]:
         return self.runs

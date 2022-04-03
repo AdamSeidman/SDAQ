@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 import sys
-from tkinter import TOP, VERTICAL, Tk
+from tkinter import HORIZONTAL, RIGHT, TOP, VERTICAL, Y, Scrollbar, Tk
 import tkinter
 import os
+from typing import Literal
 
-sys.path.append('/home/sdaq/Scripts/lib')
+#sys.path.append('/home/sdaq/Scripts/lib')
 #sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
+sys.path.append('C:\\Users\\hugh\\SDAQ\\Python\\Scripts\\lib')
 #sys.path.append('Scripts\\lib')
 import tools
 import simpleUI
@@ -20,6 +22,9 @@ class myFrame(simpleUI.Frame):
     ctfiles = None
     files = list()
     lineList = list()
+    plt = None
+    myCanvas = None
+    myScrollbar = None
     def __init__(self):
         self.masterFrame = simpleUI.Frame()
         self.textFrame = simpleUI.Frame(src=self.masterFrame)
@@ -27,6 +32,11 @@ class myFrame(simpleUI.Frame):
         self.textFrame.add_button("Update", 10, 1, "white", lambda: self.update_command(), tkinter.RIGHT)
         self.textFrame.add_button("Select Directory", 20, 1, "white", lambda: self.submission_command(), tkinter.RIGHT)
         self.RunsFrame = simpleUI.Frame(border_color='black', border_width=1, src=self.masterFrame)
+        self.myCanvas = tkinter.Canvas(master=self.RunsFrame)
+        self.myCanvas.pack(side=tkinter.LEFT)
+        self.myScrollbar = Scrollbar(self.RunsFrame, orient=VERTICAL)
+        self.myScrollbar.pack(side=RIGHT, fill=Y)
+        self.myCanvas.config(xscrollcommand=self.myScrollbar.set)
         simpleUI.add_frame(self.masterFrame)
         simpleUI.add_frame(self.textFrame)
         simpleUI.add_frame(self.RunsFrame)
@@ -38,11 +48,11 @@ class myFrame(simpleUI.Frame):
         for ctfile in self.ctfiles:
             self.files.append(runhelpers.FileInfo(self.myDirName,ctfile))
         max_button_size = 10
-        for child in self.RunsFrame.winfo_children():
+        for child in self.myCanvas.winfo_children():
             child.destroy()
         for file in self.files:
             max_button_size = max(max_button_size, len(file.fileName))
-            newChild = simpleUI.Frame(border_color="black", border_width=1, src=self.RunsFrame)
+            newChild = simpleUI.Frame(border_color="black", border_width=1, src=self.myCanvas)
             newChild.add_label("Setup Number: {}".format(file.get_setup_number()), tkinter.LEFT)
             newChild.add_label(file.get_name(), tkinter.LEFT)
             newChild.add_label("Average: {}".format(file.get_average_time()), tkinter.LEFT)
@@ -64,11 +74,9 @@ class myFrame(simpleUI.Frame):
         topLevel.minsize(250, 250)
     def make_graph_window(self, file: runhelpers.FileInfo):
         plt = graphing.Plot()
-        plt.set_title("All runs")
+        plt.update_title("All runs")
         for i in range(len(file.get_runs())):
             self.lineList.append(i)
-            print(file.get_runs()[i].xvals)
-            print(file.get_runs()[i].yvals)
             plt.plot(i, file.get_runs()[i].xvals, file.get_runs()[i].yvals)
 
 myFrame()
