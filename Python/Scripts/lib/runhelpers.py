@@ -72,8 +72,8 @@ class FileInfo():
     def get_fastest_time(self) -> float:
         if self.fastestTime != 0:
             return self.fastestTime
-        self.fastestTime = min(self.runs, key=lambda x: x.get_runTime())
-        return self.fastestTime.get_runTime()
+        self.fastestTime = min(self.runs, key=lambda x: x.get_runTime()).get_runTime()
+        return self.fastestTime
     def get_setup_number(self) -> int:
         return self.fileSetup
     def get_name(self)  -> str:
