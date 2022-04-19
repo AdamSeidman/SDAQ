@@ -26,6 +26,7 @@ for line in file:
 print("Applying Fix")
 
 yData = apply_rollover_fix(yData)
+yData2 = apply_rollover_fix(yData2)
 
 for i in range(len(yData)):
     yData[i] /= 370.5
