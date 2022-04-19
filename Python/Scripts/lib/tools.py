@@ -1,12 +1,5 @@
 import time
 import os.path
-from tkinter.filedialog import askdirectory
-
-def get_directory():
-    dirname = askdirectory() + "/"
-    if dirname == None or len(dirname) < 1:
-        dirname = "./"
-    return dirname
 
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]
@@ -21,23 +14,6 @@ def convert_ticks_to_rpm(ticks, tpr):
         lastTick = tick[0]
     return (xData, yData)
 
-def pad_both_sides_of_text(text, num=8):
-    pad = num - len(text)
-    print(pad)
-    left = num // 2
-    right = num - left
-    
-    left_pad = left * " "
-    right_pad = right * " "
-    
-    return left_pad + text + right_pad
-
-def pad_text(text, num=8, is_right=True):
-    pad = (num - len(text)) * " "
-    if is_right:
-        return text + pad
-    return pad + text
-
 def apply_rolling_filter(data, depth):
     if len(data) < depth:
         depth = len(data)
@@ -47,7 +23,8 @@ def apply_rolling_filter(data, depth):
         data[i] = (sum(buffer) / len(buffer))
     return data
 
-def apply_rollover_fix(data):
+# original rollover fic algorithm
+def apply_rollover_fix(data, c=75):
     if len(data) <= 2:
         return data
     lastVal = data[0]
@@ -56,7 +33,7 @@ def apply_rollover_fix(data):
         diff = abs(lastVal - data[i])
         pdiff = abs(lastVal - (data[i] + 255))
         dmin = min(ndiff, diff, pdiff)
-        if abs(dmin - diff) > 75:
+        if abs(dmin - diff) > c:
             if ndiff == dmin:
                 for n in range(i, len(data)):
                     data[n] -= 255
@@ -66,49 +43,102 @@ def apply_rollover_fix(data):
         lastVal = data[i]
     return data
 
+# test function for original algorithm
+def apply_rollover_fix_test(data, c=75):
+    if len(data) <= 2:
+        return data
+    for i in range(1, len(data)):
+        lastVal = data[i-1]
+        ndiff = abs(lastVal - (data[i] - 255))
+        diff = abs(lastVal - data[i])
+        pdiff = abs(lastVal - (data[i] + 255))
+        dmin = min(ndiff, diff, pdiff)
+        if abs(dmin - diff) > c:
+            if ndiff == dmin:
+                for n in range(i, len(data)):
+                    data[n] -= 255
+            elif pdiff == dmin:
+                for n in range(i, len(data)):
+                    data[n] += 255
+        lastVal = data[i]
+    return data
+
+#def filter_outliers(xdata, ydata):
+
+# 2nd attempt at buffer algorithm
+# uses outlier data filter
+def funny2(xdata, ydata):
+    if len(ydata) <= 2:
+        return ydata
+    buffer = []
+    for i in range(1, len(ydata)):
+        prev = ydata[i-1]
+        curr = ydata[i]
+        a = prev - (curr + 256)
+        b = prev - (curr)
+        c = prev - (curr - 256)
+        dmin = min(abs(a), abs(b), abs(c))
+        if abs(a) == dmin:
+            buffer.append(a)
+        elif abs(b) == dmin:
+            buffer.append(b)
+        else:
+            buffer.append(c)
+    #result = [ydata[1]]
+    buffer.insert(0, 0)
+    indexes = []
+    for i in range(0, len(buffer)):
+        # outlier filter, change inequality
+        # lower value = more filtered
+        if abs(buffer[i]) > 5:
+            indexes.append(i)
+    newXData = []
+    newYData = []
+    newBuffer = []
+    for i in range(len(buffer)):
+        if i not in indexes:
+            newXData.append(xdata[i])
+            newYData.append(ydata[i])
+            newBuffer.append(buffer[i])
+    results = [ydata[0]]
+    #for i in range(1,len(buffer)):
+    #    results
+    #print(buffer)
+    for i in range(1, len(newBuffer)):
+        results.append(results[len(results) - 1] + newBuffer[i])
+    return (newXData, results)
+
+# algorithm using buffer to apply to data
+def funny(data):
+    if len(data) <= 2:
+        return data
+    buffer = []
+    for i in range(1, len(data)):
+        prev = data[i-1]
+        curr = data[i]
+        a = prev - (curr + 256)
+        b = prev - (curr)
+        c = prev - (curr - 256)
+        dmin = min(abs(a), abs(b), abs(c))
+        if abs(a) == dmin:
+            buffer.append(a)
+        elif abs(b) == dmin:
+            buffer.append(b)
+        else:
+            buffer.append(c)
+        if buffer[len(buffer) - 2] == -121.0 and buffer[len(buffer) - 1] == 112.0:
+            for j in range(i - 3, i + 3):
+                print(data[j])
+    result = [data[1]]
+    #print(buffer)
+    for i in range(0, len(buffer)):
+        result.append(result[len(result)-1] + buffer[i]) #replaced last two result with data
+    return data
+
 def apply_calibration(data, min_val, max_val):
     data_min = min(data)
     data_max = max(data)
     return [(((max_val - min_val) * ((x - data_min) / (data_max - data_min))) + min_val) for x in data]
-
-def shift_around_val(data, val):
-    for index in range(len(data)):
-        ydata = data[index][1]
-        num = 0
-        for i in range(len(ydata)):
-            if ydata[i] >= val:
-                num = data[index][0][i]
-                break
-        xdata = []
-        for i in range(len(ydata)):
-            xdata.append((data[index][0][i]) - num)
-        data[index][0] = xdata
-    return data
-
-def combine_data(data):
-    buf = [[], []]
-    while len(data) > 0:
-        min_num = 999999
-        for arr in data:
-            min_num = min(min_num, arr[0][0])
-        for i in range(len(data)):
-            if data[i][0][0] == min_num:
-                buf[0].append(data[i][0][0])
-                buf[1].append(data[i][1][0])
-                data[i][0].pop(0)
-                data[i][1].pop(0)
-                if len(data[i][0]) == 0:
-                    data.pop(i)
-                break
-    return buf
-
-def apply_cutoff(data, val):
-    while len(data[0]) > 0 and data[0][0] < val:
-        #print(data)
-        data[0].pop(0)
-        data[1].pop(0)
-    return data
-                
 
 resolution = 1000.0
 start_time = 0.0
@@ -146,5 +176,5 @@ def write(words):
     if len(current_file) == 0:
         return
     f = open(current_file, "a")
-    f.write(str(words) + "\n")
+    f.write(words + "\n")
     f.close()
