@@ -52,5 +52,5 @@ def clear_leds():
     GPIO.setwarnings(False)
     for pin in display_list:
         GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, 0);
+        GPIO.output(pin, 0)
     GPIO.setwarnings(True)

@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import matplotlib
 DEFAULT_LINE_TYPE = ".b-"
 
 plt.ion()
@@ -13,10 +13,10 @@ def get_col(num):
 class Plot:
     __lines = []
     __ax = None
-    __figure = None
+    __figure: plt.Figure = None
     
     def __init__(self, line_type=DEFAULT_LINE_TYPE, title="", xlabel="", ylabel=""):
-        self.__figure, self.__ax = plt.subplots(figsize=(14,12))
+        self.__figure, self.__ax = plt.subplots()#figsize=(10,8)
         self.__ax.set_autoscalex_on(True)
         self.__ax.set_autoscaley_on(True)
         self.__ax.grid()
@@ -25,7 +25,10 @@ class Plot:
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-
+        
+    def update_title(self, title):
+        plt.title(title)
+        
     def create_line(self, line_type=DEFAULT_LINE_TYPE):
         if len(line_type) == 0:
             line_type = get_col(len(self.__lines))

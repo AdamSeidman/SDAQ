@@ -10,7 +10,7 @@ class ClutchesFileUI(simpleUI.Frame):
     option_frames = []
     notes_text = ""
     
-    def __init__(self, updateEvent, clutches_options=[], clutches_checks=[], f_src=None):
+    def __init__(self, updateEvent, clutches_options=[], clutches_checks=[]):
         super().__init__(border_color='black', border_width=1)
         
         currentFrame = None
@@ -45,12 +45,6 @@ class ClutchesFileUI(simpleUI.Frame):
         simpleUI.add_frame(right_frame, window_side=tk.RIGHT)
         simpleUI.add_frame(options_button_frame, window_side=tk.TOP)
         
-        def update_all():
-            notes_text = notes_frame.get_text(notes).replace("Run", "run")
-            
-            for frame in self.option_frames:
-                frame.update()
-        
         options_frame.add_label("  ", tk.BOTTOM)
         simpleUI.add_frame(options_frame, window_side=tk.TOP)
         notes_frame.add_label("Notes:", tk.TOP)
@@ -60,12 +54,18 @@ class ClutchesFileUI(simpleUI.Frame):
         update_frame.add_label(" ", tk.TOP)
             
         path_field = ""
-        path_text = update_frame.add_label("", tk.BOTTOM)
-        def update(beginning=False):
-            updateEvent(self.option_frames, notes, update_frame, path_text, beginning) # TODO
-        update(beginning=True)
+        path_text = update_frame.add_label("No File Created Yet", tk.BOTTOM)
         
-        update_frame.add_button("Update", 10, 1, "white", update_all, tk.TOP)
+        def update(): # do we need to run this immediately after?
+            notes_text = notes_frame.get_text(notes).replace("Run", "run")
+            builder = ""
+            for frame in self.option_frames:
+                frame.update()
+                builder += frame.get_value()
+            filename = updateEvent(builder, notes_text)
+            update_frame.update_label(path_text, "Current File: " + str(filename))
+        
+        update_frame.add_button("Update", 10, 1, "white", update, tk.TOP)
         
         simpleUI.add_frame(update_frame, window_side=tk.TOP)
         
