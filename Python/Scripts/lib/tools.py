@@ -1,7 +1,7 @@
 import time
 import os.path
-<<<<<<< Updated upstream
 from tkinter.filedialog import askdirectory
+import math
 
 def get_directory():
     dirname = askdirectory() # + "/"
@@ -23,9 +23,7 @@ def is_number(num):
         flag = False
     
     return flag
-=======
-import math
->>>>>>> Stashed changes
+
 
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]

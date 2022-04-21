@@ -59,8 +59,8 @@ for i in lines:
 
 # choose what algorithm is wanted here
 print("Calculating...")
-rolling_angle_filter(ydata, 64)
-#rolling_angle_filter_A(xdata, ydata, 16)
+#rolling_angle_filter(ydata, 64)
+rolling_angle_filter_A(xdata, ydata, 16)
 (xdata, ydata) = funny2(xdata, ydata)
 #print(find_max_diff(ydata))
 #ydata = apply_rolling_filter(ydata, 3)
