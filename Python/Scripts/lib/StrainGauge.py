@@ -13,7 +13,7 @@ MINTIME = 0
 MAXTIME = 999
 
 # have to use r"filepath" to get raw filepath & then replace \ with /
-filename = (r"C:\Users\CVX32\OneDrive\Desktop\SDAQ\Python\strain_gauage_data\Tie-Rod-HighEnd.sdaq")
+filename = (r"C:\Users\CVX32\OneDrive\Desktop\SDAQ\Python\strain_gauage_data\Shock-Donger-HighEnd.sdaq")
 my_title = filename[63:-5]
 filename.replace("\\", "/")
 
@@ -22,6 +22,7 @@ constant = 75
 
 charsToReplace = ["[", "]", ","]
 
+print("Starting...")
 with open(filename) as x:
     lines = x.readlines()
 
@@ -33,6 +34,7 @@ datapoints = 0
 
 # has stuff to fix & make more efficient
 # but is good enough for now
+print("Parsing File...")
 for i in lines:
 
     linesplit = i.split()
@@ -56,11 +58,15 @@ for i in lines:
     if datapoints == NUMDATAPOINTS: break
 
 # choose what algorithm is wanted here
+print("Calculating...")
+rolling_angle_filter(ydata, 64)
+#rolling_angle_filter_A(xdata, ydata, 16)
 (xdata, ydata) = funny2(xdata, ydata)
-ydata = apply_rolling_filter(ydata, 5)
+#print(find_max_diff(ydata))
+#ydata = apply_rolling_filter(ydata, 3)
 
+print("Plotting...")
 plot = graphing.Plot(title=my_title)
 plot.plot(0, xdata, ydata)
-
-while True:
-    pass
+    
+input("Press ENTER to close...")
