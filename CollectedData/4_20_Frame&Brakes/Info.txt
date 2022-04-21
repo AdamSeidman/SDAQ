@@ -1,0 +1,4 @@
+A0 - Not Used
+A1 - L-pot
+A2 - Shock Donger
+A3 - Brakes Pressure Sensor
