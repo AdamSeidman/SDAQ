@@ -1,5 +1,8 @@
 import sys
-sys.path.append('C:/Users/CVX32/OneDrive/Desktop/#Code/SDAQ/Python/lib')
+
+sys.path.append('C:/Users/Adam/Documents/#Code/SDAQ/Python/lib')
+#sys.path.append('C:/Users/CVX32/OneDrive/Desktop/#Code/SDAQ/Python/lib')
+
 import graphing
 from tools import *
 
@@ -13,7 +16,9 @@ MINTIME = 0
 MAXTIME = 999
 
 # have to use r"filepath" to get raw filepath & then replace \ with /
-filename = (r"C:\Users\CVX32\OneDrive\Desktop\SDAQ\Python\strain_gauage_data\Shock-Donger-HighEnd.sdaq")
+# or just highlight one \ and press ctrl-d a few times and type a single /
+filename = ("C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/High-End/Link-4A-HighEnd.sdaq")
+#filename = (r"C:\Users\CVX32\OneDrive\Desktop\SDAQ\Python\strain_gauage_data\Shock-Donger-HighEnd.sdaq")
 my_title = filename[63:-5]
 filename.replace("\\", "/")
 
@@ -59,11 +64,9 @@ for i in lines:
 
 # choose what algorithm is wanted here
 print("Calculating...")
-#rolling_angle_filter(ydata, 64)
-rolling_angle_filter_A(xdata, ydata, 16)
-(xdata, ydata) = funny2(xdata, ydata)
-#print(find_max_diff(ydata))
-#ydata = apply_rolling_filter(ydata, 3)
+
+(xdata, ydata) = rolling_angle_filter(xdata, ydata, 6)
+(xdata, ydata) = apply_rollover_fix(xdata, ydata, filterOutliers=True)
 
 print("Plotting...")
 plot = graphing.Plot(title=my_title)
