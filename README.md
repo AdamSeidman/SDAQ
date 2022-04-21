@@ -1,2 +1,2 @@
 # SDAQ
-Stackable DAQ for RIT Baja.
+Stackable Data Acquisition System for RIT Baja.
