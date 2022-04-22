@@ -65,8 +65,10 @@ for i in lines:
 # choose what algorithm is wanted here
 print("Calculating...")
 
-(xdata, ydata) = rolling_angle_filter(xdata, ydata, 6)
-(xdata, ydata) = apply_rollover_fix(xdata, ydata, filterOutliers=True)
+(xdata, ydata) = apply_rollover_fix(xdata, ydata, filterOutliers=True, outlier_constant=30, filter_constant=75)
+#(xdata, ydata) = rolling_angle_filter(xdata, ydata, 6)
+(xdata, ydata) = apply_rollover_fix(xdata, ydata, filterOutliers=False, filter_constant=75)
+#more math
 
 print("Plotting...")
 plot = graphing.Plot(title=my_title)

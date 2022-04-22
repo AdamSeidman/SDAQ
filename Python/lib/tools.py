@@ -63,10 +63,18 @@ def apply_rolling_filter(data, depth):
         data[i] = (sum(buffer) / len(buffer))
     return data
 
-def apply_rollover_fix(xData, yData, filterOutliers=True, filter_constant=-1):
+def apply_rollover_fix(xData, yData, filterOutliers=True, filter_constant=-1, outlier_constant=-1):
     if filterOutliers:
-        if filter_constant >= 0: return __rollover_fix_with_outlier_filtering(xData, yData, c=filter_constant)
-        else: return __rollover_fix_with_outlier_filtering(xData, yData)
+        if filter_constant >= 0:
+            if outlier_constant >= 0:
+                return __rollover_fix_with_outlier_filtering(xData, yData, filter_constant=filter_constant, outlier_constant=outlier_constant)
+            else:
+                return __rollover_fix_with_outlier_filtering(xData, yData, filter_constant=filter_constant)
+        else:
+            if outlier_constant >= 0:
+                return __rollover_fix_with_outlier_filtering(xData, yData, outlier_constant=outlier_constant)
+            else:
+                return __rollover_fix_with_outlier_filtering(xData, yData)
     else:
         if filter_constant >= 0: return __generic_brake_rollover_fix([xData, yData], c=filter_constant)
         else: return __generic_brake_rollover_fix([xData, yData])
@@ -93,7 +101,7 @@ def __generic_brake_rollover_fix(data, c=75):
 
 # 2nd attempt at buffer algorithm
 # uses outlier data filter
-def __rollover_fix_with_outlier_filtering(xdata, ydata, c=30):
+def __rollover_fix_with_outlier_filtering(xdata, ydata, outlier_constant=30, filter_constant=75):
     if len(ydata) <= 2:
         return ydata
     buffer = []
@@ -104,18 +112,19 @@ def __rollover_fix_with_outlier_filtering(xdata, ydata, c=30):
         b = prev - (curr)
         c = prev - (curr - 256)
         dmin = min(abs(a), abs(b), abs(c))
-        if abs(a) == dmin:
-            buffer.append(a)
-        elif abs(b) == dmin:
-            buffer.append(b)
-        else:
-            buffer.append(c)
+        if abs(dmin - b) > filter_constant:
+            if abs(a) == dmin:
+                buffer.append(a)
+            elif abs(b) == dmin:
+                buffer.append(b)
+            else:
+                buffer.append(c)
     buffer.insert(0, 0)
     indexes = []
     for i in range(0, len(buffer)):
         # outlier filter, change inequality
         # lower value = more filtered
-        if abs(buffer[i]) > c:
+        if abs(buffer[i]) > outlier_constant:
             indexes.append(i)
     newXData = []
     newYData = []
