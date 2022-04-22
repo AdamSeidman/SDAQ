@@ -36,15 +36,15 @@ def rolling_angle_filter(xData, data, depth_exp):
 
 import sys
 
-sys.path.append("C:/Users/Adam/Documents/#Code/SDAQ/Python/Scripts/lib")
+sys.path.append("C:/Users/Hugh/Documents/SDAQ/Python/lib")
 import graphing
 from tools import *
 
 USE_MINE = True
 FILTER_EXP_DEPTH = 8
-ROLLOVER_FUNCTION = funny2 # todo rename
-test_name = "Link-4A-HighEnd"
-filename = "C:/Users/Adam/Documents/#Code/SDAQ/Python/strain_gauage_data/" + test_name + ".sdaq"
+ROLLOVER_FUNCTION = apply_rollover_fix # todo rename
+test_name = "Shock-Donger-HighEnd"
+filename = "C:/Users/hugh/Documents/SDAQ/data/Mock R22/Calibration/High-End/" + test_name + ".sdaq"
 file = open(filename, "r")
 
 print("Begin File Read")
@@ -68,11 +68,7 @@ print("Calculating")
 
 (xData, yData) = ROLLOVER_FUNCTION(xData, yData) # todo rename this crap
 
-if USE_MINE:
-    (xData, yData) = rolling_angle_filter(xData, yData, FILTER_EXP_DEPTH)
-else:
-    #(xData, yData) = rolling_angle_filter2(xData, yData, FILTER_EXP_DEPTH)
-    pass
+#(xData, yData) = rolling_angle_filter(xData, yData, FILTER_EXP_DEPTH)
 
 print("Plotting")
 
