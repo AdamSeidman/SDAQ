@@ -63,16 +63,24 @@ def apply_rolling_filter(data, depth):
         data[i] = (sum(buffer) / len(buffer))
     return data
 
-def apply_rollover_fix(xData, yData, filterOutliers=True, filter_constant=-1):
-    if filterOutliers:
-        if filter_constant >= 0: return __rollover_fix_with_outlier_filtering(xData, yData, c=filter_constant)
-        else: return __rollover_fix_with_outlier_filtering(xData, yData)
-    else:
-        if filter_constant >= 0: return __generic_brake_rollover_fix([xData, yData], c=filter_constant)
-        else: return __generic_brake_rollover_fix([xData, yData])
+def basic_rollover_fix(xData, yData, c=150):
+    if len(xData) <= 2:
+        return (xData, yData)
+    newXData = []
+    newYData = []
+    adjuster = 0
+    for i in range(1, len(yData)):
+        diff = yData[i-1] - yData[i]
+        if diff < (-1 * c):
+            adjuster -= 256
+        elif diff > c:
+            adjuster += 256
+        newXData.append(xData[i])
+        newYData.append(yData[i] + adjuster)
+    return (newXData, newYData)
 
 # original rollover fix algorithm
-def __generic_brake_rollover_fix(data, c=75):
+def brakes_rollover_fix(data, c=75):
     if len(data) <= 2:
         return data
     lastVal = data[0]
@@ -90,45 +98,6 @@ def __generic_brake_rollover_fix(data, c=75):
                     data[n] += 255
         lastVal = data[i]
     return data
-
-# 2nd attempt at buffer algorithm
-# uses outlier data filter
-def __rollover_fix_with_outlier_filtering(xdata, ydata, c=30):
-    if len(ydata) <= 2:
-        return ydata
-    buffer = []
-    for i in range(1, len(ydata)):
-        prev = ydata[i-1]
-        curr = ydata[i]
-        a = prev - (curr + 256)
-        b = prev - (curr)
-        c = prev - (curr - 256)
-        dmin = min(abs(a), abs(b), abs(c))
-        if abs(a) == dmin:
-            buffer.append(a)
-        elif abs(b) == dmin:
-            buffer.append(b)
-        else:
-            buffer.append(c)
-    buffer.insert(0, 0)
-    indexes = []
-    for i in range(0, len(buffer)):
-        # outlier filter, change inequality
-        # lower value = more filtered
-        if abs(buffer[i]) > c:
-            indexes.append(i)
-    newXData = []
-    newYData = []
-    newBuffer = []
-    for i in range(len(buffer)):
-        if i not in indexes and (i-1) not in indexes and (i+1) not in indexes:
-            newXData.append(xdata[i])
-            newYData.append(ydata[i])
-            newBuffer.append(buffer[i])
-    results = [ydata[0]]
-    for i in range(1, len(newBuffer)):
-        results.append(results[len(results) - 1] + newBuffer[i])
-    return (newXData, results)
 
 def apply_calibration(data, min_val, max_val):
     data_min = min(data)
