@@ -2,23 +2,35 @@ print("Starting")
 
 import sys
 
-#sys.path.append("C:/Users/Hugh/Documents/SDAQ/Python/lib")
-sys.path.append("C:/Users/Adam/Documents/#Code/SDAQ/Python/lib")
+OVERRIDE_FILE_PATH = ""
+PROJECT_PATH = "/SDAQ/Data/Mock R22/Calibration/"
+
+#USER_PATH = "C:/Users/hugh/Documents"
+#USER_PATH = "C:/Users/CVX32/OneDrive/Desktop/#Code"
+USER_PATH = "C:/Users/Adam/Documents/#Code"
+
+sys.path.append(USER_PATH + "/SDAQ/Python/lib")
 import graphing
 from tools import *
 
-#test_name = "Shock-Donger-HighEnd"
-#test_name = "Link-5A-HighEnd"
-test_name = "Link-4a-HighEnd"
-generic_name = "link4a"
+test_name = "link-4a"
+#test_name = "link-5a"
+#test_name = "link-5b"
+#test_name = "tie-Rod"
+#test_name = "Shock-Donger"
+USE_HIGH_END = True
 
-#filename = "C:/Users/hugh/Documents/SDAQ/data/Mock R22/Calibration/High-End/" + test_name + ".sdaq"
-filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/High-End/" + test_name + ".sdaq"
-#filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/Low-End/" + test_name + ".sdaq"
-#filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Raw/raw_link_5A.csv"
+generic_name = test_name.lower().replace("-", "")
+if USE_HIGH_END:
+  test_name = test_name.capitalize() + "-HighEnd"
+  PROJECT_PATH = PROJECT_PATH + "High-End/"
+else:
+  PROJECT_PATH = PROJECT_PATH + "Low-End/"
+filename = USER_PATH + PROJECT_PATH + test_name + ".sdaq"
+if len(OVERRIDE_FILE_PATH) > 0:
+  filename = OVERRIDE_FILE_PATH
 
 file = open(filename, "r")
-
 print("Begin File Read")
 
 xData = []
@@ -31,51 +43,30 @@ for line in file:
     isX = True
     for p in data:
         if isX:
-            xData.append(float(p) - 1400)
+            xData.append(float(p))
         else:
             yData.append(int(p))
         isX = not isX
 
 print("Calculating")
 
-def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=True, rolling_depth=400):
-  (xdata, ydata) = rolling_angle_filter(xdata, ydata, angle_depth)
-  (xdata, ydata) = basic_rollover_fix(xdata, ydata, c=128) # 128 is standard
-  extraYData = apply_rolling_filter(ydata.copy(), 1500)
-  ydata = apply_rolling_filter(ydata, rolling_depth)
-
-  if isFlipped:
-    for i in range(len(ydata)):
-      ydata[i] *= -1
-      extraYData[i] *= -1
-
-  min1 = min(ydata)
-  min2 = min(extraYData)
-  time = xdata[0]
-
-  for i in range(len(ydata)):
-    ydata[i] -= min1
-    extraYData[i] -= min2
-    ydata[i] *= scale
-    extraYData[i] *= scale
-    xdata[i] -= time
-
-  return (xdata, ydata, extraYData)
-
-#all currently calibrated to 500 lbf
+#all currently calibrated to 500 lbf (but not really because its not working)
 if generic_name == "link5a":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=14.3)
-  #(xData, yData, extraYData) = apply_strain_calculations(xData, yData,rolling_depth=5) # this is different because the range of link5a got changed (for csv)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=14.3) # ??? rolling_depth=5 (different for csv?)
 elif generic_name == "link4a":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=3.62)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=1)#3.62)
 elif generic_name == "link5b":
   (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=18.87)
 elif generic_name == "tierod":
   (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=12.5)
 else:
   (xData, yData, extraYData) = apply_strain_calculations(xData, yData)
+  print("Not a specified link")
 
 print("Plotting")
+
+if not USE_HIGH_END:
+  test_name = test_name + " LowEnd"
 
 plot = graphing.Plot(title=test_name, xlabel="Time (s)", ylabel="Load (lbf)")
 plot.plot(0, xData, yData)

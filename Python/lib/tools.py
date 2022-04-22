@@ -215,6 +215,33 @@ def rolling_angle_filter(xData, yData, depth_exp):
         yBuffer.append(average_angle_set(yData[i:i+depth]))
     return (xBuffer, yBuffer)
 
+
+def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=True, rolling_depth=400):
+  (xdata, ydata) = rolling_angle_filter(xdata, ydata, angle_depth)
+  (xdata, ydata) = basic_rollover_fix(xdata, ydata, c=128) # 128 is standard
+  extraYData = apply_rolling_filter(ydata.copy(), 1500)
+  ydata = apply_rolling_filter(ydata, rolling_depth)
+
+  if isFlipped:
+    for i in range(len(ydata)):
+      ydata[i] *= -1
+      extraYData[i] *= -1
+
+  min1 = min(ydata)
+  min2 = min(extraYData)
+  time = xdata[0]
+
+  print("Using Scale: " + str(scale))
+
+  for i in range(len(ydata)):
+    ydata[i] -= min1
+    extraYData[i] -= min2
+    ydata[i] *= scale
+    extraYData[i] *= scale
+    xdata[i] -= time
+
+  return (xdata, ydata, extraYData)
+
 # hugh's function
 # post rollover function
 def find_max_diff(ydata):
