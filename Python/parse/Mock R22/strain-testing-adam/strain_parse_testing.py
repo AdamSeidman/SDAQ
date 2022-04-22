@@ -9,12 +9,12 @@ from tools import *
 
 #test_name = "Shock-Donger-HighEnd"
 #test_name = "Link-5A-HighEnd"
-test_name = "link-4a"
+test_name = "Link-4a-HighEnd"
 generic_name = "link4a"
 
 #filename = "C:/Users/hugh/Documents/SDAQ/data/Mock R22/Calibration/High-End/" + test_name + ".sdaq"
 filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/High-End/" + test_name + ".sdaq"
-filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/Low-End/" + test_name + ".sdaq"
+#filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Calibration/Low-End/" + test_name + ".sdaq"
 #filename = "C:/Users/Adam/Documents/#Code/SDAQ/Data/Mock R22/Raw/raw_link_5A.csv"
 
 file = open(filename, "r")
@@ -38,35 +38,42 @@ for line in file:
 
 print("Calculating")
 
-def apply_strain_calculations(xdata, ydata, aVal, bVal, cVal, isFlipped, dVal=400):
-  (xdata, ydata) = rolling_angle_filter(xdata, ydata, aVal)
-  (xdata, ydata) = basic_rollover_fix(xdata, ydata, c=128)
+def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=True, rolling_depth=400):
+  (xdata, ydata) = rolling_angle_filter(xdata, ydata, angle_depth)
+  (xdata, ydata) = basic_rollover_fix(xdata, ydata, c=128) # 128 is standard
   extraYData = apply_rolling_filter(ydata.copy(), 1500)
-  ydata = apply_rolling_filter(ydata, dVal)
+  ydata = apply_rolling_filter(ydata, rolling_depth)
 
-  for i in range(len(ydata)):
-    if isFlipped:
+  if isFlipped:
+    for i in range(len(ydata)):
       ydata[i] *= -1
       extraYData[i] *= -1
-    ydata[i] += bVal
-    extraYData[i] += bVal
-    ydata[i] *= cVal
-    extraYData[i] *= cVal
-  
+
+  min1 = min(ydata)
+  min2 = min(extraYData)
+  time = xdata[0]
+
+  for i in range(len(ydata)):
+    ydata[i] -= min1
+    extraYData[i] -= min2
+    ydata[i] *= scale
+    extraYData[i] *= scale
+    xdata[i] -= time
+
   return (xdata, ydata, extraYData)
 
 #all currently calibrated to 500 lbf
 if generic_name == "link5a":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, 4, 180, 14.3, True)
-  #(xData, yData, extraYData) = apply_strain_calculations(xData, yData, 2, 88, 1, True, dVal=5) # this is different because the range of link5a got changed (for csv)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=14.3)
+  #(xData, yData, extraYData) = apply_strain_calculations(xData, yData,rolling_depth=5) # this is different because the range of link5a got changed (for csv)
 elif generic_name == "link4a":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, 4, 80, 3.62, True)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=3.62)
 elif generic_name == "link5b":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, 4, 64, 18.87, True)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=18.87)
 elif generic_name == "tierod":
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, 4, 168, 12.5, True)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, scale=12.5)
 else:
-  (xData, yData, extraYData) = apply_strain_calculations(xData, yData, 4, 0, 1, True)
+  (xData, yData, extraYData) = apply_strain_calculations(xData, yData)
 
 print("Plotting")
 
