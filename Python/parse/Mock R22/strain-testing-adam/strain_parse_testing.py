@@ -2,7 +2,7 @@ print("Starting")
 
 import sys
 
-OVERRIDE_FILE_PATH = ""
+OVERRIDE_FILE_PATH = "" # use this for csv's (Just please don't commit it)
 PROJECT_PATH = "/SDAQ/Data/Mock R22/Calibration/"
 
 #USER_PATH = "C:/Users/hugh/Documents"
