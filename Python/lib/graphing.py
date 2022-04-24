@@ -25,7 +25,16 @@ class Plot:
         plt.title(title)
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-        
+    
+    def annotate(self, x, y, xlabel="", ylabel="", box_x=0.94, box_y=0.96):
+        text = "x={:.3f}{:s}, y={:.3f}{:s}".format(x, xlabel, y, ylabel)
+        bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+        ymin, ymax = plt.ylim()
+        plt.ylim(ymin, ymax * 1.25)
+        arrowprops=dict(arrowstyle="->",connectionstyle="angle,angleA=0,angleB=60")
+        kw = dict(xycoords='data',textcoords="axes fraction", arrowprops=arrowprops, bbox=bbox_props, ha="right", va="top")
+        self.__ax.annotate(text, xy=(x, y), xytext=(box_x, box_y), **kw)
+
     def update_title(self, title):
         plt.title(title)
         
