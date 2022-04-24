@@ -86,6 +86,15 @@ plot = graphing.Plot(title=my_title, xlabel="Seconds", ylabel="PSI")
 
 plot.plot(0, xData, yData)
 
+max_val = max(yData)
+index = 0
+for i in range(len(xData)):
+    if yData[i] == max_val:
+        index = i
+        break
+
+plot.annotate(xData[index], max_val, xlabel=" s", ylabel=" psi")
+
 print("Complete")
 
 input('Press ENTER to exit')

@@ -1,10 +1,11 @@
 import sys
 
-sys.path.append("C:/Users/Adam/Documents/#Code/SDAQ/Python/Scripts/lib")
+sys.path.append("C:/Users/Adam/Documents/#Code/SDAQ/Python/lib")
 import graphing
 from tools import *
 
 file = "C:/Users/Adam/Downloads/R20/Mock/test.csv"
+file = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_20_Frame_and_Brakes/Raw_LPot/raw_dock_drop_2.csv"
 
 print("Starting")
 
@@ -16,8 +17,8 @@ yData = [0]
 print("Reading")
 
 item = 1
-minTime = 1650
-duration = 30
+minTime = 0
+duration = 90
 
 for line in file:
     data = line.replace(",", " ").replace("  ", " ").split()
@@ -49,7 +50,19 @@ for i in range(1, len(yData)):
 
 print("Plotting")
 
-plot = graphing.Plot(title="shock velocity", xlabel="seconds", ylabel="in/s")
-plot.plot(0, xData[10:-1], vel[10:-1])
+start_plot_index = 10
+
+plot = graphing.Plot(title="Dock Drop 2022 (FR)", xlabel="Time (s)", ylabel="Velocity (in/s)")
+plot.create_line(line_type=".k-")
+plot.plot(1, xData[start_plot_index:-1], vel[start_plot_index:-1])
+
+ymax = vel[start_plot_index]
+max_index = start_plot_index
+for index in range(start_plot_index + 1, len(xData)):
+    if vel[index] > ymax:
+        max_index = index
+        ymax = vel[index]
+
+plot.annotate(xData[max_index], vel[max_index], xlabel=" s", ylabel=" in/s")
 
 input("Press ENTER to close...")
