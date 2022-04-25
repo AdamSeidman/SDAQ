@@ -5,17 +5,19 @@ sys.path.append("C:/Users/Adam/Documents/#Code/SDAQ/Python/lib")
 #import graphing
 from tools import *
 
-filename = "DockDrop3"
+filename = "TieRod-A-Lowend-Second"
+filename = "R20tests"
 ext="sdaq"
-dirname = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_20_Frame_and_Brakes"
+dirname = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_22_Calibration"
+dirname = "C:/Users/Adam/Downloads/R20/Mock/mock_shocks"
 num = 0
 
-newfile = dirname + "/" + "raw_dock_drop_3.csv"
-num_sensors = 2 # 5 or 6
+newfile = dirname + "/" + "raw_tie_rod_mock.csv"
+num_sensors = 5 # 5 or 6 (for mock)
 
 file = None
 
-nums = [1]
+nums = [2]
 
 def get_next_file():
     global filename, ext, dirname, num
