@@ -1325,7 +1325,7 @@
     (property "Reference" "#PWR0103" (id 0) (at 220.345 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "" (id 1) (at 227.33 134.6199 90)
+    (property "Value" "+5V" (id 1) (at 227.33 134.6199 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 224.155 134.62 0)
@@ -1481,7 +1481,7 @@
     (property "Reference" "#PWR0102" (id 0) (at 224.155 149.225 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "" (id 1) (at 224.155 147.32 0))
+    (property "Value" "GNDREF" (id 1) (at 224.155 147.32 0))
     (property "Footprint" "" (id 2) (at 224.155 142.875 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -1922,22 +1922,22 @@
       (reference "J7") (unit 1) (value "Screw_Terminal_01x04") (footprint "BAJA-4PIN:1984989")
     )
     (path "/bd572dac-350f-4d4c-bd5b-e852715803a2/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET1") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET1") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/68d18a55-0f25-4a8b-a0f5-d3973226f9cb/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET2") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET2") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/f671829b-f8e9-478b-b1dd-c1bafb5bfd9e/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET3") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET3") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/1f2ceaa7-2352-45a1-b251-6cdc3d9f6ef6/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET4") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET4") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/8fdf32b2-228b-487b-8402-b68dda55aaa8/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET5") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET5") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/d71c8dd0-e39c-4a3b-a8be-08e4c9a759a1/881245eb-3a44-4ffb-9d98-3f402eae8917"
-      (reference "MOSFET6") (unit 1) (value "AOD4184A") (footprint "TO252_AOS")
+      (reference "MOSFET6") (unit 1) (value "AOD4184A") (footprint "BAJA_AOD:AOD4184A")
     )
     (path "/2e7a0426-12c9-4aa5-92b6-63a77b09669e"
       (reference "R1") (unit 1) (value "1800") (footprint "Resistor_SMD:R_0603_1608Metric")
@@ -1979,25 +1979,25 @@
       (reference "R13") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/bd572dac-350f-4d4c-bd5b-e852715803a2/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U1") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U1") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/68d18a55-0f25-4a8b-a0f5-d3973226f9cb/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U2") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U2") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/f671829b-f8e9-478b-b1dd-c1bafb5bfd9e/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U3") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U3") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/1f2ceaa7-2352-45a1-b251-6cdc3d9f6ef6/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U4") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U4") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/8fdf32b2-228b-487b-8402-b68dda55aaa8/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U5") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U5") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/d71c8dd0-e39c-4a3b-a8be-08e4c9a759a1/8722c8a4-fdb0-4357-8559-49ae618ba880"
-      (reference "U6") (unit 1) (value "ALQ105") (footprint "PAN_ALQ1_PAN")
+      (reference "U6") (unit 1) (value "ALQ105") (footprint "ALQ105-BAJA-FP:ALQ105")
     )
     (path "/895d5ca3-0e9a-421e-88ea-3017edd2db62/00000000-0000-0000-0000-00006168283c"
-      (reference "VR1") (unit 1) (value "~") (footprint "SOT230P700X180-4N")
+      (reference "VR1") (unit 1) (value "~") (footprint "LM1117IMPX-5:SOT230P700X180-4N")
     )
   )
 )

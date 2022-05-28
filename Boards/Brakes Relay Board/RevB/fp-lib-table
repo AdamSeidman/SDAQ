@@ -1,4 +1,8 @@
 (fp_lib_table
   (lib (name "ALQ105-BAJA-FP")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/ALQ105/2022-03-25_05-02-08/footprints.pretty")(options "")(descr ""))
   (lib (name "BAJA-4PIN")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/Phoenix Spring Terminals/4 Pin Phoenix/footprints.4_pin")(options "")(descr ""))
+  (lib (name "BAJA_AOD")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/BAJA_AOD/footprints.pretty")(options "")(descr ""))
+  (lib (name "ATMEGA")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/ul_ATMEGA328PMUR/328P-MUR/footprints.pretty")(options "")(descr ""))
+  (lib (name "LM358D")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/ul_LM358D/KiCAD/2022-03-26_18-11-08/footprints.pretty")(options "")(descr ""))
+  (lib (name "LM1117IMPX-5")(type "KiCad")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/LM1117IMPX-5.0")(options "")(descr ""))
 )
