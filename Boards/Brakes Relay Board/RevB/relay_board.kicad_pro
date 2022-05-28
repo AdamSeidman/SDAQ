@@ -416,8 +416,32 @@
       ""
     ],
     [
-      "e93b4aa0-7fe2-4b97-9fb5-c5458e04e006",
+      "bd572dac-350f-4d4c-bd5b-e852715803a2",
       "Relay_1"
+    ],
+    [
+      "68d18a55-0f25-4a8b-a0f5-d3973226f9cb",
+      "Relay_2"
+    ],
+    [
+      "f671829b-f8e9-478b-b1dd-c1bafb5bfd9e",
+      "Relay_3"
+    ],
+    [
+      "1f2ceaa7-2352-45a1-b251-6cdc3d9f6ef6",
+      "Relay_4"
+    ],
+    [
+      "8fdf32b2-228b-487b-8402-b68dda55aaa8",
+      "Relay_5"
+    ],
+    [
+      "d71c8dd0-e39c-4a3b-a8be-08e4c9a759a1",
+      "Relay_6"
+    ],
+    [
+      "895d5ca3-0e9a-421e-88ea-3017edd2db62",
+      "regulator"
     ]
   ],
   "text_variables": {}

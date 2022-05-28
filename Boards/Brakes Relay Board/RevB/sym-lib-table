@@ -3,5 +3,5 @@
   (lib (name "LM1117IMPX-5.0")(type "Legacy")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/LM1117IMPX-5.0/LM1117IMPX-5.0.lib")(options "")(descr ""))
   (lib (name "ATMEGA-BAJA")(type "Legacy")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/ul_ATMEGA328PMUR/328P-MUR/2020-11-11_15-40-12.lib")(options "")(descr ""))
   (lib (name "ALQ105-BAJA")(type "Legacy")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/ALQ105/2022-03-25_05-02-08/2022-03-25_05-02-08.lib")(options "")(descr ""))
-  (lib (name "AOD-BAJA")(type "Legacy")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/BAJA_AOD/2022-05-19_02-07-40.lib")(options "")(descr ""))
+  (lib (name "BAJA_AOD")(type "Legacy")(uri "C:/Users/samgr/Documents/GitHub/SDAQ/Boards/#Parts/BAJA_AOD/2022-05-19_02-07-40.lib")(options "")(descr ""))
 )
