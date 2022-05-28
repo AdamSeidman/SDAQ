@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 313)
+    (start_pass_no 1772)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -53,13 +53,15 @@
     "kicad_default" "Via[0-1]_800:400_um-kicad_default"
   )
   (class default
-    /GND "Net-(D1-Pad2)" /Ch1 /Ch1A /Ch1B /Ch2 /Ch2A /Ch2B
+    GNDREF "Net-(D1-Pad2)" /Ch1 /Ch1A /Ch1B /Ch2 /Ch2A /Ch2B
     /Ch3 /Ch3A /Ch3B /Ch4 /Ch4A /Ch4B /Ch5 /Ch5A
     /Ch5B /Ch6 "unconnected-(J5-Pad1)" "unconnected-(J5-Pad2)" "unconnected-(J5-Pad3)" "unconnected-(J5-Pad4)" "unconnected-(J5-Pad5)" "unconnected-(J5-Pad7)"
     "unconnected-(J5-Pad8)" "unconnected-(J5-Pad10)" "unconnected-(J5-Pad11)" "unconnected-(J5-Pad12)" /R5 /R0 /R1 "unconnected-(J5-Pad17)"
     /R2 "unconnected-(J5-Pad19)" "unconnected-(J6-Pad1)" /R3 "unconnected-(J6-Pad3)" "unconnected-(J6-Pad4)" "unconnected-(J6-Pad6)" "unconnected-(J6-Pad7)"
     "unconnected-(J6-Pad8)" "unconnected-(J6-Pad9)" "unconnected-(J6-Pad11)" "unconnected-(J6-Pad12)" "unconnected-(J6-Pad13)" "unconnected-(J6-Pad15)" "unconnected-(J6-Pad16)" /R4
-    "unconnected-(J6-Pad18)" "unconnected-(J6-Pad20)" "unconnected-(J6-Pad21)" /Reset /VCC /Ch6A /Ch6B
+    "unconnected-(J6-Pad18)" "unconnected-(J6-Pad20)" "unconnected-(J6-Pad21)" /Reset /VCC /Ch6A /Ch6B +5V
+    "Net-(D2-Pad1)" "Net-(D3-Pad1)" "Net-(D4-Pad1)" "Net-(D5-Pad1)" "Net-(D6-Pad1)" "Net-(D7-Pad1)" "Net-(MOSFET1-Pad1)" "Net-(MOSFET2-Pad1)"
+    "Net-(MOSFET3-Pad1)" "Net-(MOSFET4-Pad1)" "Net-(MOSFET5-Pad1)" "Net-(MOSFET6-Pad1)" "/Relay_1/A"
     (clearance_class default)
     (via_rule default)
     (rule
