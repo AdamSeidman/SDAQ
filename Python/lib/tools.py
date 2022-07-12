@@ -216,7 +216,7 @@ def rolling_angle_filter(xData, yData, depth_exp):
     return (xBuffer, yBuffer)
 
 
-def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=True, rolling_depth=400, intercept=0.0):
+def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=True, rolling_depth=400, intercept=0.0, zeroY=True):
   (xdata, ydata) = rolling_angle_filter(xdata, ydata, angle_depth)
   (xdata, ydata) = basic_rollover_fix(xdata, ydata, c=128) # 128 is standard
   extraYData = apply_rolling_filter(ydata.copy(), 1500)
@@ -240,6 +240,9 @@ def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=
     xdata[i] -= time
     ydata[i] -= intercept
     extraYData[i] -= intercept
+    if not zeroY:
+        ydata[i] += min1
+        ydata[i] += min2
 
   return (xdata, ydata, extraYData)
 

@@ -8,15 +8,17 @@ dirname = "C:/Users/Adam/Downloads/R21/mock"
 filename = "raw_pressure_data.csv"
 my_title="Brake Pressure: Mock Endurance 2022"
 
-orig_csv = True
+orig_csv = False#True
 sensor_number = 3
 num_sensors = 3
 replace_char = " "
 
 file = dirname + "/" + filename
+#''''''
+file = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_20_Frame_and_Brakes/BrakeCheck.sdaq"
+my_title="Brake Check Pressure 2022"
+
 ''''''
-#file = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_20_Frame_and_Brakes/BrakeCheck.sdaq"
-#my_title="Brake Check Pressure 2022"
 
 #file = "C:/Users/Adam/Documents/#Code/SDAQ/Data/4_20_Frame_and_Brakes/Cornering.sdaq"
 #my_title="Brake Pressure: Cornering 2022"
@@ -41,8 +43,8 @@ for line in file:
         raw_start_time = float(data[0])
 
     if float(data[0]) - raw_start_time > 5000:#< 10000:
-        continue
-        #pass
+        #continue
+        pass
 
     if start_time == -1:
         start_time = float(data[0])
@@ -60,6 +62,7 @@ for line in file:
 
 print("Applying Fix")
 
+print(len(xData))
 yData = brakes_rollover_fix(yData)
 
 index = -1
@@ -67,7 +70,7 @@ index = -1
 for i in range(len(yData)):
     #if xData[i] > 5000:
     #    continue
-    
+
     yData[i] /= 370.5
     yData[i] *= 1820
     if index == -1 and xData[i] > 5000:

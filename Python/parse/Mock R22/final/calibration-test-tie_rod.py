@@ -31,9 +31,9 @@ for filename in filenames:
             isX = not isX
 
     scale = 0.69
-    flip = True
+    flip = False
     graph = True
-    roll_depth = 400
+    roll_depth = 1
     intercept = 0.0
 
     if i == 0:
@@ -48,7 +48,7 @@ for filename in filenames:
     xData = xData[index:-1]
     yData = yData[index:-1]
 
-    (xData, yData, extraData) = apply_strain_calculations(xData, yData, isFlipped=flip, scale=scale, rolling_depth=roll_depth, intercept=intercept, angle_depth=4)
+    (xData, yData, extraData) = apply_strain_calculations(xData, yData, isFlipped=flip, scale=scale, rolling_depth=roll_depth, intercept=intercept, angle_depth=4, zeroY=False)
 
     if graph:
         if not (i == 0):
@@ -62,7 +62,7 @@ for filename in filenames:
                 max_index = index
                 ymax = yData[index]
 
-        plot.annotate(xData[max_index], yData[max_index], xlabel="s", ylabel="lb")
+        #plot.annotate(xData[max_index], yData[max_index], xlabel="s", ylabel="lb")
     i += 1
     file.close()
 
