@@ -42,16 +42,21 @@ int getBoardID()
 void requestEvent()
 {
   Wire.write( byte(I2C_ADDRESS) );
-  
-  Wire.write( byte(analogRead(A0)) );
-  Wire.write( byte(analogRead(A1)) );
-  Wire.write( byte(analogRead(A2)) );
-  Wire.write( byte(analogRead(A3)) );
+  uint16_t val = (uint16_t)(analogRead(A0));
+  #define WRITE_SHORTMULTI(value, func) func(byte(value)); func(byte(value >> 8))
+  WRITE_SHORTMULTI(val, Wire.write);
+  val = (uint16_t)(analogRead(A1));
+  WRITE_SHORTMULTI(val, Wire.write);
+  val = (uint16_t)(analogRead(A2));
+  WRITE_SHORTMULTI(val, Wire.write);
+  val = (uint16_t)(analogRead(A3));
+  WRITE_SHORTMULTI(val, Wire.write);
 
   Wire.write( byte(digitalRead(2)) );
   Wire.write( byte(digitalRead(3)) );
   Wire.write( byte(digitalRead(4)) );
   Wire.write( byte(digitalRead(5)) );
+  #undef WRITE_SHORTMULTI
 }
 
 void setupBoard()

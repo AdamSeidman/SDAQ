@@ -14,6 +14,12 @@ def get_i2c_data(addr, sensors):
         return data
     try:
         data = I2CBus.read_i2c_block_data(addr, 0x00)
+        ID = data[0]
+        vals = []
+        vals.append(data[0])
+        for i in range(1, 9, 2):
+            vals.append(data[i] + (data[i + 1] << 8)) # normalize with new board file to allow for multi-pickup
+        data = vals
     except:
         return []
     if len(sensors) > 0:

@@ -2,7 +2,7 @@
 #define __SDAQ_H__
 
 #include "Wire.h"
-
+#include <stdint.h>
 #define ADC_BOARD     (0x08)
 #define STRAIN_BOARD  (0x10)
 #define IMU_BOARD     (0x18)
