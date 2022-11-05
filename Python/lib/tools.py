@@ -2,7 +2,7 @@ import time
 import os.path
 from tkinter.filedialog import askdirectory
 import math
-
+from math import *
 def get_directory():
     dirname = askdirectory() # + "/"
     if dirname == None or len(dirname) < 1:
@@ -16,15 +16,46 @@ def get_num_of_files(dirname):
     return total_files
 
 def is_number(num):
-    try:
-        check = int(num)
-        flag = True
-    except ValueError:
-        flag = False
-    
-    return flag
+    return isinstance(num, int)
 
 
+def convert_num_to_volt(num : int, max_voltage : float, bits : int):
+    """
+    This function does conversion from a number to voltage
+    num (int): the voltage from the ADC to convert into an actual voltage
+    max_voltage (float): The maximum voltage you're comparing
+    bits (int): the number of bits in the ADC
+    """
+    return num * max_voltage / 2**bits
+def find_resistance_in_divider(Vin : float, Vout: float, R2 : float):
+    return (Vin / Vout * R2) - R2
+def binary_search_approximate_match(arr : list, val : float):
+    low = 0
+    high = len(arr) - 1
+    mid = 0
+    closest = (high + low) // 2
+ 
+    while low <= high:
+        
+        mid = (high + low) // 2
+        useful = arr[mid]
+        distance1 = fabs(arr[mid] - val) 
+        distance2 = fabs(arr[closest] - val)
+        if distance1 < distance2:
+            closest = mid
+        # If x is greater, ignore left half
+        if arr[mid] < val:
+            low = mid + 1
+        # If x is smaller, ignore right half
+        elif arr[mid] > val:
+            high = mid - 1
+ 
+        # means x is present at mid
+        else:
+            return mid
+ 
+    # If we reach here, then the element was not present
+    return closest
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]
     yData = [0]
@@ -235,8 +266,12 @@ def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=
   for i in range(len(ydata)):
     ydata[i] -= min1
     extraYData[i] -= min2
-    ydata[i] *= scale
-    extraYData[i] *= scale
+    if is_number(scale):
+        ydata[i] *= scale
+        extraYData[i] *= scale
+    else:
+        ydata[i] = scale(ydata[i])
+        extraYData[i] = scale(extraYData[i])
     xdata[i] -= time
     ydata[i] -= intercept
     extraYData[i] -= intercept
