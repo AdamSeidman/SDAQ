@@ -3,7 +3,7 @@ import sys
 from dataUI import ClutchesDataUI
 from fileUI import ClutchesFileUI
 
-sys.path.append('/home/sdaq/Scripts/lib')
+sys.path.append('/media/sdaq/USB DISK2/lib')
 import simpleUI
 
 def doNothing(): # todo ?

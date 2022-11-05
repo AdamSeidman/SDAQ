@@ -1,7 +1,7 @@
 import tkinter as tk
 import sys
 
-sys.path.append('/home/sdaq/Scripts/lib')
+sys.path.append('/media/sdaq/USB DISK/lib')
 import simpleUI
 from valueFrame import ValueFrame, CheckFrame
 from tools import *

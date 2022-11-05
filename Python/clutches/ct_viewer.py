@@ -3,7 +3,7 @@ import sys
 import os
 
 #sys.path.append('Python\lib')
-sys.path.append('/home/sdaq/Scripts/lib')
+sys.path.append('/media/sdaq/USB DISK2/lib')
 import graphing
 #import simpleUI
 import tools

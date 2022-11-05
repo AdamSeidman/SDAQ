@@ -5,9 +5,9 @@ import tkinter
 import os
 from typing import Literal
 
-#sys.path.append('/home/sdaq/Scripts/lib')
+#sys.path.append('/media/sdaq/USB DISK2lib')
 #sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
-sys.path.append('C:\\Users\\hugh\\SDAQ\\Python\\Scripts\\lib')
+sys.path.append(os.path.abspath("..\\..\\lib"))
 #sys.path.append('Scripts\\lib')
 import tools
 import simpleUI
