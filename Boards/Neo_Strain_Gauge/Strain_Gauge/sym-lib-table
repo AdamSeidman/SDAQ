@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Strain_GaugeSymbols")(type "KiCad")(uri "${KIPRJMOD}/Strain_GaugeSymbols.kicad_sym")(options "")(descr ""))
+)
