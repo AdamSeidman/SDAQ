@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ABLS-12.000MHZ-B4-T
+D ABLS-12.000MHZ-B4-T
+F http://www.abracon.com/Resonators/abls.pdf
+$ENDCMP
+# end doc library

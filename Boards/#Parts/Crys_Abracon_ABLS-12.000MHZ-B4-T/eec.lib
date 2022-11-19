@@ -1,0 +1,35 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Abracon ABLS-12.000MHZ-B4-T
+#
+DEF ABLS-12.000MHZ-B4-T Y 0 40 Y Y 1 L N
+F0 "Y" 0 200 50 H V L CNN 
+F1 "ABLS-12.000MHZ-B4-T" 0 300 50 H V L CNN 
+F2 "Abracon-ABLS-12.000MHZ-B4-T-*" 0 400 50 H I L CNN 
+F3 "http://www.abracon.com/Resonators/abls.pdf" 0 500 50 H I L CNN 
+F4 "12MHz" 0 600 50 H I L CNN "Frequency"
+F5 "Crys" 0 700 50 H I L CNN "category"
+F6 "CRYSTAL 12.0000MHZ 18PF SMD" 0 800 50 H I L CNN "digikey description"
+F7 "535-10218-1-ND" 0 900 50 H I L CNN "digikey part number"
+F8 "yes" 0 1000 50 H I L CNN "lead free"
+F9 "6739bfb5ab1366a5" 0 1100 50 H I L CNN "library id"
+F10 "Abracon" 0 1200 50 H I L CNN "manufacturer"
+F11 "815-ABLS-12.0M-T" 0 1300 50 H I L CNN "mouser part number"
+F12 "HC/49US" 0 1400 50 H I L CNN "package"
+F13 "yes" 0 1500 50 H I L CNN "rohs"
+F14 "+70°C" 0 1600 50 H I L CNN "temperature range high"
+F15 "-20°C" 0 1700 50 H I L CNN "temperature range low"
+DRAW
+X 1 1 0 0 50 R 40 0 1 1 U 
+X 2 2 300 0 50 L 40 0 1 1 U 
+P 2 1 1 0 50 80 50 -80 N
+P 2 1 1 0 250 80 250 -80 N
+P 2 1 1 0 100 100 100 -100 N
+P 2 1 1 0 100 100 200 100 N
+P 2 1 1 0 200 100 200 -100 N
+P 2 1 1 0 200 -100 100 -100 N
+ENDDRAW
+ENDDEF
+#
+# End Library
