@@ -3,7 +3,8 @@ import sys
 import os
 
 #sys.path.append('Python\lib')
-sys.path.append('/home/sdaq/Scripts/lib')
+sys.path.append(os.path.abspath('../../lib'))
+
 import graphing
 #import simpleUI
 import tools

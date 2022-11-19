@@ -2,8 +2,8 @@ import tkinter as tk
 import sys
 from dataUI import ClutchesDataUI
 from fileUI import ClutchesFileUI
-
-sys.path.append('/home/sdaq/Scripts/lib')
+import os
+sys.path.append(os.path.abspath('../../lib'))
 import simpleUI
 
 def doNothing(): # todo ?

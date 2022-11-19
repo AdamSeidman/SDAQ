@@ -28,7 +28,7 @@ class FileInfo():
         m = re.match("[0-9]*", name)
         if m is None:
             exit(1)
-        self.fileSetup = m.group()
+        self.fileSetup = int(m.group())
         self.setupName = name[name.find(str(m)):-3]
         file = open(dir_name + '/' + self.fileName, "r")
         lines = file.readlines()

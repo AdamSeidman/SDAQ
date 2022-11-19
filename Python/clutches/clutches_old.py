@@ -19,7 +19,8 @@ engine_tpr = 1.0
 
 ########################################
 
-sys.path.append('/home/sdaq/Scripts/lib')
+sys.path.append(os.path.abspath('../../lib'))
+
 import sdaq
 import graphing
 import simpleUI
@@ -123,7 +124,7 @@ def collect():
     global collecting, buffer
     if collecting:
         try:
-            data = sdaq.get_i2c_data(0x08, [8])
+            data = sdaq.get_i2c_data(0x08, [5])
             buffer.append((data, get_time()))
         except:
             pass
