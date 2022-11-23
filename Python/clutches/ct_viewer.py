@@ -3,7 +3,10 @@ import sys
 import os
 
 #sys.path.append('Python\lib')
-sys.path.append(os.path.abspath('../../lib'))
+path = os.path.dirname(os.path.abspath(__file__))
+path = path + "\\..\\lib"
+path = os.path.abspath(path)
+sys.path.append(path)
 
 import graphing
 #import simpleUI

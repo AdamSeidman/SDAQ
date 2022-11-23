@@ -2,7 +2,10 @@ import sys
 
 # Writer of .ct (Clutch Tuning)
 
-sys.path.append('/home/sdaq/Scripts/lib')
+path = os.path.dirname(os.path.abspath(__file__))
+path = path + "\\..\\lib"
+path = os.path.abspath(path)
+sys.path.append(path)
 from tools import *
 
 EXT = "ct"

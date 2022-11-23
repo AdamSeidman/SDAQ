@@ -1,7 +1,10 @@
 import tkinter as tk
 import sys
 
-sys.path.append(os.path.abspath('../../lib'))
+path = os.path.dirname(os.path.abspath(__file__))
+path = path + "\\..\\lib"
+path = os.path.abspath(path)
+sys.path.append(path)
 
 import simpleUI
 from tools import *

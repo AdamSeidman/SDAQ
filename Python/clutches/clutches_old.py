@@ -19,7 +19,10 @@ engine_tpr = 1.0
 
 ########################################
 
-sys.path.append(os.path.abspath('../../lib'))
+path = os.path.dirname(os.path.abspath(__file__))
+path = path + "\\..\\lib"
+path = os.path.abspath(path)
+sys.path.append(path)
 
 import sdaq
 import graphing

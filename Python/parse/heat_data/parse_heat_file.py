@@ -2,8 +2,10 @@ import ast
 from statistics import median, quantiles
 import sys
 import os
-myPath = os.path.abspath(os.path.dirname(__file__) + "\\..\\..\\lib")
-sys.path.append(myPath)
+path = os.path.dirname(os.path.abspath(__file__))
+path = path + "\\..\\lib"
+path = os.path.abspath(path)
+sys.path.append(path)
 import graphing
 
 from tools import *
