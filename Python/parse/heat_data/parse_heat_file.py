@@ -3,7 +3,7 @@ from statistics import median, quantiles
 import sys
 import os
 path = os.path.dirname(os.path.abspath(__file__))
-path = path + "\\..\\lib"
+path = path + "..\\..\\..\\lib"
 path = os.path.abspath(path)
 sys.path.append(path)
 import graphing
