@@ -2,4 +2,6 @@
   (lib (name "Strain_GaugeSymbols")(type "KiCad")(uri "${KIPRJMOD}/Strain_GaugeSymbols.kicad_sym")(options "")(descr ""))
   (lib (name "MySymbols")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/ul_LTC2344CUH-16-PBF/KiCAD/2022-11-05_22-00-39/2022-11-05_22-00-39.kicad_sym")(options "")(descr ""))
   (lib (name "LTCLib")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/ul_LTC2344IUH-16-PBF/KiCAD/2022-11-06_14-11-27/2022-11-06_14-11-27.kicad_sym")(options "")(descr ""))
+  (lib (name "RP2040_minimal-rescue")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/rp2040defaults/RP2040_minimal-rescue.kicad_sym")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_RP2040")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/rp2040defaults/MCU_RaspberryPi_RP2040.kicad_sym")(options "")(descr ""))
 )
