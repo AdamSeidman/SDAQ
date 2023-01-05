@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "RP2040_minimal")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/rp2040defaults")(options "")(descr ""))
+)
