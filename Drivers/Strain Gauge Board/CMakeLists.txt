@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
+get_filename_component(buildDirRelFilePath "board"
+    REALPATH BASE_DIR "${CMAKE_SOURCE_DIR}")
+set(PICO_BOARD_HEADER_DIRS "${buildDirRelFilePath}")
+set(PICO_BOARD "sdaq_strain_gauge")
 
 # initialize pico-sdk from GIT
 # (note this can come from environment, CMake cache etc)
@@ -13,6 +17,7 @@ project(my_project)
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
+
 # rest of your project
 include_directories(inc)
 include_directories(src)
