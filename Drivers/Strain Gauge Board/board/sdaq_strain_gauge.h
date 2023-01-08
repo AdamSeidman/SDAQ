@@ -17,17 +17,6 @@
 // For board detection
 #define SDAQ_STRAIN_GAUGE
 
-// --- UART ---
-#ifndef PICO_DEFAULT_UART
-#define PICO_DEFAULT_UART 0
-#endif
-#ifndef PICO_DEFAULT_UART_TX_PIN
-#define PICO_DEFAULT_UART_TX_PIN 0
-#endif
-#ifndef PICO_DEFAULT_UART_RX_PIN
-#define PICO_DEFAULT_UART_RX_PIN 1
-#endif
-
 // --- LED ---
 // no PICO_DEFAULT_WS2812_PIN
 
@@ -47,16 +36,16 @@
 #define PICO_DEFAULT_SPI 0
 #endif
 #ifndef PICO_DEFAULT_SPI_SCK_PIN
-#define PICO_DEFAULT_SPI_SCK_PIN 18
+#define PICO_DEFAULT_SPI_SCK_PIN 2
 #endif
 #ifndef PICO_DEFAULT_SPI_TX_PIN
-#define PICO_DEFAULT_SPI_TX_PIN 19
+#define PICO_DEFAULT_SPI_TX_PIN 3
 #endif
 #ifndef PICO_DEFAULT_SPI_RX_PIN
-#define PICO_DEFAULT_SPI_RX_PIN 16
+#define PICO_DEFAULT_SPI_RX_PIN 4
 #endif
 #ifndef PICO_DEFAULT_SPI_CSN_PIN
-#define PICO_DEFAULT_SPI_CSN_PIN 17
+#define PICO_DEFAULT_SPI_CSN_PIN 1
 #endif
 
 // --- FLASH ---
