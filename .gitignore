@@ -4,3 +4,7 @@ _personal/
 .idea/
 .vs/
 *.pyc
+build/
+Fabrication/
+Fabrication.zip
+*.dsn

@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "./Python/Scripts/lib",
+        "./Python/lib"
+    ],
+    "cmake.sourceDirectory": "${workspaceFolder}\\Drivers\\Strain Gauge Board",
+    "cmake.configureOnOpen": true,
+}
