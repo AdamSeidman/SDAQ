@@ -14,6 +14,7 @@ uint8_t get_i2c_addr()
 }
 int main()
 {
+    using namespace LTC2344::sixteen_bits;
     gpio_init_mask(1 << 8 | 1 << 9 | 1 << 10 | 1 << 11);
     gpio_set_input_enabled(8, true);
     gpio_set_input_enabled(9, true);
@@ -35,11 +36,14 @@ int main()
         switch (request)
         {
             case RETURN_FORMAT:
-                // I haven't decided how this protocol will work, for now default to the same as the ADC board
-                [[fallthrough]] default:
-
-                LTC2344::sixteen_bits::
-                break;
+            // I haven't decided how this protocol will work, for now default to the same as the ADC board
+            default: {
+                uint8_t ReadVals[12];
+                LTC2344_readvalues(LTC2344_CreateSSPacket(SoftSpanConfig::HALFRANGE, SoftSpanConfig::HALFRANGE,
+                                                          SoftSpanConfig::HALFRANGE, SoftSpanConfig::HALFRANGE),
+                                   ReadVals);
+                        }
+            break;
         }
     }
 }

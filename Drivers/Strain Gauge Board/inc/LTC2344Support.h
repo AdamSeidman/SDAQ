@@ -46,7 +46,7 @@ enum SoftSpanConfig
 {
     FULLRANGE = 0b111,
     FULLRANGE_OVER1024 = 0b110,
-    ZERO_TO_FULL =  0b101,
+    ZERO_TO_FULL = 0b101,
     ZERO_TO_FULL_OVER1024 = 0b100,
     HALFRANGE = 0b011,
     HALFRANGE_OVER1024 = 0b010,
@@ -54,6 +54,14 @@ enum SoftSpanConfig
     OFF = 0b000
 };
 void LTC2344_readvalues(SoftSpanPacket_t SoftSpanConfig, uint8_t returnPacket[12]);
-
+inline static SoftSpanPacket_t LTC2344_CreateSSPacket(SoftSpanConfig SS0, SoftSpanConfig SS1, SoftSpanConfig SS2, SoftSpanConfig SS3)
+{
+    SoftSpanPacket_t packet = {0};
+    packet.SS0 = SS0;
+    packet.SS1 = SS1;
+    packet.SS2 = SS2;
+    packet.SS3 = SS3;
+    return packet;
+}
 }  // namespace sixteen_bits
 }  // namespace LTC2344
