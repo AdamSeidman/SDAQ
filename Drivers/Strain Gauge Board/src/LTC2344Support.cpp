@@ -12,8 +12,12 @@ namespace sixteen_bits
 {
 volatile bool has_interrupt_happened;
 void LTC2344_inform_happened(uint gpio, uint32_t events) { has_interrupt_happened = true; }
+bool has_setup = false;
 void LTC2344_setup()
 {
+    if (has_setup)
+        return;
+    has_setup = true;
     gpio_set_dir(CNV, true);
     gpio_set_dir(BUSY, false);
     gpio_pull_down(CNV);
@@ -30,6 +34,7 @@ void LTC2344_sendcnv()
 }
 void LTC2344_readvalues(SoftSpanPacket_t SoftSpan, uint8_t ReadVals[12])
 {
+    LTC2344_setup();
     LTC2344_sendcnv();
     uint8_t write_vals[12] = {0};
     write_vals[10] = (SoftSpan.vals & 0xFF00) >> 8;

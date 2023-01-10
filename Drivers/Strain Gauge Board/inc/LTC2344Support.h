@@ -9,6 +9,7 @@ struct ReturnPacket_t
 {
     union
     {
+        uint8_t val_list[4];
         uint32_t total_val;
         struct
         {
@@ -54,7 +55,8 @@ enum SoftSpanConfig
     OFF = 0b000
 };
 void LTC2344_readvalues(SoftSpanPacket_t SoftSpanConfig, uint8_t returnPacket[12]);
-inline static SoftSpanPacket_t LTC2344_CreateSSPacket(SoftSpanConfig SS0, SoftSpanConfig SS1, SoftSpanConfig SS2, SoftSpanConfig SS3)
+inline static SoftSpanPacket_t LTC2344_CreateSSPacket(SoftSpanConfig SS0, SoftSpanConfig SS1, SoftSpanConfig SS2,
+                                                      SoftSpanConfig SS3)
 {
     SoftSpanPacket_t packet = {0};
     packet.SS0 = SS0;
