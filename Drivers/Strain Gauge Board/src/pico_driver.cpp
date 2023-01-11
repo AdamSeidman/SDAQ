@@ -47,15 +47,17 @@ int main()
                                    ReadVals);
                 ReturnPacket_t packets[4];
                 uint8_t countdown = 12;
-                for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
                 {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        // Multi-value reading can theoretically stretch this into a single vector instruction, but because this is
+                        // a cortex-m0+ no such speedup operation should exist here
 #define ReadValIntoPacket(packet, packetNum, readingval, counter) \
     packet[packetNum].val_list[3 - i] = readingval[counter];      \
     counter--
-                    ReadValIntoPacket(packets, 0, ReadVals, countdown);
-                    ReadValIntoPacket(packets, 1, ReadVals, countdown);
-                    ReadValIntoPacket(packets, 2, ReadVals, countdown);
-                    ReadValIntoPacket(packets, 3, ReadVals, countdown);
+                        ReadValIntoPacket(packets, i, ReadVals, countdown);
+                    }
                 }
                 std::sort(std::begin(packets), std::end(packets),
                           [](ReturnPacket_t a, ReturnPacket_t b) { return a.chan_id < b.chan_id; });
@@ -63,10 +65,8 @@ int main()
                 for (auto packet : packets)
                 {
                     uint16_t adc_val = packet.ADC_val;
-                    uint8_t adc_firstpacket = adc_val & 0xFF;
-                    uint8_t adc_secondpacket = (adc_val >> 8) & 0xFF;
-                    i2c_write_raw_blocking(i2c0, &adc_firstpacket, 1);
-                    i2c_write_raw_blocking(i2c0, &adc_secondpacket, 1);
+                    uint8_t adc_firstpacket[2] = {(uint8_t)(adc_val & 0xFF), (uint8_t)((adc_val >> 8) & 0xFF)};
+                    i2c_write_raw_blocking(i2c0, adc_firstpacket, 2);
                 }
                 uint8_t zeros[4] = {0};
                 i2c_write_raw_blocking(i2c0, zeros, 4);
