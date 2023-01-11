@@ -47,12 +47,16 @@ int main()
                                    ReadVals);
                 ReturnPacket_t packets[4];
                 uint8_t countdown = 12;
+                // Four packets of 3 values, part of this look could theoretically be unrolled into a STRH and a STRB but honestly
+                // I'm a lazy bastard, let the compiler optimize my code here
                 for (int j = 0; j < 4; j++)
                 {
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        // Multi-value reading can theoretically stretch this into a single vector instruction, but because this is
-                        // a cortex-m0+ no such speedup operation should exist here
+                        // Multi-value reading can theoretically stretch this into a few vector instructions as well, but because
+                        // this is a cortex-m0+ no such speedup operation should exist here other than the one mentioned above An
+                        // extra 3 instructions that take up a couple hundred ns is not an issue when we already did most of the
+                        // time-sensitive work
 #define ReadValIntoPacket(packet, packetNum, readingval, counter) \
     packet[packetNum].val_list[3 - i] = readingval[counter];      \
     counter--
