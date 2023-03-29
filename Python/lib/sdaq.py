@@ -7,7 +7,7 @@ def create_i2c_bus():
     global I2CBus
     I2CBus = smbus.SMBus(1)
 
-def get_i2c_data(addr, sensors):
+def get_i2c_data(addr: int, sensors: "list[int]") -> "int | list[int]":
     data = []
     global I2CBus
     if I2CBus is None:

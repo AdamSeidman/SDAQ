@@ -62,7 +62,7 @@ def convert_ticks_to_rpm(ticks, tpr):
     lastTickTime = -1000.0
     lastTick = 0
     for tick in ticks:
-        if not (tick[0] == lastTick) and ((tick[0] == 255) or (tick[0] == 1)):
+        if not (tick[0] == lastTick) and ((tick[0] == 255) or (tick[0] == 1) or (tick[0] == 1024)):
             xData.append(tick[1])
             yData.append((((1.0 / (tick[1] - lastTickTime)) * 60.0) / tpr))
             lastTickTime = tick[1]
@@ -209,9 +209,8 @@ def write(words):
     global current_file
     if len(current_file) == 0:
         return
-    f = open(current_file, "a")
-    f.write(words + "\n")
-    f.close()
+    with open(current_file, "a") as f:
+        f.write(words + "\n")
 
 def angle_avg(a, b):
   a -= 128

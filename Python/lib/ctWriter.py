@@ -56,7 +56,7 @@ def has_setup(setup_name):
     global name_buffer
     return setup_name in name_buffer
 
-def write_data(xData, yData, time):
+def write_data(xData: "list[int] | list[list[int]]", yData, time):
     global has_written, prelim_filename, notes, run_num, name_buffer
     if len(prelim_filename) == 0:
         pass #popup saying update hasnt been pressed yet
@@ -69,4 +69,23 @@ def write_data(xData, yData, time):
     write("\nRun #" + str(run_num) + ": " + str(time) + " s")
     write(str(xData))
     write(str(yData))
+    run_num += 1
+
+def write_multidata(xData, yDataList, time):
+    """
+    For fun fact: the format of this turns out to be very similar to the above write_data, allowing us to discern based on the number of [] the actual file format at the time...
+    """
+    global has_written, prelim_filename, notes, run_num, name_buffer
+    if len(prelim_filename) == 0:
+        pass #popup saying update hasnt been pressed yet
+    if not has_written:
+        has_written = True
+        write(str(prelim_filename))
+        name_buffer.append(str(prelim_filename))
+        write("Notes:\n")
+        write(str(notes))
+    write("\nRun #" + str(run_num) + ": " + str(time) + " s")
+    write(str(xData))
+    for item in yDataList:
+        write(str(item))
     run_num += 1

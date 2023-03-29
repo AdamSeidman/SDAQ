@@ -71,15 +71,36 @@ def stop_btn():
     collecting = False
     ui.update_running_label(collecting)
 
-def prepare_data():
+def prepare_data() -> "tuple[list[int], list[int]] | tuple[list[int], list[int], list[int]]":
+    """
+    Technically this can be applied to however many hall effect sensors we anticipate, I'm not going there at the moment however, so....
+    """
     global buffer, engine_tpr, filter_depth
-    (xData, yData) = convert_ticks_to_rpm(buffer, engine_tpr)
-    yData = apply_rolling_filter(yData, filter_depth)
-    xData, yData = shift_around_val([[xData, yData]], 2150, extra=1)[0]
-    xData, yData = apply_cutoff([xData, yData], 0)
-    xData[0] = 0
-    yData[0] = 0
-    return (xData, yData)
+    engineData = []
+    primaryData = []
+    if len(buffer[0]) > 1:
+        # Explanation: x[0] is the "data" and x[1] is the "time"
+        # If there's more than one piece of data it's therefore easier to just do this in order to split it
+        engineData = [(x[0][0], x[1]) for x in buffer]
+        primaryData = [(x[0][1], x[1]) for x in buffer]
+    
+    (engineDatax, engineDatay) = convert_ticks_to_rpm(engineData, engine_tpr)
+    engineDatay = apply_rolling_filter(engineDatay, filter_depth)
+    engineDatax, engineDatay = shift_around_val([[engineDatax, engineDatay]], 2150, extra=1)[0]
+    engineDatax, engineDatay = apply_cutoff([engineDatax, engineDatay], 0)
+    engineDatax[0] = 0
+    engineDatay[0] = 0
+    if len(primaryData) > 0:
+        (primaryDatax, primaryDatay) = convert_ticks_to_rpm(primaryData, engine_tpr)
+        primaryDatay = apply_rolling_filter(primaryDatay, filter_depth)
+        primaryDatax, primaryDatay = shift_around_val([[primaryDatax, primaryDatay]], 2150, extra=1)[0]
+        primaryDatax, primaryDatay = apply_cutoff([primaryDatax, primaryDatay], 0)
+        primaryDatax[0] = 0
+        primaryDatay[0] = 0
+        # The x data is the exact same for both, we can abuse the hell out of this
+        return (engineDatax, engineDatay, primaryDatay)
+    # only return the data we need
+    return (engineDatax, engineDatay)
 
 def prepare_false_data():
     xData = list()
@@ -106,9 +127,13 @@ def update_time(time):
         return
     has_written = True
     #set_title
-    (xData, yData) = prepare_data() # todo
-    update_plots(xData, yData)
-    CT.write_data(xData, yData, time)
+    tuple = prepare_data() # todo
+    if (len(tuple) == 2):
+        update_plots(tuple[0], tuple[1])
+        CT.write_data(tuple[0], tuple[1], time)
+    else:
+        update_multiplot(tuple[0], tuple[1], tuple[2])
+        CT.write_multidata(tuple[0], [tuple[1], tuple[2]], time)
 
 def update_plots(xData, yData):
     # todo MORE
@@ -116,6 +141,12 @@ def update_plots(xData, yData):
     rpm_plot.update_title("Engine RPM Over Time: Run #{}".format(CT.get_run_num()))
     rpm_plot.plot(0, xData, yData)
 
+def update_multiplot(xData, yDataList):
+    global rpm_plot
+    assert type(rpm_plot) is graphing.Plot
+    rpm_plot.update_title("Engine RPM Over Time: Run #{}".format(CT.get_run_num()))
+    for i in range(len(yDataList)):
+        rpm_plot.plot(i, xData, yDataList[i])
 
 def update_file(path_text, notes):
     global dir_name
@@ -127,7 +158,7 @@ def collect():
     global collecting, buffer
     if collecting:
         try:
-            data = sdaq.get_i2c_data(0x08, [5])
+            data = sdaq.get_i2c_data(0x08, [5, 6])
             buffer.append((data, get_time()))
         except:
             pass
