@@ -79,13 +79,17 @@ def prepare_data() -> "tuple[list[int], list[int]] | tuple[list[int], list[int],
     global buffer, engine_tpr, filter_depth
     engineData = []
     primaryData = []
-    print(buffer)
-    if len(buffer) > 1:
-        if len(buffer[0]) > 1:
+    if len(buffer) == 0:
+        return([], [])
+
+    if type(buffer[0][0]) == list:
+        engineData = [(x[0][0], x[1]) for x in buffer]
+        if len(buffer[0][0]) > 1:
             # Explanation: x[0] is the "data" and x[1] is the "time"
             # If there's more than one piece of data it's therefore easier to just do this in order to split it
-            engineData = [(x[0][0], x[1]) for x in buffer]
             primaryData = [(x[0][1], x[1]) for x in buffer]
+    else:
+        engineData = [(x[0], x[1]) for x in buffer]
     
     (engineDatax, engineDatay) = convert_ticks_to_rpm(engineData, engine_tpr)
     engineDatay = apply_rolling_filter(engineDatay, filter_depth)
@@ -130,13 +134,13 @@ def update_time(time):
         return
     has_written = True
     #set_title
-    tuple = prepare_data() # todo
-    if (len(tuple) == 2):
-        update_plots(tuple[0], tuple[1])
-        CT.write_data(tuple[0], tuple[1], time)
+    tup = prepare_data() # todo
+    if (len(tup) == 2):
+        update_plots(tup[0], tup[1])
+        CT.write_data(tup[0], tup[1], time)
     else:
-        update_multiplot(tuple[0], [*tuple[1:]])
-        CT.write_multidata(tuple[0], [*tuple[1:]], time)
+        update_multiplot(tup[0], [*tup[1:]])
+        CT.write_multidata(tup[0], [*tup[1:]], time)
 
 def update_plots(xData, yData):
     # todo MORE
@@ -162,7 +166,7 @@ def collect():
     if collecting:
         try:
             data = sdaq.get_i2c_data(0x08, [5, 6])
-            buffer.append((data[1:], get_time()))
+            buffer.append((data, get_time()))
         except Exception as e:
             print(traceback.format_exc())
             pass
