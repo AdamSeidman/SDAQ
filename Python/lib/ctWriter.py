@@ -2,8 +2,9 @@ import sys
 
 # Writer of .ct (Clutch Tuning)
 
+import os
 path = os.path.dirname(os.path.abspath(__file__))
-path = path + "\\..\\lib"
+path = os.path.join(path, "..", "lib")
 path = os.path.abspath(path)
 sys.path.append(path)
 from tools import *

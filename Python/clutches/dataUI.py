@@ -1,8 +1,8 @@
 import tkinter as tk
 import sys
-
+import os
 path = os.path.dirname(os.path.abspath(__file__))
-path = path + "\\..\\lib"
+path = os.path.join(path, "..", "lib")
 path = os.path.abspath(path)
 sys.path.append(path)
 
@@ -26,9 +26,9 @@ class ClutchesDataUI(simpleUI.Frame):
         self.running_label = self.add_label("Running: False", tk.TOP)
         self.add_label(" ", tk.TOP)
         button_frame = simpleUI.Frame(src=self)
-        button_frame.create_cat_jam(label_side=tk.LEFT, label_anchor=tk.SW, flipped=True)
+        #button_frame.create_cat_jam(label_side=tk.LEFT, label_anchor=tk.SW, flipped=True)
         button_frame.add_button("Start", 25, 5, "green", startFn, tk.LEFT)
-        button_frame.create_cat_jam(label_side=tk.RIGHT, label_anchor=tk.SE)
+        #button_frame.create_cat_jam(label_side=tk.RIGHT, label_anchor=tk.SE)
         button_frame.add_button("Stop", 25, 5, "red", stopFn, tk.RIGHT)
         simpleUI.add_frame(button_frame)
         

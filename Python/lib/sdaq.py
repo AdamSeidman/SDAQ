@@ -17,7 +17,7 @@ def get_i2c_data(addr: int, sensors: "list[int]") -> "int | list[int]":
         ID = data[0]
         vals = []
         vals.append(data[0])
-        for i in range(1, 9, 2):
+        for i in range(1, len(data) - 1, 2):
             vals.append(data[i] + (data[i + 1] << 8)) # normalize with new board file to allow for multi-pickup
         data = vals
     except:

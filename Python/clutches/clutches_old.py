@@ -2,7 +2,8 @@ import tkinter as tk
 import sys
 from clutchesUI import ClutchesUI
 import random
-
+import os
+import traceback
 ########################################
 
 '''
@@ -78,11 +79,13 @@ def prepare_data() -> "tuple[list[int], list[int]] | tuple[list[int], list[int],
     global buffer, engine_tpr, filter_depth
     engineData = []
     primaryData = []
-    if len(buffer[0]) > 1:
-        # Explanation: x[0] is the "data" and x[1] is the "time"
-        # If there's more than one piece of data it's therefore easier to just do this in order to split it
-        engineData = [(x[0][0], x[1]) for x in buffer]
-        primaryData = [(x[0][1], x[1]) for x in buffer]
+    print(buffer)
+    if len(buffer) > 1:
+        if len(buffer[0]) > 1:
+            # Explanation: x[0] is the "data" and x[1] is the "time"
+            # If there's more than one piece of data it's therefore easier to just do this in order to split it
+            engineData = [(x[0][0], x[1]) for x in buffer]
+            primaryData = [(x[0][1], x[1]) for x in buffer]
     
     (engineDatax, engineDatay) = convert_ticks_to_rpm(engineData, engine_tpr)
     engineDatay = apply_rolling_filter(engineDatay, filter_depth)
@@ -159,8 +162,12 @@ def collect():
     if collecting:
         try:
             data = sdaq.get_i2c_data(0x08, [5, 6])
+            print(data)
+            print("We got data!")
             buffer.append((data, get_time()))
-        except:
+        except Exception as e:
+            print(traceback.format_exc())
+            print("Big bad error!")
             pass
 
 def create_ui(title):
