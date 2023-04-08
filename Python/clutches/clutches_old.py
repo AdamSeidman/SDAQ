@@ -135,8 +135,8 @@ def update_time(time):
         update_plots(tuple[0], tuple[1])
         CT.write_data(tuple[0], tuple[1], time)
     else:
-        update_multiplot(tuple[0], tuple[1], tuple[2])
-        CT.write_multidata(tuple[0], [tuple[1], tuple[2]], time)
+        update_multiplot(tuple[0], [*tuple[1:]])
+        CT.write_multidata(tuple[0], [*tuple[1:]], time)
 
 def update_plots(xData, yData):
     # todo MORE
@@ -162,12 +162,9 @@ def collect():
     if collecting:
         try:
             data = sdaq.get_i2c_data(0x08, [5, 6])
-            print(data)
-            print("We got data!")
-            buffer.append((data, get_time()))
+            buffer.append((data[1:], get_time()))
         except Exception as e:
             print(traceback.format_exc())
-            print("Big bad error!")
             pass
 
 def create_ui(title):
