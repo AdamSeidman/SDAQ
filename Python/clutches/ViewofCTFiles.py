@@ -8,9 +8,10 @@ from typing import Literal
 #sys.path.append('/media/sdaq/USB DISK2lib')
 #sys.path.append('C:\\Users\\hugh\\Documents\\SDAQ\\Python\\Scripts\\lib')
 path = os.path.dirname(os.path.abspath(__file__))
-path = path + "\\..\\lib"
+path = os.path.join(path, "..", "lib")
 path = os.path.abspath(path)
 sys.path.append(path)
+
 #sys.path.append('Scripts\\lib')
 import tools
 import simpleUI

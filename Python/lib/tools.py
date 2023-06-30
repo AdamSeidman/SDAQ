@@ -56,16 +56,23 @@ def binary_search_approximate_match(arr : list, val : float):
  
     # If we reach here, then the element was not present
     return closest
-def convert_ticks_to_rpm(ticks, tpr):
+def convert_ticks_to_rpm(ticks, tpr, inverted=False):
     xData = [0]
     yData = [0]
     lastTickTime = -1000.0
     lastTick = 0
     for tick in ticks:
-        if not (tick[0] == lastTick) and ((tick[0] == 255) or (tick[0] == 1) or (tick[0] == 1024)):
-            xData.append(tick[1])
-            yData.append((((1.0 / (tick[1] - lastTickTime)) * 60.0) / tpr))
-            lastTickTime = tick[1]
+        if inverted:
+            if not (tick[0] == lastTick):
+                xData.append(tick[1])
+                yData.append((((1.0 / (tick[1] - lastTickTime)) * 60.0) / tpr))
+                lastTickTime = tick[1]    
+        else:
+            # list of valid tick values depending on what's going on for NO type hall effect sensors
+            if not (tick[0] == lastTick) and (tick[0] in [255, 1, 1024]):
+                xData.append(tick[1])
+                yData.append((((1.0 / (tick[1] - lastTickTime)) * 60.0) / tpr))
+                lastTickTime = tick[1]
         lastTick = tick[0]
     return (xData, yData)
 
