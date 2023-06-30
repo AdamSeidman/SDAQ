@@ -269,8 +269,12 @@ def apply_strain_calculations(xdata, ydata, angle_depth=4, scale=1.0, isFlipped=
         ydata[i] *= scale
         extraYData[i] *= scale
     else:
-        ydata[i] = scale(ydata[i])
-        extraYData[i] = scale(extraYData[i])
+        if type(scale) is float:
+            ydata[i] = scale * ydata[i]
+            extraYData[i] = scale * ydata[i]
+        else:
+            ydata[i] = scale(ydata[i])
+            extraYData[i] = scale(extraYData[i])
     xdata[i] -= time
     ydata[i] -= intercept
     extraYData[i] -= intercept

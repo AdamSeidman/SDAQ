@@ -4,7 +4,7 @@ import os.path
 def convert_ticks_to_rpm(ticks, tpr):
     xData = [0]
     yData = [0]
-    lastTickTime = -1000.0;
+    lastTickTime = -1000.0
     lastTick = 0
     for tick in ticks:
         if not (tick[0] == lastTick) and ((tick[0] == 255) or (tick[0] == 1)):
