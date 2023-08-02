@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "RP2040Minimal")(type "KiCad")(uri "${RP2040STUFFS}/RP2040_minimal-rescue.kicad_sym")(options "")(descr ""))
+  (lib (name "ADC")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/ul_ADS1274IPAPR/KiCADv6/2023-07-17_04-12-27.kicad_sym")(options "")(descr ""))
+)
