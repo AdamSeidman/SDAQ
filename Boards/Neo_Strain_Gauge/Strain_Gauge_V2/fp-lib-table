@@ -4,4 +4,5 @@
   (lib (name "ADC")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/ul_ADS1274IPAPR/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "CustomLib")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/TI_PowerPad")(options "")(descr ""))
   (lib (name "PowerPad")(type "KiCad")(uri "${KIPRJMOD}/PowerPad.pretty")(options "")(descr ""))
+  (lib (name "Additional")(type "KiCad")(uri "C:/Users/hugh/SDAQ/Boards/#Parts/ul_1571983-4/KiCADv6/footprints.pretty")(options "")(descr ""))
 )
