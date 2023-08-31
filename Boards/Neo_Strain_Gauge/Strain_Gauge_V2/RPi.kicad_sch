@@ -3669,7 +3669,7 @@
     (property "Value" "SW_Push" (at 29.21 98.425 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Button_Switch_THT:SW_PUSH_6mm_H4.3mm" (at 22.86 96.52 0)
+    (property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P" (at 22.86 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 22.86 96.52 0)
