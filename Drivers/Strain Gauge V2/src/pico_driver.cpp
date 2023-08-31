@@ -15,9 +15,14 @@
 #include <pico/stdlib.h>
 #include <pico/i2c_slave.h>
 #include <pico/binary_info/code.h>
+#include <pico/mutex.h>
+#include <pico/lock_core.h>
 #include <stdlib.h>
 #include <algorithm>
 #include <iterator>
+struct NoInitTag
+{
+};
 uint8_t get_i2c_addr()
 {
     // Same stupid al-gore-rythm as the ADC board
@@ -25,25 +30,62 @@ uint8_t get_i2c_addr()
 
     return STRAIN_BOARD | id;
 }
-void i2c_slave_handler(i2c_inst_t* i2c, i2c_slave_event_t event)
+struct __attribute__((packed)) spi_output_adc
 {
-    switch (event)
+    uint32_t adc0 : 24;
+    uint32_t adc1 : 24;
+    uint32_t adc2 : 24;
+    uint32_t adc3 : 24;
+};
+template <typename T>
+class mutex_locker
+{
+    mutex_locker(T) = delete;
+};
+template <>
+class mutex_locker<mutex_t>
+{
+  public:
+    mutex_locker(mutex_t mut) { mutex_enter_blocking(&mut); }
+    ~mutex_locker() { mutex_exit(&mut); }
+
+  private:
+    mutex_t mut;
+};
+struct adc_output_gated
+{
+  public:
+    adc_output_gated(NoInitTag) {}
+    adc_output_gated() { mutex_init(&mut); }
+    void set_output(spi_output_adc adc_out)
     {
-        case i2c_slave_event_t::I2C_SLAVE_FINISH:
-            break;
-        case i2c_slave_event_t::I2C_SLAVE_RECEIVE:
-            break;
-        case i2c_slave_event_t::I2C_SLAVE_REQUEST:
-            break;
+        mutex_locker<mutex_t> locker(mut);
+        adc_output = adc_out;
     }
-}
+    spi_output_adc get_output()
+    {
+        mutex_locker<mutex_t> locker(mut);
+        return adc_output;
+    }
+
+  private:
+    mutex_t mut;
+    spi_output_adc adc_output;
+};
+adc_output_gated gated_adc(NoInitTag{});
 int core1_main()
 {
     gpio_set_input_enabled(16, true);
+    gpio_set_irq_enabled_with_callback(16, GPIO_IRQ_EDGE_RISE, true, [](uint gpio, uint32_t events) {
+        spi_output_adc adc_output = {};
+        spi_read_blocking(spi0, 0, (uint8_t*)&adc_output, sizeof(spi_output_adc));
+        gated_adc.set_output(adc_output);
+    });
     return 0;
 }
 int main()
 {
+    gated_adc = adc_output_gated();
     gpio_init_mask(1 << 8 | 1 << 9 | 1 << 10 | 1 << 11);
     gpio_set_input_enabled(8, true);
     gpio_set_input_enabled(9, true);
